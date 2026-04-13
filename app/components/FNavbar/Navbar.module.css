@@ -1,0 +1,188 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem; 
+  height: 72px;
+  background: rgba(8, 8, 8, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+  
+  /* FASE 2: Estado inicial GSAP */
+  opacity: 0;
+  transform: translateY(-100px);
+  
+  /* FASE 4: Optimización */
+  will-change: transform, opacity;
+  contain: layout; 
+}
+
+.navbarScrolled {
+  background: rgba(8, 8, 8, 0.9);
+  height: 64px;
+  transform: translateY(0) !important;
+  opacity: 1 !important;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.navLinks {
+  display: flex;
+  list-style: none;
+  gap: 8px;
+  align-items: center;
+}
+
+.navLinks li {
+  opacity: 0;
+  transform: translateY(-15px);
+}
+
+.navLinks li a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: 0.2s ease;
+}
+
+/* ─── NUEVO: BOTÓN DE CONTACTO (ESTILO HERO) ─── */
+.navContact {
+  position: relative;
+  overflow: hidden;
+  background: var(--primary, #001DFF) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(0, 29, 255, 0.4) !important;
+  border-radius: 12px !important; /* Mismo redondeado que tu imagen */
+  padding: 8px 18px !important;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease !important;
+}
+
+/* Efecto Shimmer (brillo pasando) */
+.navContact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.navContact:hover::before {
+  left: 150%;
+}
+
+.navContact:hover {
+  background: #1a36ff !important;
+  transform: translateY(-1px);
+  box-shadow: 
+    0 0 15px rgba(0, 29, 255, 0.4),
+    0 0 30px rgba(0, 29, 255, 0.1);
+}
+
+.navContact:hover .navBtnArrow {
+  transform: translateX(3px);
+}
+
+/* ────────────────────────────────────────────── */
+
+.active {
+  color: #00FF81 !important;
+  background: rgba(0, 255, 129, 0.08) !important;
+}
+
+.langSwitch button {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.langSwitch button:hover {
+  border-color: #00FF81;
+  color: #00FF81;
+}
+
+/* ── Clases base compartidas ── */
+.navLinks li a,
+.navItem {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+/* ── Animación hover: slide-up sutil en Inicio, Nosotros, Servicios ── */
+.navItem::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 14px;
+  right: 14px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
+}
+
+.navItem:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-1px);
+}
+
+.navItem:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Active state (sin subrayado, solo fondo y color) ── */
+.active {
+  color: #00FF81 !important;
+  background: rgba(0, 255, 129, 0.08) !important;
+}
+
+.active::after {
+  background: #00FF81 !important;
+  transform: scaleX(1) !important;
+}

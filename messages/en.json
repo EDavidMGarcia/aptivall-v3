@@ -1,0 +1,175 @@
+{
+  "Navbar": {
+    "inicio": "Home",
+    "sobre": "About",
+    "servicios": "Services",
+    "contacto": "Contact"
+  },
+
+  "Hero": {
+    "tag": "Custom Innovation",
+    "title1": "Leading the Frontier of ",
+    "titleHighlight": "Digital Evolution",
+    "description": "We transform technological complexity into operational simplicity. We integrate next-generation AI, high-fidelity software engineering, and senior global talent to empower organizations that refuse to be left behind.",
+    "viewServices": "View Services",
+    "projectsCount": "projects",
+    "cta": "Start Strategic Consultancy",
+    "badge1": "Flawless Execution",
+    "badge2": "Measurable Results"
+  },
+
+  "Philosophy": {
+    "eyebrow": "The Aptivall Way",
+    "title": "Innovation with",
+    "titleHighlight": "Purpose",
+    "subtitle": "At Aptivall, we don't just implement technology — we design competitive advantages. Our philosophy is grounded in",
+    "subtitleHighlight": "Dedicated Technology Transformation:",
+    "subtitleEnd": "we understand that every organization has a unique DNA, and therefore our solutions are not packaged products but personalized ecosystems.",
+    "pillars": [
+      {
+        "number": "01",
+        "tag": "Extreme Personalization",
+        "title": "Boutique Service at Global Scale",
+        "description": "We combine personalized attention with the execution capacity of a global engineering firm."
+      },
+      {
+        "number": "02",
+        "tag": "Intelligence & Development",
+        "title": "Continuous Vanguard",
+        "description": "We obsess over 'what's next' so our clients never become obsolete."
+      },
+      {
+        "number": "03",
+        "tag": "Efficiency",
+        "title": "ROI-Focused",
+        "description": "Every line of code and every AI agent has a clear mission: optimize, scale, or monetize."
+      }
+    ]
+  },
+
+  "Services": {
+    "eyebrow": "Services",
+    "title": "Solutions Designed to",
+    "titleHighlight": "Scale",
+    "titleEnd": "Your Business",
+    "subtitle": "We integrate technology, talent and strategy to transform organizations into industry leaders.",
+    "ctaAll": "View all services",
+    "featuredLabel": "Explore pillar",
+    "services": [
+      {
+        "id": "innovation-lab",
+        "number": "01",
+        "eyebrow": "Innovation Lab",
+        "title": "Advanced AI & High-Impact Software",
+        "description": "We develop AI solutions with video models for object identification and AI Agents with logical reasoning. We build scalable digital ecosystems and corporate video games that transform audience engagement.",
+        "tags": ["AI Agents", "Computer Vision", "B2B Games", "Automation"]
+      },
+      {
+        "id": "edtech",
+        "number": "02",
+        "eyebrow": "EdTech Studio",
+        "title": "Learning Ecosystems",
+        "description": "As Open edX partners, we build enterprise-grade e-learning platforms with instructional design and H5P interactivity. Real cases: Universidad del Norte and Pfizer.",
+        "tags": ["Open edX", "B2B LMS", "H5P", "Gamification"]
+      },
+      {
+        "id": "talent",
+        "number": "03",
+        "eyebrow": "Global Talent",
+        "title": "High-Impact Offshore Talent",
+        "description": "Staff augmentation with senior engineers, AI/ML Engineers, DevOps, certified PMs (PMP/PMI) and Scrum Masters. Remote teams in Latin America ready to scale your operation.",
+        "tags": ["Staff Augmentation", "Offshore PMs", "AI Engineers", "Scrum Masters"]
+      },
+      {
+        "id": "media",
+        "number": "04",
+        "eyebrow": "Digital Media",
+        "title": "Audiovisual Content & B2B Websites",
+        "description": "Production of corporate videos, 2D/3D animation and special effects. Web development focused on CRO, SEO-friendly architecture and CRM integration.",
+        "tags": ["Corporate Video", "3D Animation", "B2B Websites", "CRO & SEO"]
+      }
+    ]
+  },
+
+  "CaseStudies": {
+    "eyebrow": "Results",
+    "title": "Transformation Milestones and",
+    "titleHighlight": "Success Stories",
+    "subtitle": "Global companies that trusted Aptivall to transform their operations with technology and innovation. Our track record is not measured in years, but in the success of our strategic partners.",
+    "btnPrev": "Previous",
+    "btnNext": "Next",
+    "ariaLabelPrev": "Previous case",
+    "ariaLabelNext": "Next case",
+    "brandLabel": "Aptivall Case Study",
+    "cases": [
+      {
+        "id": 1,
+        "client": "Pfizer",
+        "title": "Continuing Medical Education",
+        "desc": "We developed a scientific update ecosystem for specialist physicians in Cardiology and Oncology. The project included the comprehensive customization of their corporate LMS."
+      },
+      {
+        "id": 2,
+        "client": "Johnson & Johnson",
+        "title": "Agility in Crisis",
+        "desc": "We created specialized training solutions for their global sales force, focused on regulatory compliance and COVID-19 vaccine protocols."
+      },
+      {
+        "id": 3,
+        "client": "Microsoft",
+        "title": "Process Innovation",
+        "desc": "We led strategic AI projects aimed at radically reducing time in content creation for sales and event project management."
+      },
+      {
+        "id": 4,
+        "client": "Lean Solutions Group",
+        "title": "Talent Automation",
+        "desc": "We implemented an AI solution for recruitment. Result: 40% reduction in hiring time, automatically validating high-potential candidates."
+      },
+      {
+        "id": 5,
+        "client": "Universidad del Norte",
+        "title": "Industrial Safety",
+        "desc": "We designed high-impact gamified HSE courses. We transformed training into an interactive experience that raised retention and engagement rates."
+      }
+    ]
+  },
+
+  "ContactBar": {
+    "eyebrow": "Contact Us",
+    "title": "Ready for the next",
+    "titleHighlight": "level?",
+    "subtitle": "Your vision deserves a partner who masters complexity. At Aptivall, we turn your strategy into cutting-edge technology.",
+    "whatsappLabel": "Direct WhatsApp",
+    "form": {
+      "validation": {
+        "required": "This field is required",
+        "email": "Enter a valid email address",
+        "name": "Letters only, no numbers or symbols"
+      },
+      "labelName": "Name",
+      "placeholderName": "Your name",
+      "labelEmail": "Email",
+      "placeholderEmail": "you@company.com",
+      "labelSubject": "Subject",
+      "placeholderSubject": "How can we help you?",
+      "labelMessage": "Message",
+      "placeholderMessage": "Tell us about your project...",
+      "btnSubmit": "Schedule Consultation",
+      "btnSending": "Sending...",
+      "btnSent": "Message sent"
+    },
+    "footer": {
+      "tagline": "Digital architects in motion. Innovation, AI and software engineering.",
+      "colServices": "Services",
+      "colCompany": "Company",
+      "colSupport": "Support",
+      "linkAbout": "About Us",
+      "linkServices": "Services",
+      "linkContact": "Contact",
+      "copyright": "All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use"
+    }
+  }
+}

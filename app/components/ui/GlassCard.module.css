@@ -1,0 +1,20 @@
+.cardContainer {
+  position: relative;
+  padding: 1px; /* El grosor del borde */
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  overflow: hidden;
+}
+
+.innerContent {
+  background: var(--bg-dark);
+  backdrop-filter: blur(12px);
+  border-radius: calc(var(--radius-lg) - 1px);
+  padding: 2rem;
+  height: 100%;
+}

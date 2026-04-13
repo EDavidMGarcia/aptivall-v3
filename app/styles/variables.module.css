@@ -1,0 +1,11 @@
+:root {
+  --primary: #001DFF;
+  --secondary: #00FF81;
+  --bg-dark: #080808;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #FFFFFF;
+  --text-muted: #888888;
+  --radius-lg: 24px;
+  --font-geist: 'Geist', sans-serif;
+}

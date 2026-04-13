@@ -1,0 +1,449 @@
+/* Philosophy.module.css */
+
+.section {
+  position: relative;
+  padding: 140px 5% 120px;
+  background: var(--bg-dark, #080808);
+  overflow: hidden;
+}
+
+/* ─── FONDO: línea de grid sutil ─────────────────────────────────────
+   Recreamos el efecto "grid de ingeniería" que se ve en las referencias.
+   Es un background-image con SVG inline que dibuja líneas muy tenues.
+   No pesa nada y da profundidad técnica al fondo.
+*/
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Glow verde centrado que ilumina desde arriba */
+.bgGlow {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 255, 129, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ─── CONTENEDOR ──────────────────────────────────────────────────── */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+/* ─── HEADER DE SECCIÓN ───────────────────────────────────────────── */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+/* Eyebrow label — coherente con el del Hero */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary, #00FF81);
+  background: rgba(0, 255, 129, 0.07);
+  border: 1px solid rgba(0, 255, 129, 0.18);
+  border-radius: 100px;
+  padding: 6px 14px;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--secondary, #00FF81);
+  flex-shrink: 0;
+}
+
+/* Título principal de la sección */
+.sectionTitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--text-main, #ffffff);
+  margin: 0;
+  max-width: 700px;
+}
+
+.accentWord {
+  color: var(--secondary, #00FF81);
+  text-shadow:
+    0 0 40px rgba(0, 255, 129, 0.3),
+    0 0 80px rgba(0, 255, 129, 0.08);
+}
+
+/* Subtítulo de la sección */
+.sectionSubtitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-muted, #888888);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ─── GRID DE CARDS ───────────────────────────────────────────────── */
+/*
+  3 columnas en desktop, 2 en tablet, 1 en móvil.
+  Las cards están escalonadas verticalmente (la del centro
+  está más arriba) — un detalle de layout que evita la monotonía
+  de una fila plana, como se ve en Linear y Vercel.
+*/
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* ─── CARD INDIVIDUAL ─────────────────────────────────────────────── */
+/*
+  Usamos el componente GlassCard que ya tenés, pero acá replicamos
+  la estructura directamente para tener control total del layout
+  interno y los estados de hover/animación.
+*/
+.card {
+  position: relative;
+  border-radius: var(--radius-lg, 24px);
+  padding: 1px; /* El grosor del borde gradiente */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  overflow: hidden;
+  
+  /* Transición para el hover del borde */
+  transition: background 0.4s ease;
+  
+  /* Stagger visual: la card del medio sube 24px */
+  /* Se aplica con :nth-child en las reglas de abajo */
+}
+
+/* Hover: el gradiente del borde se hace más visible */
+.card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 129, 0.2) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(0, 29, 255, 0.15) 100%
+  );
+}
+
+/* Card del centro: levemente más alta para romper la monotonía */
+.card:nth-child(2) {
+  margin-top: -24px;
+}
+
+.cardInner {
+  position: relative;
+  background: rgba(12, 12, 14, 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: calc(var(--radius-lg, 24px) - 1px);
+  padding: 2.5rem 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow: hidden;
+  
+  transition: background 0.3s ease;
+}
+
+.card:hover .cardInner {
+  background: rgba(14, 14, 18, 0.95);
+}
+
+/*
+  Fresnel highlight: línea superior que simula luz
+  reflejada en el borde de una superficie de vidrio.
+  Se intensifica en hover.
+*/
+.cardInner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 100%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardInner::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 129, 0.25) 50%,
+    transparent 100%
+  );
+}
+
+/* Glow interno en hover — aparece desde la esquina sup-izq */
+.cardInner::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 129, 0.06) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover .cardInner::after {
+  opacity: 1;
+}
+
+/* ─── CONTENIDO INTERNO DE LA CARD ───────────────────────────────── */
+
+/* Icono */
+.iconWrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  
+  /* Fondo glassmorphism para el icono */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover .iconWrapper {
+  background: rgba(0, 255, 129, 0.1);
+  border-color: rgba(0, 255, 129, 0.25);
+  transform: scale(1.08) rotate(-3deg);
+}
+
+.iconWrapper svg {
+  width: 22px;
+  height: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.card:hover .iconWrapper svg {
+  color: var(--secondary, #00FF81);
+}
+
+/* Número de la card — detalle técnico de indexación */
+.cardNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.12);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardNumber {
+  color: rgba(0, 255, 129, 0.35);
+}
+
+/* Título de la card */
+.cardTitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: var(--text-main, #ffffff);
+  margin: 0;
+}
+
+/* Descripción de la card */
+.cardDescription {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-muted, #888888);
+  margin: 0;
+  flex: 1; /* empuja el tag hacia abajo */
+}
+
+/* Tag / etiqueta inferior */
+.cardTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardTag {
+  color: rgba(0, 255, 129, 0.6);
+}
+
+.cardTag::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+
+.card:hover .cardTag::before {
+  width: 28px;
+}
+
+/* ─── FILA INFERIOR: Manifiesto ──────────────────────────────────── */
+/*
+  Cita destacada al pie de la sección — como el
+  "THE FLUIDITY MANIFESTO" de la primera imagen de referencia.
+*/
+.manifesto {
+  margin-top: 80px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  border-radius: var(--radius-lg, 24px);
+  
+  background: linear-gradient(
+    135deg,
+    rgba(0, 29, 255, 0.08) 0%,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 255, 129, 0.06) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  text-align: center;
+}
+
+/* Línea decorativa que cruza el manifiesto */
+.manifesto::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 255, 129, 0.15) 30%,
+    rgba(0, 29, 255, 0.2) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.manifestoText {
+  position: relative;
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 1;
+  max-width: 700px;
+}
+
+.manifestoAccent {
+  color: var(--secondary, #00FF81);
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .card:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .card:nth-child(3) {
+    grid-column: span 2;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 100px 6% 80px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:nth-child(3) {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .manifesto {
+    padding: 32px 24px;
+  }
+}

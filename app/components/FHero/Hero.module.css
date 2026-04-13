@@ -1,0 +1,525 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 5%;
+  background: var(--bg-dark, #080808);
+}
+
+/* ─── FONDO: Radial glow dual-color ────────────────────────────────────
+   Recreamos el halo de luz que se ve en las imágenes de referencia.
+   Dos glow superpuestos: azul primario abajo-izquierda, verde secundario
+   arriba-derecha. No usan filter: blur() para no afectar al texto. 
+*/
+
+.bgGlowBlue {
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  left: -150px;
+  bottom: -200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 29, 255, 0.18) 0%,
+    rgba(0, 29, 255, 0.04) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.bgGlowGreen {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  right: 10%;
+  top: 10%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 129, 0.12) 0%,
+    rgba(0, 255, 129, 0.03) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Grid de ruido sutil — da textura sin ser pesado */
+.bgNoise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* ─── LAYOUT PRINCIPAL ─────────────────────────────────────────────── */
+.heroContainer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding-top: 80px; /* compensa el navbar fixed */
+}
+
+/* ─── COLUMNA IZQUIERDA: Texto ─────────────────────────────────────── */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
+/* Eyebrow — pequeña etiqueta sobre el título */
+.heroEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary, #00FF81);
+  
+  /* Pill con borde verde sutil */
+  background: rgba(0, 255, 129, 0.08);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  width: fit-content;
+
+  /* Punto pulsante a la izquierda */
+}
+
+.heroEyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary, #00FF81);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ─── TÍTULO PRINCIPAL ─────────────────────────────────────────────── */
+.heroTitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--text-main, #ffffff);
+  margin: 0;
+}
+
+/*
+  .accentWord recrea el efecto de las imágenes donde
+  una palabra clave tiene el color de acento de la marca.
+  Usamos el verde secundario para contrastar con el azul
+  del resto de la UI.
+*/
+.accentWord {
+  color: var(--secondary, #00FF81);
+  /* Texto con ligero "glow" para reforzar el acento */
+  text-shadow:
+    0 0 40px rgba(0, 255, 129, 0.35),
+    0 0 80px rgba(0, 255, 129, 0.1);
+}
+
+/* ─── SUBTÍTULO ──────────────────────────────────────────────────── */
+.heroSubtitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-muted, #888888);
+  max-width: 460px;
+  margin: 0;
+}
+
+/* ─── BOTONES ─────────────────────────────────────────────────────── */
+.heroCtas {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* 
+  Botón Primario: relleno azul con glow animado en hover.
+  El "shimmer" es un pseudo-elemento que recorre el botón
+  de izquierda a derecha — técnica usada por Stripe y Linear.
+*/
+.btnPrimary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  text-decoration: none;
+  
+  background: var(--primary, #001DFF);
+  border: 1px solid rgba(0, 29, 255, 0.5);
+  border-radius: 12px;
+  padding: 13px 24px;
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.3s ease,
+    transform 0.15s ease,
+    border-color 0.25s ease;
+}
+
+/* Shimmer sweep */
+.btnPrimary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.btnPrimary:hover::before {
+  left: 160%;
+}
+
+.btnPrimary:hover {
+  background: #1a36ff;
+  box-shadow:
+    0 0 0 1px rgba(0, 29, 255, 0.4),
+    0 0 30px rgba(0, 29, 255, 0.5),
+    0 0 60px rgba(0, 29, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btnPrimary:active {
+  transform: translateY(0px) scale(0.98);
+  box-shadow: 0 0 15px rgba(0, 29, 255, 0.4);
+}
+
+/* Icono flecha dentro del botón */
+.btnArrow {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.btnPrimary:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/*
+  Botón Secundario: "ghost" — sin fondo, solo borde.
+  Glassmorphism sutil en hover. 
+*/
+.btnSecondary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  
+  background: rgba(255, 255, 255, 0);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 13px 24px;
+  cursor: pointer;
+  
+  backdrop-filter: blur(4px);
+  
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.15s ease;
+}
+
+.btnSecondary:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.btnSecondary:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* ─── SOCIAL PROOF / BADGE ─────────────────────────────────────────── */
+.heroMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 0.25rem;
+}
+
+.metaDivider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.metaText {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+}
+
+.metaHighlight {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+/* ─── COLUMNA DERECHA: Visual ─────────────────────────────────────── */
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
+  z-index: 2;
+}
+
+/* Estrella / forma decorativa — la pieza icónica de las referencias */
+.starShape {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+
+/* 
+  Anillo exterior giratorio — efecto conic-gradient
+  que recrea el borde tipo "aurora" de las imágenes.
+*/
+.starRing {
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    rgba(0, 255, 129, 0.4) 15%,
+    transparent 30%,
+    rgba(0, 29, 255, 0.4) 60%,
+    transparent 75%,
+    rgba(0, 255, 129, 0.2) 90%,
+    transparent 100%
+  );
+  animation: ringRotate 8s linear infinite;
+  filter: blur(8px);
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Card glass que envuelve la estrella */
+.starCard {
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  overflow: hidden;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fresnel highlight en el borde superior */
+.starCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 30%,
+    rgba(0, 255, 129, 0.4) 60%,
+    transparent 100%
+  );
+}
+
+/* La estrella SVG animada */
+.starSvg {
+  width: 160px;
+  height: 160px;
+  animation: starFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 30px rgba(0, 255, 129, 0.5));
+}
+
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-12px) rotate(3deg); }
+  66%       { transform: translateY(-6px) rotate(-2deg); }
+}
+
+/* ─── Tarjetas flotantes alrededor de la estrella ────────────────── */
+.floatingCard {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.floatingCard span {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.floatingCardDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.floatingCardTop {
+  top: 40px;
+  right: -20px;
+  animation: floatA 5s ease-in-out infinite;
+}
+
+.floatingCardBottom {
+  bottom: 60px;
+  left: -30px;
+  animation: floatB 6s ease-in-out infinite 1s;
+}
+
+@keyframes floatA {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes floatB {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(8px); }
+}
+
+/* ─── SCROLL INDICATOR ────────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.35;
+  animation: scrollBounce 2.5s ease-in-out infinite;
+}
+
+.scrollIndicator span {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  .heroSubtitle {
+    max-width: 100%;
+  }
+
+  .heroCtas {
+    justify-content: center;
+  }
+
+  .heroMeta {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    height: 340px;
+  }
+
+  .starShape {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 0 6%;
+  }
+
+  .heroCtas {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    height: 260px;
+  }
+}
+

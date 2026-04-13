@@ -1,0 +1,176 @@
+{
+  "Navbar": {
+    "inicio": "Inicio",
+    "sobre": "Nosotros",
+    "servicios": "Servicios",
+    "contacto": "Contacto"
+  },
+
+  "Hero": {
+    "tag": "Innovación Personalizada",
+    "title1": "Liderando la Frontera de la ",
+    "titleHighlight": "Evolución Digital",
+    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar organizaciones que se niegan a ser parte del pasado.",
+    "viewServices": "Ver Servicios",
+    "projectsCount": "proyectos",
+    "cta": "Iniciar Consultoría Estratégica",
+    "badge1": "Ejecución Impecable",
+    "badge2": "Resultados Medibles"
+  },
+
+  "Philosophy": {
+    "eyebrow": "The Aptivall Way",
+    "title": "Innovación con",
+    "titleHighlight": "Propósito",
+    "subtitle": "En Aptivall, no solo implementamos tecnología; diseñamos ventajas competitivas. Nuestra filosofía se basa en la",
+    "subtitleHighlight": "Transformación Tecnológica Dedicada:",
+    "subtitleEnd": "entendemos que cada organización tiene un ADN único, y por ello, nuestras soluciones no son productos empaquetados, sino ecosistemas personalizados.",
+    "pillars": [
+      {
+        "number": "01",
+        "tag": "Personalización extrema",
+        "title": "Servicio Boutique a Escala Global",
+        "description": "Combinamos la atención personalizada con la capacidad de ejecución de una firma global de ingeniería."
+      },
+      {
+        "number": "02",
+        "tag": "Inteligencia y Desarrollo",
+        "title": "Vanguardia Continua",
+        "description": "Nos obsesionamos con el 'qué sigue' para que nuestros clientes nunca queden obsoletos."
+      },
+      {
+        "number": "03",
+        "tag": "Eficiencia",
+        "title": "Enfoque en ROI",
+        "description": "Cada línea de código y cada agente de IA tiene una misión clara: optimizar, escalar o rentabilizar."
+      }
+    ]
+    
+  },
+
+  "Services": {
+    "eyebrow": "Servicios",
+    "title": "Soluciones Diseñadas para",
+    "titleHighlight": "Escalar",
+    "titleEnd": "su Negocio",
+    "subtitle": "Integramos tecnología, talento y estrategia para transformar organizaciones en líderes de su industria.",
+    "ctaAll": "Ver todos los servicios",
+    "featuredLabel": "Explorar pilar",
+    "services": [
+      {
+        "id": "innovation-lab",
+        "number": "01",
+        "eyebrow": "Innovation Lab",
+        "title": "IA Avanzada y Software de Alto Impacto",
+        "description": "Desarrollamos soluciones de IA con modelos de video para identificación de objetos y AI Agents con razonamiento lógico. Creamos ecosistemas digitales escalables y videojuegos corporativos que transforman el compromiso de tu audiencia.",
+        "tags": ["AI Agents", "Visión Computacional", "Videojuegos B2B", "Automatización"]
+      },
+      {
+        "id": "edtech",
+        "number": "02",
+        "eyebrow": "EdTech Studio",
+        "title": "Ecosistemas de Aprendizaje",
+        "description": "Como partners de Open edX, construimos plataformas e-learning de grado empresarial con diseño instruccional e interactividad H5P. Casos reales: Universidad del Norte y Pfizer.",
+        "tags": ["Open edX", "LMS B2B", "H5P", "Gamificación"]
+      },
+      {
+        "id": "talent",
+        "number": "03",
+        "eyebrow": "Global Talent",
+        "title": "Talento Offshore de Alto Impacto",
+        "description": "Staff augmentation con ingenieros senior, AI/ML Engineers, DevOps, PMs certificados (PMP/PMI) y Scrum Masters. Equipos remotos en Latinoamérica listos para escalar tu operación.",
+        "tags": ["Staff Augmentation", "PMs Offshore", "AI Engineers", "Scrum Masters"]
+      },
+      {
+        "id": "media",
+        "number": "04",
+        "eyebrow": "Digital Media",
+        "title": "Contenido Audiovisual y Webs B2B",
+        "description": "Producción de videos corporativos, animación 2D/3D y efectos especiales. Desarrollo de sitios web con enfoque en CRO, arquitectura SEO-friendly e integración con CRM.",
+        "tags": ["Video Corporativo", "Animación 3D", "Webs B2B", "CRO & SEO"]
+      }
+    ]
+  },
+
+  "CaseStudies": {
+    "eyebrow": "Resultados",
+    "title": "Hitos de Transformación y casos de",
+    "titleHighlight": "Éxito",
+    "subtitle": "Empresas globales que confiaron en Aptivall para transformar sus operaciones con tecnología e innovación. Nuestra trayectoria no se mide en años, sino en el éxito de nuestros aliados estratégicos.",
+    "btnPrev": "Anterior",
+    "btnNext": "Siguiente",
+    "ariaLabelPrev": "Caso anterior",
+    "ariaLabelNext": "Siguiente caso",
+    "brandLabel": "Aptivall Case Study",
+    "cases": [
+      {
+        "id": 1,
+        "client": "Pfizer",
+        "title": "Educación Médica Continua",
+        "desc": "Desarrollamos un ecosistema de actualización científica para médicos especialistas en Cardiología y Oncología. El proyecto incluyó la personalización integral de su LMS corporativo."
+      },
+      {
+        "id": 2,
+        "client": "Johnson & Johnson",
+        "title": "Agilidad en Crisis",
+        "desc": "Creamos soluciones de formación especializada para su fuerza de ventas global, enfocadas en el cumplimiento normativo (compliance) y protocolos de vacunas COVID-19."
+      },
+      {
+        "id": 3,
+        "client": "Microsoft",
+        "title": "Innovación en Procesos",
+        "desc": "Lideramos proyectos estratégicos de IA destinados a la reducción radical de tiempos en la creación de contenidos para ventas y gestión de proyectos de eventos."
+      },
+      {
+        "id": 4,
+        "client": "Lean Solutions Group",
+        "title": "Automatización de Talento",
+        "desc": "Implementamos una solución de IA para reclutamiento. Resultado: Reducción del 40% en el tiempo de contratación, validando candidatos de alto potencial automáticamente."
+      },
+      {
+        "id": 5,
+        "client": "Universidad del Norte",
+        "title": "Seguridad Industrial",
+        "desc": "Diseñamos cursos gamificados de alto impacto en SST. Transformamos la capacitación en una experiencia interactiva que elevó los índices de retención y compromiso."
+      }
+    ]
+  },
+
+  "ContactBar": {
+    "eyebrow": "Contáctanos",
+    "title": "¿Listo para el siguiente",
+    "titleHighlight": "nivel?",
+    "subtitle": "Su visión merece un aliado que domine la complejidad. En Aptivall, convertimos su estrategia en tecnología de vanguardia.",
+    "whatsappLabel": "WhatsApp directo",
+    "form": {
+      "validation": {
+        "required": "Este campo es obligatorio",
+        "email": "Introduce un correo válido",
+        "name": "Solo letras, sin números ni símbolos"
+      },
+      "labelName": "Nombre",
+      "placeholderName": "Tu nombre",
+      "labelEmail": "Email",
+      "placeholderEmail": "tu@empresa.com",
+      "labelSubject": "Asunto",
+      "placeholderSubject": "¿En qué podemos ayudarte?",
+      "labelMessage": "Mensaje",
+      "placeholderMessage": "Cuéntanos sobre tu proyecto...",
+      "btnSubmit": "Agendar Consultoría",
+      "btnSending": "Enviando...",
+      "btnSent": "Mensaje enviado"
+    },
+    "footer": {
+      "tagline": "Arquitectos digitales en movimiento. Innovación, IA e ingeniería de software.",
+      "colServices": "Servicios",
+      "colCompany": "Empresa",
+      "colSupport": "Soporte",
+      "linkAbout": "Sobre Nosotros",
+      "linkServices": "Servicios",
+      "linkContact": "Contacto",
+      "copyright": "Todos los derechos reservados.",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso"
+    }
+  }
+}
