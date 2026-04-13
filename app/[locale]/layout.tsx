@@ -45,7 +45,7 @@ export default async function RootLayout({
   }
 
   // Obtenemos los mensajes del JSON correspondiente
-  const messages = await getMessages();
+  const messages = await getMessages({ locale });
 
   return (
     <html
