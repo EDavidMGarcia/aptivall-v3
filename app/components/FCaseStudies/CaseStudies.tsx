@@ -134,17 +134,20 @@ export default function CaseStudies() {
       );
 
       gsap.fromTo(
-        controlsRef.current,
-        { y: 20, opacity: 0 },
-        {
-          y: 0, opacity: 1, duration: 0.7, ease: "power3.out", delay: 0.2,
-          scrollTrigger: {
-            trigger: controlsRef.current,
-            start: "top 92%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
+  controlsRef.current,
+  { y: 20, opacity: 0 },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 0.7,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: controlsRef.current,
+      start: "top 100%", // 👈 mismo timing que el header
+      toggleActions: "play none none none",
+    },
+  }
+);
     }, sectionRef);
 
     return () => ctx.revert();
