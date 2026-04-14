@@ -15,20 +15,25 @@ const Hero: React.FC = () => {
   const locale = useLocale();
   const t = useTranslations("Hero");
 
-  // Eliminamos el estado isMounted que causaba el error
-
   useGSAP(
     () => {
-      // GSAP se ejecuta en el cliente, por lo que actúa como un "useEffect" seguro
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // Ponemos los elementos en su estado inicial (invisible)
+      // 🔥 OCULTAR TODO EL HERO AL INICIO
+      gsap.set(heroRef.current, { autoAlpha: 0 });
+
+      // 🔥 MOSTRAR HERO (evita flash)
+      tl.to(heroRef.current, {
+        autoAlpha: 1,
+        duration: 0.6,
+      });
+
+      // Mantienes EXACTAMENTE tu lógica original
       gsap.set(
         `.${styles.heroEyebrow}, .${styles.heroTitle}, .${styles.heroSubtitle}, .${styles.heroCtas}, .${styles.heroMeta}, .${styles.heroVisual}, .${styles.floatingCard}, .${styles.scrollIndicator}`,
         { opacity: 0, visibility: "hidden" }
       );
 
-      // Animación de entrada
       tl.fromTo(`.${styles.heroEyebrow}`, { y: 20, opacity: 0, visibility: "visible" }, { y: 0, opacity: 1, duration: 0.7 })
         .fromTo(`.${styles.heroTitle}`, { y: 30, opacity: 0, visibility: "visible" }, { y: 0, opacity: 1, duration: 0.9 }, "-=0.4")
         .fromTo(`.${styles.heroSubtitle}`, { y: 20, opacity: 0, visibility: "visible" }, { y: 0, opacity: 1, duration: 0.7 }, "-=0.5")
@@ -43,7 +48,6 @@ const Hero: React.FC = () => {
         )
         .fromTo(`.${styles.scrollIndicator}`, { opacity: 0, visibility: "visible" }, { opacity: 0.35, duration: 0.5 }, "-=0.2");
 
-      // Scroll Animaciones
       gsap.to(`.${styles.heroVisual}`, {
         y: -60,
         ease: "none",

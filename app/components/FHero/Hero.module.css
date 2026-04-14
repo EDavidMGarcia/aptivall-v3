@@ -1,4 +1,6 @@
 .hero {
+  opacity: 0; /* 🔥 EVITA EL FLASH INICIAL */
+  
   position: relative;
   min-height: 100vh;
   display: flex;
