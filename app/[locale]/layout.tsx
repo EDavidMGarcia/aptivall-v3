@@ -9,7 +9,7 @@ import { getMessages } from "next-intl/server";
 import { locales, type Locale } from "../../i18n"; 
 
 // 2. Importaciones de tus componentes
-import Navbar from "../components/FNavbar/Navbar";
+import Barra from "../components/Navbar/Barra";
 import Finisher from "../components/PageFooter/Finisher";
 
 // 3. Configuración de fuentes
@@ -54,7 +54,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col bg-black text-white">
         {/* Pasamos 'messages' y 'locale' para que todo el sitio sepa el idioma */}
         <NextIntlClientProvider messages={messages} locale={locale}>
-            <Navbar />
+            <Barra />
             <main className="flex-1">
               {children}
             </main>

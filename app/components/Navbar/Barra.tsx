@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
-import styles from "./Navbar.module.css";
+import styles from "./Barra.module.css";
 import { gsap } from "gsap";
 
 const Navbar: React.FC = memo(() => {
@@ -17,7 +17,7 @@ const Navbar: React.FC = memo(() => {
 
   const [scrolled, setScrolled] = useState<boolean>(false);
 
-  // 🔥 NUEVO
+  
   const [isOpen, setIsOpen] = useState(false);
 
   const navRef = useRef<HTMLElement>(null);
