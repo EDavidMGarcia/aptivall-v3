@@ -11,11 +11,14 @@ import { gsap } from "gsap";
 const Navbar: React.FC = memo(() => {
   const router = useRouter();
   const pathname = usePathname();
-  const locale = useLocale(); // 🔥 idioma real
+  const locale = useLocale();
 
-  const t = useTranslations("Navbar"); // 🔥 traducciones desde next-intl
+  const t = useTranslations("Navbar");
 
   const [scrolled, setScrolled] = useState<boolean>(false);
+
+  // 🔥 NUEVO
+  const [isOpen, setIsOpen] = useState(false);
 
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLUListElement>(null);
@@ -58,6 +61,7 @@ const Navbar: React.FC = memo(() => {
   const handleLogoClick = useCallback(
     (e: React.MouseEvent | React.KeyboardEvent) => {
       e.preventDefault();
+      setIsOpen(false); // 🔥 cerrar menú
       if (pathname === `/${locale}`) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -71,6 +75,7 @@ const Navbar: React.FC = memo(() => {
   const handleHomeClick = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
+      setIsOpen(false); // 🔥 cerrar menú
       if (pathname === `/${locale}`) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -84,6 +89,7 @@ const Navbar: React.FC = memo(() => {
   const handleContactClick = useCallback(
     (e: React.MouseEvent) => {
       e.preventDefault();
+      setIsOpen(false); // 🔥 cerrar menú
 
       if (pathname === `/${locale}`) {
         const section = document.getElementById("ContactBar");
@@ -121,8 +127,21 @@ const Navbar: React.FC = memo(() => {
           />
         </div>
 
+        {/* 🔥 HAMBURGUESA */}
+        <button
+          className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
         {/* LINKS */}
-        <ul ref={linksRef} className={styles.navLinks}>
+        <ul
+          ref={linksRef}
+          className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}
+        >
           <li>
             <Link
               href={`/${locale}`}
@@ -137,6 +156,7 @@ const Navbar: React.FC = memo(() => {
             <Link
               href={`/${locale}/about`}
               className={`${styles.navItem} ${pathname === `/${locale}/about` ? styles.active : ""}`}
+              onClick={() => setIsOpen(false)}
             >
               {t("sobre")}
             </Link>
@@ -146,6 +166,7 @@ const Navbar: React.FC = memo(() => {
             <Link
               href={`/${locale}/services`}
               className={`${styles.navItem} ${pathname === `/${locale}/services` ? styles.active : ""}`}
+              onClick={() => setIsOpen(false)}
             >
               {t("servicios")}
             </Link>
@@ -164,16 +185,18 @@ const Navbar: React.FC = memo(() => {
           {/* CAMBIO DE IDIOMA */}
           <li className={styles.langSwitch}>
             <button
-            onClick={() => {
-             // Reemplaza el idioma en la ruta actual
-              const newPath = pathname.replace(`/${locale}`, `/${locale === "es" ? "en" : "es"}`);
-              router.push(newPath);
-  }
-}
-  className={styles.langButton}
->
-  {locale === "es" ? "EN" : "ES"}
-</button>
+              onClick={() => {
+                setIsOpen(false); // 🔥 cerrar menú
+                const newPath = pathname.replace(
+                  `/${locale}`,
+                  `/${locale === "es" ? "en" : "es"}`
+                );
+                router.push(newPath);
+              }}
+              className={styles.langButton}
+            >
+              {locale === "es" ? "EN" : "ES"}
+            </button>
           </li>
         </ul>
       </div>
