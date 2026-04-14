@@ -148,10 +148,10 @@
         "email": "Introduce un correo válido",
         "name": "Solo letras, sin números ni símbolos"
       },
-      "labelName": "Nombre",
+      "labelName": "Nombre*",
       "placeholderName": "Tu nombre",
-      "labelEmail": "Email",
-      "placeholderEmail": "tu@empresa.com",
+      "labelEmail": "Email*",
+      "placeholderEmail": "tu@email.com",
       "labelSubject": "Asunto",
       "placeholderSubject": "¿En qué podemos ayudarte?",
       "labelMessage": "Mensaje",

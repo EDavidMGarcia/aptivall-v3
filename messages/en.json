@@ -147,10 +147,10 @@
         "email": "Enter a valid email address",
         "name": "Letters only, no numbers or symbols"
       },
-      "labelName": "Name",
+      "labelName": "Name*",
       "placeholderName": "Your name",
-      "labelEmail": "Email",
-      "placeholderEmail": "you@company.com",
+      "labelEmail": "Email*",
+      "placeholderEmail": "you@email.com",
       "labelSubject": "Subject",
       "placeholderSubject": "How can we help you?",
       "labelMessage": "Message",

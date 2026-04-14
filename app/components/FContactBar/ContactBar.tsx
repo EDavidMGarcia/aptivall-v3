@@ -6,14 +6,14 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations, useLocale } from "next-intl"; // 🔥 Importación correcta
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./ContactBar.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ContactBar: React.FC = () => {
-  const locale = useLocale(); // 🔥 Idioma de la URL
-  const t = useTranslations("ContactBar"); // 🔥 Traducciones de next-intl
+  const locale = useLocale(); // Idioma de la URL
+  const t = useTranslations("ContactBar"); // Traducciones de next-intl
   
   const [isMounted, setIsMounted] = useState(false);
   

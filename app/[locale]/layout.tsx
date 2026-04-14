@@ -9,9 +9,8 @@ import { getMessages } from "next-intl/server";
 import { locales, type Locale } from "../../i18n"; 
 
 // 2. Importaciones de tus componentes
-// Ajusta las rutas si tus carpetas se llaman distinto
 import Navbar from "../components/FNavbar/Navbar";
-import ContactBar from "../components/FContactBar/ContactBar";
+import Finisher from "../components/PageFooter/Finisher";
 
 // 3. Configuración de fuentes
 const geistSans = Geist({
@@ -59,7 +58,7 @@ export default async function RootLayout({
             <main className="flex-1">
               {children}
             </main>
-            <ContactBar />
+            <Finisher />
         </NextIntlClientProvider>
       </body>
     </html>
