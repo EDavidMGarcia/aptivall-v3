@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useLayoutEffect, useRef, useCallback, memo } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./Barra.module.css";
@@ -12,18 +11,15 @@ const Navbar: React.FC = memo(() => {
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
-
   const t = useTranslations("Navbar");
 
   const [scrolled, setScrolled] = useState<boolean>(false);
-
-  
   const [isOpen, setIsOpen] = useState(false);
 
   const navRef = useRef<HTMLElement>(null);
   const linksRef = useRef<HTMLUListElement>(null);
 
-  // GSAP
+  // GSAP Animación de entrada
   useLayoutEffect(() => {
     if (!navRef.current) return;
     const ctx = gsap.context(() => {
@@ -41,7 +37,7 @@ const Navbar: React.FC = memo(() => {
     return () => ctx.revert();
   }, [locale]);
 
-  // Scroll
+  // Scroll Detection para estilos
   useEffect(() => {
     let ticking = false;
     const handleScroll = () => {
@@ -57,51 +53,28 @@ const Navbar: React.FC = memo(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // LOGO
-  const handleLogoClick = useCallback(
-    (e: React.MouseEvent | React.KeyboardEvent) => {
-      e.preventDefault();
-      setIsOpen(false); // 🔥 cerrar menú
-      if (pathname === `/${locale}`) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        router.push(`/${locale}`);
-      }
-    },
-    [pathname, router, locale]
-  );
+  // Función unificada de Scroll sin cambiar URL
+  const scrollToSection = useCallback((sectionId: string) => {
+    setIsOpen(false); // Cerrar menú mobile
 
-  // HOME
-  const handleHomeClick = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      setIsOpen(false); // 🔥 cerrar menú
-      if (pathname === `/${locale}`) {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        router.push(`/${locale}`);
-      }
-    },
-    [pathname, router, locale]
-  );
+    if (pathname === `/${locale}`) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        // Calculamos el offset basado en la altura de tu navbar (72px o 64px)
+        const navbarHeight = scrolled ? 64 : 72;
+        const elementPosition = section.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navbarHeight;
 
-  // CONTACT
-  const handleContactClick = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
-      setIsOpen(false); // 🔥 cerrar menú
-
-      if (pathname === `/${locale}`) {
-        const section = document.getElementById("ContactBar");
-        if (section) {
-          section.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      } else {
-        router.push(`/${locale}#ContactBar`);
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
       }
-    },
-    [pathname, router, locale]
-  );
+    } else {
+      // Si no estamos en el Home, navegamos al Home + el hash
+      router.push(`/${locale}#${sectionId}`);
+    }
+  }, [pathname, locale, scrolled, router]);
 
   return (
     <nav
@@ -112,10 +85,10 @@ const Navbar: React.FC = memo(() => {
         {/* LOGO */}
         <div
           className={styles.logoWrapper}
-          onClick={handleLogoClick}
+          onClick={() => scrollToSection("inicio")}
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === "Enter" && handleLogoClick(e)}
+          onKeyDown={(e) => e.key === "Enter" && scrollToSection("inicio")}
         >
           <Image
             src="/icons/aptiLogo.svg"
@@ -127,7 +100,7 @@ const Navbar: React.FC = memo(() => {
           />
         </div>
 
-        {/* 🔥 HAMBURGUESA */}
+        {/* HAMBURGUESA */}
         <button
           className={`${styles.hamburger} ${isOpen ? styles.open : ""}`}
           onClick={() => setIsOpen(!isOpen)}
@@ -143,50 +116,46 @@ const Navbar: React.FC = memo(() => {
           className={`${styles.navLinks} ${isOpen ? styles.active : ""}`}
         >
           <li>
-            <Link
-              href={`/${locale}`}
+            <button
               className={`${styles.navItem} ${pathname === `/${locale}` ? styles.active : ""}`}
-              onClick={handleHomeClick}
+              onClick={() => scrollToSection("inicio")}
             >
               {t("inicio")}
-            </Link>
+            </button>
           </li>
 
           <li>
-            <Link
-              href={`/${locale}/about`}
-              className={`${styles.navItem} ${pathname === `/${locale}/about` ? styles.active : ""}`}
-              onClick={() => setIsOpen(false)}
+            <button
+              className={styles.navItem}
+              onClick={() => scrollToSection("sobre")}
             >
               {t("sobre")}
-            </Link>
+            </button>
           </li>
 
           <li>
-            <Link
-              href={`/${locale}/services`}
-              className={`${styles.navItem} ${pathname === `/${locale}/services` ? styles.active : ""}`}
-              onClick={() => setIsOpen(false)}
+            <button
+              className={styles.navItem}
+              onClick={() => scrollToSection("servicios")}
             >
               {t("servicios")}
-            </Link>
+            </button>
           </li>
 
           <li>
-            <a
-              href={`/${locale}#contact-section`}
+            <button
               className={styles.navContact}
-              onClick={handleContactClick}
+              onClick={() => scrollToSection("contacto")}
             >
               {t("contacto")}
-            </a>
+            </button>
           </li>
 
           {/* CAMBIO DE IDIOMA */}
           <li className={styles.langSwitch}>
             <button
               onClick={() => {
-                setIsOpen(false); // 🔥 cerrar menú
+                setIsOpen(false);
                 const newPath = pathname.replace(
                   `/${locale}`,
                   `/${locale === "es" ? "en" : "es"}`

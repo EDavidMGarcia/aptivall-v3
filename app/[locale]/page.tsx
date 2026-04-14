@@ -9,11 +9,21 @@ import Formulario from "../components/Forms/Formulario";
 export default function Home() {
 return (
     <>
-      <Hero />
-      <Philosophy />
-      <Servicios />
-      <Clientes />
-      <Formulario />
+      <div id="inicio"> 
+        <Hero /> 
+        </div>
+      <div id="sobre">
+        <Philosophy />
+        </div>
+      <div id="servicios">
+        <Servicios />
+        </div>
+      <div id="clientes">
+        <Clientes />
+        </div>
+      <div id="contacto">
+        <Formulario />
+        </div>
     </>
   );
 }
