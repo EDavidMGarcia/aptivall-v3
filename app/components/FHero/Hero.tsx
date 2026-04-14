@@ -64,8 +64,6 @@ const Hero: React.FC = () => {
 
   return (
     <section className={styles.hero} ref={heroRef}>
-      <div className={styles.bgGlowBlue} />
-      <div className={styles.bgGlowGreen} />
       <div className={styles.bgNoise} />
 
       <div className={styles.heroContainer}>

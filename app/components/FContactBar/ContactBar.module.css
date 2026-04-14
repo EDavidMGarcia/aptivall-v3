@@ -2,45 +2,13 @@
 
 .wrapper {
   position: relative;
-  background: var(--bg-dark, #080808);
+  background: transparent;
   overflow: hidden;
 }
 
 .ctaSection {
   position: relative;
   padding: 140px 5% 100px;
-}
-
-.bgGlowLeft {
-  position: absolute;
-  bottom: -100px;
-  left: -150px;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 29, 255, 0.15) 0%,
-    rgba(0, 29, 255, 0.04) 45%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-.bgGlowRight {
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 255, 129, 0.1) 0%,
-    rgba(0, 255, 129, 0.02) 50%,
-    transparent 70%
-  );
-  pointer-events: none;
 }
 
 .ctaContainer {

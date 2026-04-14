@@ -3,7 +3,7 @@
 .section {
   position: relative;
   padding: 140px 5% 120px;
-  background: var(--bg-dark, #080808);
+  background: transparent;
   overflow: hidden;
 }
 
@@ -12,36 +12,6 @@
    en vez de verde — mismo lenguaje visual, diferente énfasis.
    Así cada sección tiene personalidad propia dentro del sistema.
 */
-.bgGlowBlue {
-  position: absolute;
-  bottom: -200px;
-  right: -100px;
-  width: 700px;
-  height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 29, 255, 0.1) 0%,
-    rgba(0, 29, 255, 0.03) 50%,
-    transparent 70%
-  );
-  pointer-events: none;
-}
-
-.bgGlowGreen {
-  position: absolute;
-  top: 0;
-  left: -100px;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 255, 129, 0.06) 0%,
-    transparent 65%
-  );
-  pointer-events: none;
-}
 
 /* ─── CONTENEDOR ────────────────────────────────────────────────── */
 .container {

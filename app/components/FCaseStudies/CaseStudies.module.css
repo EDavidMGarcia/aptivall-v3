@@ -5,33 +5,12 @@
   align-items: center;
   justify-content: center;
   min-height: 100svh;
-  background: var(--bg-dark, #080808);
+  background: transparent;
   color: #fff;
   font-family: var(--font-geist), system-ui, sans-serif;
   overflow: hidden;
   gap: 48px;
   padding: 140px 5% 100px;
-}
-
-
-
-.sliderSection::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 800px;
-  height: 500px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse,
-    rgba(0, 29, 255, 0.07) 0%,
-    rgba(0, 255, 129, 0.04) 40%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
 }
 
 /* ─── HEADER ─────────────────────────────────────────────────────── */
@@ -42,7 +21,7 @@
   text-align: center;
   gap: 1.25rem;
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .eyebrow {
