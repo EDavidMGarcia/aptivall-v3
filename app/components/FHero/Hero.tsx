@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             <div className={styles.starRing} />
             <div className={styles.starCard}>
               <svg className={styles.starSvg} viewBox="0 0 160 160" fill="none">
-                <path d="M80 8 C80 8, 88 50, 110 70 C132 90, 152 80, 152 80 C152 80, 110 88, 90 110 C70 132, 80 152, 80 152 C80 152, 72 110, 50 90 C28 70, 8 80, 8 80 C8 80, 50 72, 70 50 C90 28, 80 8, 80 8 Z" fill="url(#starGrad)" />
+                <path d="M80 8 C80 8, 86 38, 102 52 C118 66, 148 62, 148 62 C148 62, 124 76, 118 96 C112 116, 128 144, 128 144 C128 144, 106 124, 80 124 C54 124, 32 144, 32 144 C32 144, 48 116, 42 96 C36 76, 12 62, 12 62 C12 62, 42 66, 58 52 C74 38, 80 8, 80 8 Z" fill="url(#starGrad)" />
                 <defs>
                   <radialGradient id="starGrad" cx="40%" cy="35%" r="65%">
                     <stop offset="0%" stopColor="#00FF81" />
