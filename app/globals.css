@@ -420,3 +420,19 @@ template {
 [hidden] {
   display: none;
 }
+
+
+/* 🎯 CORRECCIÓN DE SCROLL: 
+   Añadimos esto para que al dar click en el menú, el contenido 
+   quede pegado a la Navbar sin dejar espacio extra.
+*/
+section {
+  scroll-margin-top: 72px; 
+}
+
+/* Si el cambio no se refleja en todos, asegúrate de que tus 
+   secciones tengan la etiqueta <section> o aplícalo a la clase: 
+*/
+.section-container {
+  scroll-margin-top: 72px;
+}

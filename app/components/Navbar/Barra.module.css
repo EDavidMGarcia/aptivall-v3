@@ -14,10 +14,8 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: all 0.4s ease;
-
   opacity: 0;
   transform: translateY(-100px);
-
   will-change: transform, opacity;
   contain: layout;
 }
@@ -67,7 +65,6 @@
   transition: 0.2s ease;
 }
 
-/* ─── BOTÓN DE CONTACTO ─── */
 .navContact {
   position: relative;
   overflow: hidden;
@@ -91,34 +88,18 @@
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   transition: left 0.6s ease;
 }
 
-.navContact:hover::before {
-  left: 150%;
-}
-
+.navContact:hover::before { left: 150%; }
 .navContact:hover {
   background: #1a36ff !important;
   transform: translateY(-1px);
-  box-shadow:
-    0 0 15px rgba(0, 29, 255, 0.4),
-    0 0 30px rgba(0, 29, 255, 0.1);
+  box-shadow: 0 0 15px rgba(0, 29, 255, 0.4), 0 0 30px rgba(0, 29, 255, 0.1);
 }
 
-.navContact:hover .navBtnArrow {
-  transform: translateX(3px);
-}
-
-/* ── Clases base compartidas ── */
-.navLinks li a,
-.navItem {
+.navLinks li a, .navItem {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.9rem;
@@ -129,7 +110,6 @@
   position: relative;
 }
 
-/* ── Underline hover ── */
 .navItem::after {
   content: '';
   position: absolute;
@@ -150,11 +130,8 @@
   transform: translateY(-1px);
 }
 
-.navItem:hover::after {
-  transform: scaleX(1);
-}
+.navItem:hover::after { transform: scaleX(1); }
 
-/* ── Active state ── */
 .active {
   color: #00FF81 !important;
   background: rgba(0, 255, 129, 0.08) !important;
@@ -165,7 +142,6 @@
   transform: scaleX(1) !important;
 }
 
-/* ── Lang Switch ── */
 .langSwitch button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -177,14 +153,8 @@
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 
-.langSwitch button:hover {
-  border-color: #00FF81;
-  color: #00FF81;
-}
+.langSwitch button:hover { border-color: #00FF81; color: #00FF81; }
 
-/* ─────────────────────────────────────────
-   🔥 HAMBURGUESA — Solo visible en mobile
-───────────────────────────────────────── */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -197,11 +167,6 @@
   border: none;
   padding: 6px;
   border-radius: 8px;
-  transition: background 0.2s ease;
-}
-
-.hamburger:hover {
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .hamburger span {
@@ -209,53 +174,25 @@
   height: 2px;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
-              opacity 0.25s ease,
-              background 0.2s ease;
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease;
   display: block;
 }
 
-/* Animación X */
-.open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-  background: #00FF81;
-}
-.open span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-.open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-  background: #00FF81;
-}
+.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #00FF81; }
+.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #00FF81; }
 
-/* ─────────────────────────────────────────
-   📱 MOBILE — Drawer lateral desde la derecha
-───────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hamburger {
-    display: flex;
-  }
-
-  /* Overlay oscuro detrás del drawer */
+  .hamburger { display: flex; }
   .navLinks::before {
     content: '';
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0px);
-    z-index: -1;
-    pointer-events: none;
-    transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    transition: background 0.4s ease;
   }
-
-  .navLinks.active::before {
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    pointer-events: all;
-  }
-
-  /* Drawer */
+  .navLinks.active::before { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
   .navLinks {
     position: fixed;
     top: 0;
@@ -263,100 +200,12 @@
     height: 100dvh;
     width: min(75vw, 300px);
     padding: 100px 2rem 3rem;
-
-    /* Fondo sólido — sin transparencia para que no se vea el contenido de fondo */
     background: #080808;
-    border-left: 1px solid rgba(255, 255, 255, 0.07);
-
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 0.25rem;
-
-    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 1001;
-
-    /* Línea decorativa verde arriba */
-    box-shadow:
-      -8px 0 40px rgba(0, 0, 0, 0.5),
-      inset 1px 0 0 rgba(0, 255, 129, 0.08);
+    transition: right 0.4s ease;
   }
-
-  .navLinks.active {
-    right: 0;
-  }
-
-  /* Reset de opacidad/transform para mobile (GSAP los anima en desktop) */
-  .navLinks li {
-    opacity: 1 !important;
-    transform: none !important;
-    width: 100%;
-  }
-
-  /* Cada ítem ocupa el ancho completo */
-  .navLinks li a,
-  .navItem {
-    width: 100%;
-    display: block;
-    font-size: 1rem;
-    padding: 12px 16px;
-    border-radius: 10px;
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .navItem::after {
-    display: none;
-  }
-
-  .navItem:hover {
-    transform: none;
-    color: #fff;
-    background: rgba(255, 255, 255, 0.06);
-  }
-
-  /* Separador visual antes del botón de contacto */
-  .navLinks li:has(.navContact) {
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-  }
-
-  /* Contacto full-width en mobile */
-  .navContact {
-    width: 100% !important;
-    justify-content: center !important;
-    padding: 12px 18px !important;
-    border-radius: 12px !important;
-    font-size: 1rem !important;
-  }
-
-  /* Separador antes de lang switch */
-  .langSwitch {
-    margin-top: 0.5rem;
-    width: 100%;
-  }
-
-  .langSwitch button {
-    width: 100%;
-    padding: 10px 16px;
-    font-size: 0.85rem;
-    border-radius: 10px;
-    text-align: center;
-  }
-
-  /* Línea decorativa verde en la parte superior del drawer */
-  .navLinks::after {
-    content: '';
-    position: absolute;
-    top: 72px;
-    left: 2rem;
-    right: 2rem;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      rgba(0, 255, 129, 0.4),
-      rgba(0, 29, 255, 0.2),
-      transparent
-    );
-  }
+  .navLinks.active { right: 0; }
+  .navLinks li { opacity: 1 !important; transform: none !important; width: 100%; }
+  .navLinks li a, .navItem { width: 100%; font-size: 1rem; padding: 12px 16px; }
+  .navItem::after { display: none; }
 }

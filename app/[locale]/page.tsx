@@ -1,7 +1,7 @@
 "use client";
 
 import Hero from "../components/Start/Hero";
-import Philosophy from "../components/FPhilosophy/Philosophy";
+import Filosofia from "../components/Philosophy/Filosofia";
 import Servicios from "../components/Services/Servicios";
 import Clientes from "../components/Clients/Clientes"
 import Formulario from "../components/Forms/Formulario";
@@ -13,7 +13,7 @@ return (
         <Hero /> 
         </div>
       <div id="sobre">
-        <Philosophy />
+        <Filosofia />
         </div>
       <div id="servicios">
         <Servicios />

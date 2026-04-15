@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations, useLocale } from "next-intl"; // 🔥 Importación correcta
-import styles from "./Philosophy.module.css";
+import styles from "./Filosofia.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
