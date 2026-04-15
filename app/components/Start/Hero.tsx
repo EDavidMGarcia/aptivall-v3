@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
-import Link from "next/link";
+import React, { useRef, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,6 +13,17 @@ const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const locale = useLocale();
   const t = useTranslations("Hero");
+
+  // --- Función de Scroll Suave ---
+  const scrollToSection = useCallback((sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, []);
 
   useGSAP(
     () => {
@@ -76,17 +86,20 @@ const Hero: React.FC = () => {
           <p className={styles.heroSubtitle}>{t("description")}</p>
 
           <div className={styles.heroCtas}>
-            <Link href={`/${locale}#contact-section`} className={styles.btnPrimary}>
+            {/* BOTÓN CTA -> Envía a contacto */}
+            <button onClick={() => scrollToSection("contacto")} className={styles.btnPrimary}>
               {t("cta")}
               <span className={styles.btnArrow}>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </span>
-            </Link>
-            <Link href={`/${locale}/services`} className={styles.btnSecondary}>
+            </button>
+
+            {/* BOTÓN SERVICIOS -> Envía a servicios */}
+            <button onClick={() => scrollToSection("servicios")} className={styles.btnSecondary}>
               {t("viewServices")}
-            </Link>
+            </button>
           </div>
 
           <div className={styles.heroMeta}>
