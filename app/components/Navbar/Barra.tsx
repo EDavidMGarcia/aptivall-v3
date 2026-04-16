@@ -24,8 +24,6 @@ const Navbar: React.FC = memo(() => {
   useEffect(() => {
     const sections = ["inicio", "sobre", "servicios", "contacto"];
     
-    // Ajustamos el rootMargin para que el cambio de color ocurra 
-    // justo cuando la sección toca la parte inferior de la navbar (72px)
     const observerOptions = {
       root: null,
       rootMargin: "-72px 0px -70% 0px", 
@@ -69,16 +67,13 @@ const Navbar: React.FC = memo(() => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // --- 4. FUNCIÓN DE SCROLL LIMPIA (Usa el CSS scroll-margin-top) ---
+  // --- 4. FUNCIÓN DE SCROLL ---
   const scrollToSection = useCallback((sectionId: string) => {
     setIsOpen(false);
     
     if (pathname === `/${locale}`) {
       const section = document.getElementById(sectionId);
       if (section) {
-        // IMPORTANTE: Al usar scrollIntoView con "start", 
-        // el navegador leerá el 'scroll-margin-top: 72px' de tu CSS
-        // y lo dejará perfecto sin cálculos manuales.
         section.scrollIntoView({
           behavior: "smooth",
           block: "start" 
@@ -125,6 +120,20 @@ const Navbar: React.FC = memo(() => {
               {t("servicios")}
             </button>
           </li>
+
+          {/* 🔥 NUEVO BOTÓN ELEARNING */}
+          <li>
+            <a
+              href="https://aptivall.com/elearning/login/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.navItem}
+              onClick={() => setIsOpen(false)}
+            >
+              {t("elearning")}
+            </a>
+          </li>
+
           <li>
             <button 
               className={`${styles.navContact} ${activeSection === "contacto" ? styles.active : ""}`} 
@@ -133,6 +142,7 @@ const Navbar: React.FC = memo(() => {
               {t("contacto")}
             </button>
           </li>
+
           <li className={styles.langSwitch}>
             <button onClick={() => {
               const newPath = pathname.replace(`/${locale}`, `/${locale === "es" ? "en" : "es"}`);
