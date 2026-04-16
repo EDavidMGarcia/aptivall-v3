@@ -69,7 +69,7 @@ export async function sendEmail(formData: FormData, locale: string) {
         <!-- HEADER -->
         <tr>
           <td align="center" style="padding:30px 20px;">
-            <img src="https://aptivall.com/icons/aptiLogo.svg" width="140" alt="Aptivall" style="display:block;">
+            <img src="aptivall-v3.vercel.app/icons/aptiLogo.svg" width="140" alt="Aptivall" style="display:block;">
           </td>
         </tr>
 
