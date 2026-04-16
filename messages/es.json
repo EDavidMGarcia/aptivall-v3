@@ -151,6 +151,7 @@
     "subtitle": "Su visión merece un aliado que domine la complejidad. En Aptivall, convertimos su estrategia en tecnología de vanguardia.",
     "whatsappLabel": "WhatsApp directo",
     "form": {
+      "success_message": "¡Mensaje enviado con éxito!",
       "errors": {
         "name_short": "El nombre es muy corto",
         "email_invalid": "Correo electrónico inválido",

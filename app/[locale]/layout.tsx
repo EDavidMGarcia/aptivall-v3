@@ -8,6 +8,9 @@ import { notFound } from "next/navigation";
 import { getMessages } from "next-intl/server";
 import { locales, type Locale } from "../../i18n"; 
 
+// IMPORTACIÓN PARA NOTIFICACIONES
+import { Toaster } from "sonner";
+
 // 2. Importaciones de tus componentes
 import Barra from "../components/Navbar/Barra";
 import Finisher from "../components/PageFooter/Finisher";
@@ -54,6 +57,7 @@ export default async function RootLayout({
       <body className="min-h-full flex flex-col bg-black text-white">
         {/* Pasamos 'messages' y 'locale' para que todo el sitio sepa el idioma */}
         <NextIntlClientProvider messages={messages} locale={locale}>
+            <Toaster position="bottom-right" richColors theme="dark" closeButton />
             <Barra />
             <main className="flex-1">
               {children}

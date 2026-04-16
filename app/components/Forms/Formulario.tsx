@@ -8,6 +8,8 @@ import { useTranslations, useLocale } from "next-intl";
 import styles from "./Formulario.module.css";
 // IMPORTACIÓN DEL ACTION
 import { sendEmail } from "@/app/[locale]/actions";
+// IMPORTACIÓN PARA NOTIFICACIONES PREMIUM
+import { toast } from "sonner";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -90,12 +92,16 @@ const Formulario: React.FC = () => {
       if (result?.success) {
         setSent(true);
         setFormState({ name: "", email: "", subject: "", message: "" });
+        // Notificación de éxito elegante
+        toast.success(t("form.success_message") || "Message sent successfully!");
       } else if (result?.error) {
-        alert(t(`form.errors.${result.error}`));
+        // Notificación de error de validación (Zod o Honeypot)
+        toast.error(t(`form.errors.${result.error}`));
       }
     } catch (err) {
       console.error("Error al enviar:", err);
-      alert(t("form.errors.server_error"));
+      // Notificación de error crítico
+      toast.error(t("form.errors.server_error"));
     } finally {
       setSending(false);
     }

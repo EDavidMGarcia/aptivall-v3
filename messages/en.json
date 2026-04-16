@@ -150,6 +150,7 @@
     "subtitle": "Your vision deserves a partner who masters complexity. At Aptivall, we turn your strategy into cutting-edge technology.",
     "whatsappLabel": "Direct WhatsApp",
     "form": {
+      "success_message": "Message sent successfully!",
       "errors": {
         "name_short": "Name is too short",
         "email_invalid": "Invalid email address",

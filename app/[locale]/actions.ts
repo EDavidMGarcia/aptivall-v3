@@ -2,23 +2,32 @@
 
 import { Resend } from "resend";
 import { contactSchema } from "@/lib/schemas";
+import { z } from "zod";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function sendEmail(formData: FormData, locale: string) {
   const rawData = Object.fromEntries(formData.entries());
+
+  // 1. FILTRO ANTI-SPAM (Honeypot)
+  // Si un bot llena este campo, devolvemos éxito para engañarlo, pero no hacemos nada.
+  if (rawData._honeypot && String(rawData._honeypot).trim().length > 0) {
+    return { success: true };
+  }
+
+  // 2. VALIDACIÓN DE SERVIDOR CON ZOD
+  // Usamos el esquema que ya tienes para asegurar que los datos sean correctos
   const validatedData = contactSchema.safeParse(rawData);
 
   if (!validatedData.success) {
+    // Si la validación falla (ej. email mal escrito), devolvemos el primer error
     return { error: validatedData.error.issues[0].message };
   }
 
-  const { name, email, subject, message, _honeypot } = validatedData.data;
-
-  // Filtro anti-spam
-  if (_honeypot) return { success: true };
+  const { name, email, subject, message } = validatedData.data;
 
   try {
+    // Cargamos los mensajes para las plantillas según el idioma
     let messages;
     if (locale === "en") {
       messages = await import("@/messages/en.json");
@@ -28,7 +37,9 @@ export async function sendEmail(formData: FormData, locale: string) {
 
     const t = messages.default.ContactBar.emailTemplates;
 
-    // 1. CORREO INTERNO (SIN CAMBIOS)
+    // 3. ENVÍO DE CORREOS (STACK RESEND)
+    
+    // CORREO INTERNO: El que recibes tú con la información del lead
     await resend.emails.send({
       from: "Aptivall Web <onboarding@resend.dev>",
       to: "martinez.em246@gmail.com",
@@ -48,7 +59,7 @@ export async function sendEmail(formData: FormData, locale: string) {
       `
     });
 
-    // 2. CORREO USUARIO (DISEÑO PREMIUM DARK)
+    // CORREO DE CONFIRMACIÓN: El que recibe el cliente (Diseño Premium Dark)
     await resend.emails.send({
       from: "Aptivall <onboarding@resend.dev>",
       to: email,
@@ -57,74 +68,41 @@ export async function sendEmail(formData: FormData, locale: string) {
 <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#080808; padding:40px 0; font-family: Inter, Helvetica, Arial, sans-serif;">
   <tr>
     <td align="center">
-      
-      <!-- CONTENEDOR -->
       <table width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:90%; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.1); border-radius:16px; overflow:hidden;">
-        
-        <!-- BORDE NEÓN SUPERIOR -->
         <tr>
           <td style="height:3px; background: linear-gradient(90deg, #001DFF, #00FF81);"></td>
         </tr>
-
-        <!-- HEADER -->
         <tr>
           <td align="center" style="padding:30px 20px;">
-            <img src="aptivall-v3.vercel.app/icons/aptiLogo.svg" width="140" alt="Aptivall" style="display:block;">
+            <img src="https://aptivall-v3.vercel.app/icons/aptiLogo.svg" width="140" alt="Aptivall" style="display:block;">
           </td>
         </tr>
-
-        <!-- CONTENIDO -->
         <tr>
           <td style="padding:0 40px 30px 40px;">
-            
-            <!-- GREETING -->
             <h2 style="color:#FFFFFF; margin:0 0 15px 0; font-weight:600;">
               ${t.userGreeting.replace("{name}", name)}
             </h2>
-
-            <!-- BODY -->
             <p style="color:#888888; margin:0 0 20px 0; line-height:1.6;">
               ${t.userBody}
             </p>
-
-            <!-- BLOQUE ASUNTO -->
             <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin:25px 0;">
               <tr>
                 <td style="background:#0d0d0d; border:1px solid rgba(255,255,255,0.08); border-radius:12px; padding:18px;">
-                  <p style="color:#00FF81; font-size:12px; margin:0 0 8px 0; letter-spacing:1px;">
-                    SUBJECT
-                  </p>
-                  <p style="color:#FFFFFF; margin:0; font-size:14px;">
-                    ${subject || "..."}
-                  </p>
+                  <p style="color:#00FF81; font-size:12px; margin:0 0 8px 0; letter-spacing:1px;">ASUNTO / SUBJECT</p>
+                  <p style="color:#FFFFFF; margin:0; font-size:14px;">${subject || "..."}</p>
                 </td>
               </tr>
             </table>
-
-            <!-- FOLLOW UP -->
-            <p style="color:#888888; margin:0 0 20px 0; line-height:1.6;">
-              ${t.userFollowUp}
-            </p>
-
-            <!-- CLOSING -->
-            <p style="color:#FFFFFF; font-weight:500; margin-top:25px;">
-              ${t.userClosing}
-            </p>
-
+            <p style="color:#888888; margin:0 0 20px 0; line-height:1.6;">${t.userFollowUp}</p>
+            <p style="color:#FFFFFF; font-weight:500; margin-top:25px;">${t.userClosing}</p>
           </td>
         </tr>
-
-        <!-- FOOTER -->
         <tr>
           <td style="padding:20px; text-align:center; border-top:1px solid rgba(255,255,255,0.08);">
-            <p style="color:#666666; font-size:12px; margin:0;">
-              ${t.userFooter}
-            </p>
+            <p style="color:#666666; font-size:12px; margin:0;">${t.userFooter}</p>
           </td>
         </tr>
-
       </table>
-
     </td>
   </tr>
 </table>
