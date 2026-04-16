@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./Formulario.module.css";
+// IMPORTACIÓN DEL ACTION (Asegúrate de que la ruta sea correcta)
+import { sendEmail } from "@/app/[locale]/actions";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,15 +78,26 @@ const Formulario: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (sending || sent) return;
     setSending(true);
+
     try {
-      await new Promise((res) => setTimeout(res, 1200));
-      setSent(true);
+      // Capturamos los datos del formulario directamente
+      const formData = new FormData(e.currentTarget);
+      const result = await sendEmail(formData, locale);
+
+      if (result?.success) {
+        setSent(true);
+        setFormState({ name: "", email: "", subject: "", message: "" });
+      } else if (result?.error) {
+        // Mostramos el error traducido usando la clave que devuelve el servidor
+        alert(t(`form.errors.${result.error}`));
+      }
     } catch (err) {
       console.error("Error al enviar:", err);
+      alert(t("form.errors.server_error"));
     } finally {
       setSending(false);
     }
@@ -125,6 +138,9 @@ const Formulario: React.FC = () => {
         <div className={styles.formCard}>
           <div className={styles.formCardInner}>
             <form onSubmit={handleSubmit}>
+              {/* Campo Honeypot invisible para humanos, trampa para bots */}
+              <input type="text" name="_honeypot" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+              
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
                   <label className={styles.formLabel} htmlFor="cf-name">{t("form.labelName")}</label>

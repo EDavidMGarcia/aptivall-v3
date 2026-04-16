@@ -137,12 +137,26 @@
   },
 
   "ContactBar": {
+    "emailTemplates": {
+      "userSubject": "Recibimos tu mensaje - Aptivall",
+      "userGreeting": "¡Hola {name}!",
+      "userBody": "Gracias por contactarnos y por tu interés en trabajar con nosotros. Hemos recibido correctamente tu solicitud relacionada con:",
+      "userFollowUp": "Nuestro equipo revisará tu mensaje y uno de nuestros asesores se pondrá en contacto contigo en el menor tiempo posible.",
+      "userClosing": "Agradecemos tu confianza en Aptivall.",
+      "userFooter": "Este es un correo automático. No es necesario que respondas a este mensaje."
+    },
     "eyebrow": "Contáctanos",
     "title": "¿Listo para el siguiente",
     "titleHighlight": "nivel?",
     "subtitle": "Su visión merece un aliado que domine la complejidad. En Aptivall, convertimos su estrategia en tecnología de vanguardia.",
     "whatsappLabel": "WhatsApp directo",
     "form": {
+      "errors": {
+        "name_short": "El nombre es muy corto",
+        "email_invalid": "Correo electrónico inválido",
+        "message_short": "El mensaje debe tener al menos 10 caracteres",
+        "server_error": "Hubo un error en el servidor, intenta más tarde"
+      },
       "validation": {
         "required": "Este campo es obligatorio",
         "email": "Introduce un correo válido",
