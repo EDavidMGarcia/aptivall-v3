@@ -120,8 +120,6 @@ const Navbar: React.FC = memo(() => {
               {t("servicios")}
             </button>
           </li>
-
-          {/* 🔥 NUEVO BOTÓN ELEARNING */}
           <li>
             <a
               href="https://aptivall.com/elearning/login/index.php"
