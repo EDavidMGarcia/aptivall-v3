@@ -587,26 +587,30 @@
   width: 100%;
 }
 
+/* --- NÚMEROS PEQUEÑOS: CRECEN EN HOVER --- */
 .smallNumber {
   position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  top: 1.5rem;
+  right: 2rem;
   font-family: var(--font-geist), sans-serif;
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: var(--primary, #001DFF);
-  color: rgba(0, 29, 255, 0.45);
-  filter: brightness(1.5);
-  text-shadow: 0 0 15px rgba(0, 29, 255, 0.2);
-  transition: all 0.3s ease;
-  letter-spacing: -0.03em;
-  transition: color 0.3s ease;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(0, 29, 255, 0.45); /* Visible pero sutil al inicio */
+  font-variant-numeric: tabular-nums;
   user-select: none;
+  z-index: 1;
+  /* Estado inicial: Pequeño */
+  font-size: 1.2rem; 
+  filter: brightness(1.2);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto elástico */
 }
 
 .card:hover .smallNumber {
-  color: rgba(0, 29, 255, 0.8);
-  filter: brightness(2);
+  font-size: 5rem; /* Crece al mismo tamaño que el 01 */
+  color: rgba(0, 29, 255, 0.15);
+  filter: brightness(1.6);
+  text-shadow: 0 0 30px rgba(0, 29, 255, 0.3);
+  transform: translateY(-10px); /* Ajuste leve de posición al crecer */
 }
 
 .card {
@@ -619,7 +623,7 @@
   transition: transform 0.35s ease, background 0.4s ease;
 }
 
-/* 🌈 Glow dinámico */
+/* Glow dinámico */
 .card::after {
   content: '';
   position: absolute;
