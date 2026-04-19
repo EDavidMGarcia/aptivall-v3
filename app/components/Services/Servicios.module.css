@@ -604,3 +604,23 @@
   height: 100%;
   width: 100%;
 }
+
+.smallNumber {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem; /* 👈 antes era left */
+
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: -0.03em;
+
+  transition: color 0.3s ease;
+  user-select: none;
+}
+
+.card:hover .smallNumber {
+  color: rgba(255, 255, 255, 0.35);
+}

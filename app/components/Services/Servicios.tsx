@@ -102,7 +102,6 @@ const Services: React.FC = () => {
       <div className={styles.bgGlowGreen} />
 
       <div className={styles.container}>
-        {/* HEADER */}
         <div className={styles.sectionHeader}>
           <div className={styles.headerLeft}>
             <span className={styles.eyebrow}>{t("eyebrow")}</span>
@@ -126,10 +125,8 @@ const Services: React.FC = () => {
           </div>
         </div>
 
-        {/* BENTO GRID */}
         <div className={styles.bentoGrid}>
 
-          {/* CARD FEATURED */}
           <Link href={`/${locale}/services`} className={`${styles.card} ${styles.cardFeatured}`}>
             <div className={styles.cardInner}>
               <span className={styles.featuredNumber}>{featured.number}</span>
@@ -156,7 +153,6 @@ const Services: React.FC = () => {
             </div>
           </Link>
 
-          {/* 🔥 NUEVO WRAPPER FLEX */}
           <div className={styles.rightColumn}>
             {smallServices.map((service, i) => (
               <Link
@@ -165,6 +161,8 @@ const Services: React.FC = () => {
                 className={`${styles.card} ${styles.cardSmall}`}
               >
                 <div className={styles.cardInner}>
+                  <span className={styles.smallNumber}>{service.number}</span> {/* 👈 NUEVO */}
+
                   <div className={styles.iconWrapper}>{ICONS[i + 1]}</div>
 
                   <div className={styles.cardContent}>
