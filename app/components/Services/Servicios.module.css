@@ -1,17 +1,9 @@
-/* Services.module.css */
-
 .section {
   position: relative;
   padding: 140px 5% 120px;
   background: transparent;
   overflow: hidden;
 }
-
-/* ─── FONDO ────────────────────────────────────────────────────────
-   Diferenciamos esta sección de Philosophy con un glow azul primario
-   en vez de verde — mismo lenguaje visual, diferente énfasis.
-   Así cada sección tiene personalidad propia dentro del sistema.
-*/
 
 /* ─── CONTENEDOR ────────────────────────────────────────────────── */
 .container {
@@ -275,31 +267,14 @@
   que la diferencia de las cards normales — más presencia visual.
 */
 .cardFeatured .cardInner {
-  background: linear-gradient(
-    160deg,
-    rgba(0, 29, 255, 0.12) 0%,
-    rgba(10, 10, 13, 0.95) 40%,
-    rgba(10, 10, 13, 0.95) 100%
-  );
-  justify-content: flex-end; /* El contenido se ancla abajo */
+  background: rgba(10, 10, 13, 0.95); /* Fondo sólido oscuro igual a las demás */
+  justify-content: flex-end;
   padding: 2.5rem;
 }
 
-/* Glow interno de la card featured */
+/* 2. Eliminamos el resplandor radial de la parte superior */
 .cardFeatured .cardInner::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60%;
-  background: radial-gradient(
-    ellipse at 50% 0%,
-    rgba(0, 29, 255, 0.15) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  content: none; /* Esto quita el brillo azul de arriba */
 }
 
 .cardFeatured:hover .cardInner::after {
@@ -318,12 +293,18 @@
   line-height: 1;
   color: rgba(0, 29, 255, 0.12);
   font-variant-numeric: tabular-nums;
-  transition: color 0.4s ease;
+  transition: all 0.4s ease;
   user-select: none;
+  z-index: 1;
+
+  filter: brightness(1.3);
+  text-shadow: 0 0 25px rgba(0, 29, 255, 0.15);
 }
 
 .cardFeatured:hover .featuredNumber {
-  color: rgba(0, 29, 255, 0.22);
+  color: rgba(0, 29, 255, 0.25);
+  filter: brightness(1.8);
+  text-shadow: 0 0 35px rgba(0, 29, 255, 0.3);
 }
 
 /* Icono grande de la featured */
@@ -566,12 +547,9 @@
   /* Eyebrow interno de cada card — identifica el pilar */
 .cardEyebrow {
   font-family: var(--font-geist), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--primary, #001DFF);
-  filter: brightness(1.6);
+  font-size: 0.85rem; /* Puedes ajustar este tamaño si lo necesitas */
+  font-weight: 500;
+  color: var(--text-main, #ffffff); /* Vuelve a ser blanco */
   opacity: 0.85;
   transition: opacity 0.3s ease;
 }
@@ -608,19 +586,110 @@
 .smallNumber {
   position: absolute;
   top: 1rem;
-  right: 1.5rem; /* 👈 antes era left */
-
+  right: 1.5rem;
   font-family: var(--font-geist), sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
-
-  color: rgba(255, 255, 255, 0.15);
+  color: var(--primary, #001DFF);
+  color: rgba(0, 29, 255, 0.45);
+  filter: brightness(1.5);
+  text-shadow: 0 0 15px rgba(0, 29, 255, 0.2);
+  transition: all 0.3s ease;
   letter-spacing: -0.03em;
-
   transition: color 0.3s ease;
   user-select: none;
 }
 
 .card:hover .smallNumber {
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(0, 29, 255, 0.8);
+  filter: brightness(2);
 }
+
+.card {
+  position: relative;
+  border-radius: var(--radius-lg, 24px);
+  padding: 1px;
+  overflow: hidden;
+  cursor: pointer;
+
+  transition: transform 0.35s ease, background 0.4s ease;
+}
+
+/* 🌈 Glow dinámico */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(0, 29, 255, 0.18),
+    transparent 45%
+  );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.cardInner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+}
+
+.card:hover .cardInner::after {
+  transform: translateX(220%);
+  transition: transform 0.7s ease;
+}
+
+.cardFeatured .cardInner::before {
+  z-index: 1;
+}
+
+.cardFeatured .cardInner::after {
+  z-index: 2;
+}
+
+.card:active {
+  transform: translateY(-2px) scale(0.995);
+}
+
+.cardContent {
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cardContent {
+  transform: translateY(-2px);
+}
+
+.card:hover .iconWrapper,
+.card:hover .featuredIconWrapper {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.card:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 29, 255, 0.28) 0%,
+    rgba(0, 255, 129, 0.14) 100%
+  );
+}
+
