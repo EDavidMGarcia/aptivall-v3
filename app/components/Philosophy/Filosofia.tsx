@@ -4,12 +4,11 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations, useLocale } from "next-intl"; // 🔥 Importación correcta
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./Filosofia.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Definimos la interfaz para mantener el tipado fuerte de TS
 interface Pillar {
   number: string;
   title: string;
@@ -37,16 +36,13 @@ const ICONS = [
 
 const Philosophy: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const locale = useLocale(); // 🔥 Idioma de la URL
-  const t = useTranslations("Philosophy"); // 🔥 Traducciones de next-intl
+  const locale = useLocale();
+  const t = useTranslations("Philosophy");
 
-  // Obtenemos el array de pilares del JSON de forma segura
-  // next-intl permite obtener el objeto crudo usando .raw si es un array
   const pillars = t.raw("pillars") as Pillar[];
 
   useGSAP(
     () => {
-      // Animación del Header
       gsap.fromTo(
         `.${styles.sectionHeader}`,
         { y: 40, opacity: 0 },
@@ -58,12 +54,10 @@ const Philosophy: React.FC = () => {
           scrollTrigger: {
             trigger: `.${styles.sectionHeader}`,
             start: "top 85%",
-            toggleActions: "play none none none",
           },
         }
       );
 
-      // Animación de las Cards
       gsap.fromTo(
         `.${styles.card}`,
         { y: 50, opacity: 0 },
@@ -76,10 +70,59 @@ const Philosophy: React.FC = () => {
           scrollTrigger: {
             trigger: `.${styles.grid}`,
             start: "top 82%",
-            toggleActions: "play none none none",
           },
         }
       );
+
+      const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
+
+      let current = 0;
+
+      const setActive = (index: number) => {
+        cards.forEach((card: HTMLElement, i: number) => {
+          card.classList.remove(styles.activeCard);
+
+          if (i === index) {
+            card.classList.add(styles.activeCard);
+
+            gsap.to(card, {
+              scale: 1.05,
+              y: -8,
+              boxShadow: "0 0 60px rgba(0,255,129,0.25)", // 🔥 detalle pro
+              duration: 0.6,
+              ease: "power3.out",
+            });
+          } else {
+            gsap.to(card, {
+              scale: 0.97,
+              y: 0,
+              boxShadow: "0 0 0 rgba(0,0,0,0)",
+              duration: 0.45,
+              ease: "power3.out",
+            });
+          }
+        });
+      };
+
+      const tl = gsap.timeline({ repeat: -1, delay: 1 });
+
+      cards.forEach((_, i) => {
+        tl.call(() => {
+          current = i;
+          setActive(current);
+        }).to({}, { duration: 3 });
+      });
+
+      cards.forEach((card: HTMLElement, i: number) => {
+        card.addEventListener("mouseenter", () => {
+          tl.pause();
+          setActive(i);
+        });
+
+        card.addEventListener("mouseleave", () => {
+          tl.resume();
+        });
+      });
     },
     { scope: sectionRef, dependencies: [locale] }
   );
@@ -89,7 +132,6 @@ const Philosophy: React.FC = () => {
       <div className={styles.bgGlow} />
 
       <div className={styles.container}>
-        {/* HEADER */}
         <div className={styles.sectionHeader}>
           <span className={styles.eyebrow}>{t("eyebrow")}</span>
           <h2 className={styles.sectionTitle}>
@@ -103,18 +145,14 @@ const Philosophy: React.FC = () => {
           </p>
         </div>
 
-        {/* GRID DE CARDS */}
         <div className={styles.grid}>
           {pillars.map((pillar, i) => (
             <div className={styles.card} key={pillar.number}>
               <div className={styles.cardInner}>
                 <span className={styles.cardNumber}>{pillar.number}</span>
-
                 <div className={styles.iconWrapper}>{ICONS[i]}</div>
-
                 <h3 className={styles.cardTitle}>{pillar.title}</h3>
                 <p className={styles.cardDescription}>{pillar.description}</p>
-
                 <span className={styles.cardTag}>{pillar.tag}</span>
               </div>
             </div>
