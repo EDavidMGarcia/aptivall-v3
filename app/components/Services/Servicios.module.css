@@ -181,6 +181,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 20px;
+  align-items: stretch; /* 🔥 importante */
 }
 
 /* ─── CARD BASE ─────────────────────────────────────────────────── */
@@ -583,4 +584,23 @@
 .cardFeatured .cardContent {
   gap: 0.65rem;
 }
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* 🔥 hereda altura de la featured */
+}
+
+.cardSmall {
+  flex: 1; /* 🔥 TODAS empiezan iguales */
+  min-height: 0; /* 🔥 evita bugs de overflow en flex */
+  display: flex;
+  transition: flex-grow 0.4s ease;
+}
+
+.cardSmall .cardInner {
+  height: 100%;
+  width: 100%;
 }

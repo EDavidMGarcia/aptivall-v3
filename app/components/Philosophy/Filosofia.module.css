@@ -369,3 +369,9 @@
 .card.activeCard .cardTag::before {
   width: 28px;
 }
+
+/* Reveal por líneas */
+.splitLine {
+  overflow: hidden;
+  display: block;
+}

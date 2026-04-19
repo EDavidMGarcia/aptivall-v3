@@ -5,12 +5,11 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations, useLocale } from "next-intl"; // 🔥 Importación correcta
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./Servicios.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Interfaces para mantener el tipado fuerte
 interface ServiceItem {
   id: string;
   number?: string;
@@ -37,10 +36,9 @@ const ICONS = [
 
 const Services: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
-  const locale = useLocale(); // 🔥 Idioma real de la URL
-  const t = useTranslations("Services"); // 🔥 Diccionario next-intl
+  const locale = useLocale();
+  const t = useTranslations("Services");
 
-  // Obtenemos los servicios del JSON y desestructuramos
   const servicesData = t.raw("services") as ServiceItem[];
   const [featured, ...smallServices] = servicesData;
 
@@ -50,7 +48,10 @@ const Services: React.FC = () => {
         `.${styles.sectionHeader}`,
         { y: 40, opacity: 0 },
         {
-          y: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+          y: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.sectionHeader}`,
             start: "top 85%",
@@ -63,7 +64,10 @@ const Services: React.FC = () => {
         `.${styles.cardFeatured}`,
         { x: -50, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 0.9, ease: "power3.out",
+          x: 0,
+          opacity: 1,
+          duration: 0.9,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: `.${styles.bentoGrid}`,
             start: "top 82%",
@@ -76,7 +80,10 @@ const Services: React.FC = () => {
         `.${styles.cardSmall}`,
         { x: 40, opacity: 0 },
         {
-          x: 0, opacity: 1, duration: 0.75, ease: "power3.out",
+          x: 0,
+          opacity: 1,
+          duration: 0.75,
+          ease: "power3.out",
           stagger: 0.12,
           scrollTrigger: {
             trigger: `.${styles.bentoGrid}`,
@@ -121,6 +128,7 @@ const Services: React.FC = () => {
 
         {/* BENTO GRID */}
         <div className={styles.bentoGrid}>
+
           {/* CARD FEATURED */}
           <Link href={`/${locale}/services`} className={`${styles.card} ${styles.cardFeatured}`}>
             <div className={styles.cardInner}>
@@ -148,24 +156,33 @@ const Services: React.FC = () => {
             </div>
           </Link>
 
-          {/* CARDS PEQUEÑAS */}
-          {smallServices.map((service, i) => (
-            <Link key={service.id} href={`/${locale}/services`} className={`${styles.card} ${styles.cardSmall}`}>
-              <div className={styles.cardInner}>
-                <div className={styles.iconWrapper}>{ICONS[i + 1]}</div>
-                <div className={styles.cardContent}>
-                  <span className={styles.cardEyebrow}>{service.eyebrow}</span>
-                  <h3 className={styles.cardTitle}>{service.title}</h3>
-                  <p className={styles.cardDescription}>{service.description}</p>
-                  <div className={styles.cardTags}>
-                    {service.tags.map((tag) => (
-                      <span key={tag} className={styles.tag}>{tag}</span>
-                    ))}
+          {/* 🔥 NUEVO WRAPPER FLEX */}
+          <div className={styles.rightColumn}>
+            {smallServices.map((service, i) => (
+              <Link
+                key={service.id}
+                href={`/${locale}/services`}
+                className={`${styles.card} ${styles.cardSmall}`}
+              >
+                <div className={styles.cardInner}>
+                  <div className={styles.iconWrapper}>{ICONS[i + 1]}</div>
+
+                  <div className={styles.cardContent}>
+                    <span className={styles.cardEyebrow}>{service.eyebrow}</span>
+                    <h3 className={styles.cardTitle}>{service.title}</h3>
+                    <p className={styles.cardDescription}>{service.description}</p>
+
+                    <div className={styles.cardTags}>
+                      {service.tags.map((tag) => (
+                        <span key={tag} className={styles.tag}>{tag}</span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

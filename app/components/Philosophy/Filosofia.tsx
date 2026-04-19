@@ -3,11 +3,12 @@
 import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { SplitText } from "gsap/SplitText"; // ✅ AÑADIDO
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./Filosofia.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText); // ✅ AÑADIDO
 
 interface Pillar {
   number: string;
@@ -36,6 +37,7 @@ const ICONS = [
 
 const Philosophy: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null); // ✅ AÑADIDO
   const locale = useLocale();
   const t = useTranslations("Philosophy");
 
@@ -43,21 +45,52 @@ const Philosophy: React.FC = () => {
 
   useGSAP(
     () => {
+      // 🔥 SPLIT POR LÍNEAS
+      let splitTitle: SplitText | null = null;
+
+      if (titleRef.current) {
+        splitTitle = new SplitText(titleRef.current, {
+          type: "lines",
+          linesClass: styles.splitLine
+        });
+      }
+
+      // 🔥 ANIMACIÓN HEADER
+      if (splitTitle) {
+        gsap.fromTo(
+          splitTitle.lines,
+          { yPercent: 100, opacity: 0 },
+          {
+            yPercent: 0,
+            opacity: 1,
+            duration: 0.9,
+            stagger: 0.08,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+
+      // 🔥 SUBTÍTULO (se mantiene igual)
       gsap.fromTo(
-        `.${styles.sectionHeader}`,
-        { y: 40, opacity: 0 },
+        `.${styles.sectionSubtitle}`,
+        { y: 30, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.9,
+          duration: 0.8,
           ease: "power3.out",
           scrollTrigger: {
-            trigger: `.${styles.sectionHeader}`,
+            trigger: `.${styles.sectionSubtitle}`,
             start: "top 85%",
           },
         }
       );
 
+      // 🔥 CARDS (igual)
       gsap.fromTo(
         `.${styles.card}`,
         { y: 50, opacity: 0 },
@@ -75,7 +108,6 @@ const Philosophy: React.FC = () => {
       );
 
       const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
-
       let current = 0;
 
       const setActive = (index: number) => {
@@ -88,7 +120,7 @@ const Philosophy: React.FC = () => {
             gsap.to(card, {
               scale: 1.05,
               y: -8,
-              boxShadow: "0 0 60px rgba(0,255,129,0.25)", // 🔥 detalle pro
+              boxShadow: "0 0 60px rgba(0,255,129,0.25)",
               duration: 0.6,
               ease: "power3.out",
             });
@@ -123,6 +155,10 @@ const Philosophy: React.FC = () => {
           tl.resume();
         });
       });
+
+      return () => {
+        if (splitTitle) splitTitle.revert(); // ✅ limpieza
+      };
     },
     { scope: sectionRef, dependencies: [locale] }
   );
@@ -134,10 +170,13 @@ const Philosophy: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <span className={styles.eyebrow}>{t("eyebrow")}</span>
-          <h2 className={styles.sectionTitle}>
+
+          {/* ✅ SOLO AÑADIMOS ref */}
+          <h2 className={styles.sectionTitle} ref={titleRef}>
             {t("title")}{" "}
             <span className={styles.accentWord}>{t("titleHighlight")}</span>
           </h2>
+
           <p className={styles.sectionSubtitle}>
             {t("subtitle")}{" "}
             <span className={styles.accentWord}>{t("subtitleHighlight")}</span>{" "}
