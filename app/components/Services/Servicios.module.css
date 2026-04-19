@@ -315,10 +315,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 29, 255, 0.12);
-  border: 1px solid rgba(0, 29, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 0.5rem;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+  filter: brightness(1);
+  transition: all 0.3s ease;
 }
 
 .cardFeatured:hover .featuredIconWrapper {
@@ -330,13 +331,14 @@
 .featuredIconWrapper svg {
   width: 28px;
   height: 28px;
-  color: var(--primary, #001DFF);
+  color: rgba(255, 255, 255, 0.6);
   filter: brightness(1.8);
   transition: filter 0.3s ease;
 }
 
 .cardFeatured:hover .featuredIconWrapper svg {
-  filter: brightness(2.2);
+  color: var(--primary, #001DFF);
+  filter: brightness(2) drop-shadow(0 0 8px rgba(0, 29, 255, 0.5));
 }
 
 /* Badge "Destacado" */
@@ -402,20 +404,22 @@
 }
 
 .card:hover .iconWrapper {
-  background: rgba(0, 255, 129, 0.1);
-  border-color: rgba(0, 255, 129, 0.22);
-  transform: scale(1.08) rotate(-3deg);
+  background: rgba(0, 29, 255, 0.15);
+  border-color: rgba(0, 29, 255, 0.3);
+  transform: scale(1.1) rotate(-3deg);
+  
 }
 
 .iconWrapper svg {
   width: 20px;
   height: 20px;
-  color: rgba(255, 255, 255, 0.6);
-  transition: color 0.3s ease;
+  color: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
 .card:hover .iconWrapper svg {
-  color: var(--secondary, #00FF81);
+  color: var(--primary, #001DFF);
+  filter: brightness(1.8) drop-shadow(0 0 5px rgba(0, 29, 255, 0.4));
 }
 
 /* ─── TEXTO DENTRO DE CARDS ─────────────────────────────────────── */
@@ -685,11 +689,12 @@
   transform: scale(1.1) rotate(-3deg);
 }
 
+/* Gradiente de borde de la card en hover - Solo Azules */
 .card:hover {
   background: linear-gradient(
     135deg,
-    rgba(0, 29, 255, 0.28) 0%,
-    rgba(0, 255, 129, 0.14) 100%
+    rgba(0, 29, 255, 0.3) 0%,
+    rgba(0, 40, 255, 0.1) 100%
   );
 }
 
