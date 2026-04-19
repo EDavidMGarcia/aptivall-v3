@@ -485,5 +485,9 @@
   .heroVisual {
     height: 260px;
   }
-}
 
+  .splitWord {
+  display: inline-block;
+  white-space: nowrap;
+}
+}
