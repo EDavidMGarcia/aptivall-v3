@@ -405,7 +405,7 @@
 
 .card:hover .iconWrapper {
   background: rgba(0, 29, 255, 0.15);
-  border-color: rgba(0, 29, 255, 0.3);
+  border-color: rgba(0, 29, 255, 0.35); /* Un poco más de borde */
   transform: scale(1.1) rotate(-3deg);
   
 }
@@ -419,7 +419,7 @@
 
 .card:hover .iconWrapper svg {
   color: var(--primary, #001DFF);
-  filter: brightness(1.8) drop-shadow(0 0 5px rgba(0, 29, 255, 0.4));
+  filter: brightness(2) drop-shadow(0 0 8px rgba(0, 29, 255, 0.5));
 }
 
 /* ─── TEXTO DENTRO DE CARDS ─────────────────────────────────────── */
@@ -693,12 +693,13 @@
   transform: scale(1.1) rotate(-3deg);
 }
 
-/* Gradiente de borde de la card en hover - Solo Azules */
+/* Gradiente de fondo de la card en hover - Unificado */
 .card:hover {
   background: linear-gradient(
     135deg,
-    rgba(0, 29, 255, 0.3) 0%,
-    rgba(0, 40, 255, 0.1) 100%
+    rgba(0, 29, 255, 0.25) 0%,   /* Azul */
+    rgba(255, 255, 255, 0) 40%,  /* Transparente al centro */
+    rgba(0, 255, 129, 0.15) 100% /* Verde sutil al final */
   );
+  transform: translateY(-3px);
 }
-
