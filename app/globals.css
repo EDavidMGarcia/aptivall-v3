@@ -4,54 +4,69 @@
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.5rem; /* Margen de seguridad para móviles */
 }
 
-/* ── Sin background en body/main — el canvas lo pone él solo ── */
-body, #__next, main {
-  background: transparent;  /* ← CRÍTICO: de #020205 a transparent */
-  position: relative;
-}
-
-/* ── Vignette perimetral ── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 40%,
-    rgba(0, 0, 0, 0.55) 75%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
-  pointer-events: none;
-  z-index: 1;  /* ← sube a 1, por encima del canvas */
-}
-
-/* ── Línea de horizonte ── */
-body::after {
-  content: '';
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 35vh;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.6) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-  z-index: 1;  /* ← sube a 1 también */
-}
-
-/* ── Overlay de grain global (refuerza textura) ── */
 .globalGlow::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.025;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,29,255,0.15), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0,255,129,0.15), transparent 50%);
+  filter: blur(120px);
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Fondo base */
+body, #__next, main {
+  background: radial-gradient(
+  circle at center,
+  #0a0a0d 0%,
+  #050505 100%
+);
+  position: relative;
+}
+
+/* 🔵 GLOW AZUL IZQUIERDA — MÁS PRESENTE (como ContactBar) */
+body::before {
+  content: '';
+  position: fixed;
+  width: 900px;
+  height: 900px;
+  left: -150px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 29, 255, 0.35) 0%,
+    rgba(0, 29, 255, 0.15) 35%,
+    rgba(0, 29, 255, 0.05) 60%,
+    transparent 75%
+  );
   pointer-events: none;
   z-index: 1;
+  filter: blur(80px);
+}
+
+/* 🟢 GLOW VERDE DERECHA — equilibrado */
+body::after {
+  content: '';
+  position: fixed;
+  width: 800px;
+  height: 800px;
+  right: -100px;
+  top: 10%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 129, 0.28) 0%,
+    rgba(0, 255, 129, 0.12) 40%,
+    rgba(0, 255, 129, 0.04) 65%,
+    transparent 75%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(80px);
 }
