@@ -1,0 +1,160 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  z-index: 50;
+}
+
+:global(html),
+:global(body) {
+  height: auto;
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 IMPORTANTE: usa SOLO px para precisión */
+
+.initial { left: 68.5%; top: 285px; }
+.second  { left: 30%; top: 550px; }
+.third   { left: 10%; top: 1000px; }
+.fourth  { left: 40%; top: 1100px; }
+.fifth   { left: 50%; top: 1150px; }
+.sixth   { left: 50%; top: 1200px; }
+
+.seventh { left: 30%; top: 1450px; }
+.eight   { left: 80%; top: 2000px; }
+.nine    { left: 45%; top: 2500px; }
+.ten     { left: 68.5%; top: 2700px; }
+.eleven  { left: 45%; top: 2900px; }
+.twelve  { left: 13%; top: 3100px; }
+
+.thirteen  { left: 45%; top: 3300px; }
+.fourteen  { left: 68.5%; top: 3500px; }
+.fifteen   { left: 45%; top: 3700px; }
+.sixteen   { left: 13%; top: 3900px; }
+.seventeen { left: 45%; top: 4100px; }
+
+/* 🔥 CLAVE: NO uses % aquí */
+.eighteen {
+  left: 33%;
+  top: 4310px;
+}
+
+.marker {
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 50%;
+  box-shadow: 0 0 10px red;
+}
+
+/* ── Contenedor del orbe: sin borde visible ── */
+.box {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* sin background-image ni border-radius */
+}
+
+/* ── SVG del orbe ── */
+.orbeSvg {
+  width: 140px;
+  height: 140px;
+  overflow: visible; /* permite que el glow sobresalga */
+  filter:
+    drop-shadow(0 0 12px rgba(100, 80, 255, 0.9))
+    drop-shadow(0 0 30px rgba(80, 50, 200, 0.6))
+    drop-shadow(0 0 60px rgba(50, 30, 150, 0.35));
+}
+
+/* ── Anillos orbitales rotan suavemente ── */
+.orbeRing {
+  animation: ringRotate1 6s linear infinite;
+  transform-origin: 80px 80px;
+}
+
+.orbeRing2 {
+  animation: ringRotate2 9s linear infinite reverse;
+  transform-origin: 80px 80px;
+}
+
+/* ── Núcleo pulsa ── */
+.orbeCore {
+  animation: corePulse 2.8s ease-in-out infinite;
+  transform-origin: 80px 80px;
+}
+
+/* ── Punto central destella ── */
+.orbeDot {
+  animation: dotFlicker 3.5s ease-in-out infinite;
+}
+
+/* ── Partículas orbitan alrededor ── */
+.spark1 {
+  animation: sparkOrbit1 4s linear infinite;
+  transform-origin: 80px 80px;
+}
+
+.spark2 {
+  animation: sparkOrbit2 5.5s linear infinite reverse;
+  transform-origin: 80px 80px;
+}
+
+.spark3 {
+  animation: sparkOrbit1 7s linear infinite;
+  transform-origin: 80px 80px;
+}
+
+/* ── Keyframes ── */
+@keyframes ringRotate1 {
+  from { transform: rotate(-22deg); }
+  to   { transform: rotate(338deg); }
+}
+
+@keyframes ringRotate2 {
+  from { transform: rotate(58deg); }
+  to   { transform: rotate(418deg); }
+}
+
+@keyframes corePulse {
+  0%, 100% { opacity: 0.7; transform: scale(0.85); }
+  50%       { opacity: 1;   transform: scale(1.15); }
+}
+
+@keyframes dotFlicker {
+  0%, 100% { opacity: 0.9; }
+  45%       { opacity: 0.4; }
+  50%       { opacity: 1;   }
+  55%       { opacity: 0.6; }
+}
+
+@keyframes sparkOrbit1 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes sparkOrbit2 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

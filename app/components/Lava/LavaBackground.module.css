@@ -1,0 +1,12 @@
+.lavaCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;        /* ← de -2 a 0, así no queda enterrado */
+  pointer-events: none;
+
+  /* Blur para suavizar las gotas y crear el efecto lava lamp */
+  filter: blur(0px) contrast(1);
+}
