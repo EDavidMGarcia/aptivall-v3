@@ -112,89 +112,89 @@ export default function ScrollStar() {
             >
               <defs>
 
-                {/* Gradiente principal — igual que el orbe */}
-                <radialGradient id="starGradMain" cx="38%" cy="32%" r="70%">
-                  <stop offset="0%"   stopColor="#C8BAFF" />
-                  <stop offset="25%"  stopColor="#7C5CFC" />
-                  <stop offset="55%"  stopColor="#2D1FA8" />
-                  <stop offset="85%"  stopColor="#0A0840" />
-                  <stop offset="100%" stopColor="#000318" stopOpacity="0.95" />
-                </radialGradient>
+  {/* Gradiente principal — azul profundo */}
+  <radialGradient id="starGradMain" cx="38%" cy="32%" r="70%">
+    <stop offset="0%"   stopColor="#6688FF" />
+    <stop offset="25%"  stopColor="#2244DD" />
+    <stop offset="55%"  stopColor="#0A1FA8" />
+    <stop offset="85%"  stopColor="#030B40" />
+    <stop offset="100%" stopColor="#010318" stopOpacity="0.95" />
+  </radialGradient>
 
-                {/* Brillo especular superior */}
-                <radialGradient id="starShine" cx="38%" cy="25%" r="40%">
-                  <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.7" />
-                  <stop offset="55%"  stopColor="#A090FF" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#A090FF" stopOpacity="0" />
-                </radialGradient>
+  {/* Brillo especular — azul claro en vez de blanco */}
+  <radialGradient id="starShine" cx="38%" cy="25%" r="40%">
+    <stop offset="0%"   stopColor="#99BBFF" stopOpacity="0.6" />
+    <stop offset="55%"  stopColor="#4466FF" stopOpacity="0.12" />
+    <stop offset="100%" stopColor="#4466FF" stopOpacity="0" />
+  </radialGradient>
 
-                {/* Gradiente del anillo */}
-                <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="60%"  stopColor="#5533FF" stopOpacity="0" />
-                  <stop offset="80%"  stopColor="#7755FF" stopOpacity="0.6" />
-                  <stop offset="90%"  stopColor="#AACCFF" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#5533FF" stopOpacity="0" />
-                </radialGradient>
+  {/* Gradiente del anillo — tonos azul eléctrico */}
+  <radialGradient id="ringGrad" cx="50%" cy="50%" r="50%">
+    <stop offset="60%"  stopColor="#001DFF" stopOpacity="0" />
+    <stop offset="80%"  stopColor="#2244FF" stopOpacity="0.6" />
+    <stop offset="90%"  stopColor="#5577FF" stopOpacity="0.9" />
+    <stop offset="100%" stopColor="#001DFF" stopOpacity="0" />
+  </radialGradient>
 
-                {/* Núcleo */}
-                <radialGradient id="starCore" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stopColor="#FFFFFF" stopOpacity="0.9" />
-                  <stop offset="40%"  stopColor="#8B6FFF" stopOpacity="0.5" />
-                  <stop offset="100%" stopColor="#3B1FCC" stopOpacity="0" />
-                </radialGradient>
+  {/* Núcleo — azul eléctrico */}
+  <radialGradient id="starCore" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"   stopColor="#AABBFF" stopOpacity="0.9" />
+    <stop offset="40%"  stopColor="#3355FF" stopOpacity="0.5" />
+    <stop offset="100%" stopColor="#001DFF" stopOpacity="0" />
+  </radialGradient>
 
-                {/* Glow exterior */}
-                <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="7" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
+  {/* Glow exterior */}
+  <filter id="starGlow" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur stdDeviation="7" result="blur" />
+    <feMerge>
+      <feMergeNode in="blur" />
+      <feMergeNode in="blur" />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
 
-                {/* Glow del anillo */}
-                <filter id="ringGlow" x="-30%" y="-30%" width="160%" height="160%">
-                  <feGaussianBlur stdDeviation="2.5" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
+  {/* Glow del anillo */}
+  <filter id="ringGlow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur stdDeviation="2.5" result="blur" />
+    <feMerge>
+      <feMergeNode in="blur" />
+      <feMergeNode in="SourceGraphic" />
+    </feMerge>
+  </filter>
 
-                {/* Clip en forma de estrella redondeada para el shine */}
-                <clipPath id="starClip">
-                  <path d="
-                    M100,18
-                    C100,18 108,18 112,24
-                    L124,58
-                    C126,63 130,66 136,67
-                    L171,68
-                    C177,68 180,72 178,77
-                    C176,80 174,82 172,84
-                    L145,106
-                    C141,110 139,115 141,121
-                    L151,156
-                    C153,162 149,167 144,165
-                    C141,164 139,163 137,161
-                    L107,140
-                    C103,137 97,137 93,140
-                    L63,161
-                    C58,164 53,162 51,157
-                    C50,154 50,151 51,148
-                    L61,121
-                    C63,115 61,110 57,106
-                    L28,84
-                    C23,80 23,74 28,71
-                    C30,69 33,68 36,68
-                    L64,67
-                    C70,66 74,63 76,58
-                    L88,24
-                    C90,18 95,15 100,18 Z
-                  " />
-                </clipPath>
+  {/* Clip estrella redondeada */}
+  <clipPath id="starClip">
+    <path d="
+      M100,18
+      C100,18 108,18 112,24
+      L124,58
+      C126,63 130,66 136,67
+      L171,68
+      C177,68 180,72 178,77
+      C176,80 174,82 172,84
+      L145,106
+      C141,110 139,115 141,121
+      L151,156
+      C153,162 149,167 144,165
+      C141,164 139,163 137,161
+      L107,140
+      C103,137 97,137 93,140
+      L63,161
+      C58,164 53,162 51,157
+      C50,154 50,151 51,148
+      L61,121
+      C63,115 61,110 57,106
+      L28,84
+      C23,80 23,74 28,71
+      C30,69 33,68 36,68
+      L64,67
+      C70,66 74,63 76,58
+      L88,24
+      C90,18 95,15 100,18 Z
+    " />
+  </clipPath>
 
-              </defs>
+</defs>
 
               {/* ── Halo exterior difuso ── */}
               <circle
@@ -261,8 +261,8 @@ export default function ScrollStar() {
                   L88,24
                   C90,18 95,15 100,18 Z
                 "
-                fill="#3333CC"
-                opacity="0.3"
+                fill="#001DFF"
+                opacity="0.25"
                 filter="url(#starGlow)"
                 transform="scale(1.12) translate(-9, -9)"
               />
@@ -333,21 +333,6 @@ export default function ScrollStar() {
                 "
                 fill="url(#starShine)"
                 clipPath="url(#starClip)"
-              />
-
-              {/* ── Núcleo central pulsante ── */}
-              <circle
-                cx="100" cy="100" r="18"
-                fill="url(#starCore)"
-                className={styles.starCore}
-              />
-
-              {/* ── Punto de luz central ── */}
-              <circle
-                cx="100" cy="100" r="4.5"
-                fill="white"
-                opacity="0.9"
-                className={styles.starDot}
               />
 
               {/* ── Lens flare ── */}
