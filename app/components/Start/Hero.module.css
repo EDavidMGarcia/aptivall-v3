@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  z-index: 1;
+  z-index: 15;
 }
 
 /* Eyebrow — pequeña etiqueta sobre el título */
