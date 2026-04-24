@@ -125,12 +125,20 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   background: rgba(10, 10, 14, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.07),
     0 20px 60px rgba(0, 0, 0, 0.6),
     inset 0 0 0 1px color-mix(in srgb, var(--card-color) 15%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
 }
 
+/* Borde superior con color de tarjeta — igual que cardBack */
 .cardFront::before {
   content: '';
   position: absolute;
@@ -142,12 +150,36 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.12) 50%,
+    color-mix(in srgb, var(--card-color) 45%, transparent) 50%,
     transparent 100%
   );
   z-index: 3;
   pointer-events: none;
 }
+
+/* Barra de color inferior — igual que cardBack */
+.cardFront::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 0 0 24px 24px;
+  background: color-mix(in srgb, var(--card-color) 80%, transparent);
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Glow hover — igual que cardBack */
+.card:hover .cardFront {
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--card-color) 25%, transparent),
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    0 0 40px color-mix(in srgb, var(--card-color) 12%, transparent),
+    inset 0 0 0 1px color-mix(in srgb, var(--card-color) 20%, transparent);
+}
+
 
 .cardImage {
   width: 100%;
@@ -163,21 +195,30 @@
   inset: 0;
   background: linear-gradient(
     to bottom,
-    transparent 45%,
-    rgba(0, 0, 0, 0.78) 100%
+    transparent 55%,
+    rgba(0, 0, 0, 0.82) 100%
   );
   display: flex;
   align-items: flex-end;
-  padding: 24px;
+  justify-content: space-between;
+  padding: 20px 22px 22px;
   z-index: 2;
 }
 
+/* Mismo gradiente de texto que .cardTag */
 .cardFrontLabel {
   font-family: var(--font-geist), sans-serif;
   font-size: 1.1rem;
   font-weight: 800;
   letter-spacing: -0.03em;
-  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    color-mix(in srgb, var(--card-color) 80%, #ffffff) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ═══════════════════════════════════════════════════════════════════

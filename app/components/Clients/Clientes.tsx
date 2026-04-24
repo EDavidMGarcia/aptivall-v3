@@ -19,7 +19,7 @@ interface CaseCard {
 
 // ─── Constantes ──────────────────────────────────────────────────────────────
 
-const CARD_COLORS = ["#7c6fff", "#ff6b9d", "#00d4aa", "#ffa94d", "#38d9f5"];
+const CARD_COLORS = ["#0093d0", "#D71500", "#7FBA00", "#00C2CB", "#b6024F"];
 const CARD_WIDTH = 260;
 const CARD_GAP = 32;
 const STEP = CARD_WIDTH + CARD_GAP;
@@ -275,6 +275,7 @@ export default function CaseStudies() {
                 />
                 <div className={styles.cardFrontOverlay}>
                   <span className={styles.cardFrontLabel}>{card.client}</span>
+                  <span className={styles.cardId}>0{card.id}</span>
                 </div>
               </div>
 
