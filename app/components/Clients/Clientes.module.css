@@ -101,7 +101,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════
-   CARD
+   CARD — contenedor posicionable por GSAP
    ═══════════════════════════════════════════════════════════════════ */
 .card {
   position: absolute;
@@ -109,30 +109,29 @@
   top: -200px;
   width: 300px;
   height: 400px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  cursor: pointer;
+}
 
-  background: rgba(10, 10, 14, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-
-  border: 1px solid rgba(255, 255, 255, 0);
+/* ═══════════════════════════════════════════════════════════════════
+   CARA FRONTAL — imagen
+   ═══════════════════════════════════════════════════════════════════ */
+.cardFront {
+  position: absolute;
+  inset: 0;
   border-radius: 24px;
-  padding: 2px;
-
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: rgba(10, 10, 14, 0.92);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.07),
     0 20px 60px rgba(0, 0, 0, 0.6),
     inset 0 0 0 1px color-mix(in srgb, var(--card-color) 15%, transparent);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
-  will-change: transform, opacity;
-
-  transition: box-shadow 0.3s ease;
 }
 
-.card::before {
+.cardFront::before {
   content: '';
   position: absolute;
   top: 0;
@@ -146,42 +145,89 @@
     rgba(255, 255, 255, 0.12) 50%,
     transparent 100%
   );
-  transition: background 0.3s ease;
-  z-index: 1;
+  z-index: 3;
   pointer-events: none;
 }
 
-.card:hover::before {
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.cardFrontOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 45%,
+    rgba(0, 0, 0, 0.78) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  z-index: 2;
+}
+
+.cardFrontLabel {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CARA TRASERA — contenido de texto
+   ═══════════════════════════════════════════════════════════════════ */
+.cardBack {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: rgba(10, 10, 14, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.07),
+    0 20px 60px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px color-mix(in srgb, var(--card-color) 15%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  transition: box-shadow 0.3s ease;
+}
+
+.cardBack::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  border-radius: 24px 24px 0 0;
   background: linear-gradient(
     90deg,
     transparent 0%,
     color-mix(in srgb, var(--card-color) 45%, transparent) 50%,
     transparent 100%
   );
+  z-index: 3;
+  pointer-events: none;
 }
 
-.card:hover {
+.card:hover .cardBack {
   box-shadow:
     0 0 0 1px color-mix(in srgb, var(--card-color) 25%, transparent),
     0 20px 60px rgba(0, 0, 0, 0.6),
     0 0 40px color-mix(in srgb, var(--card-color) 12%, transparent),
     inset 0 0 0 1px color-mix(in srgb, var(--card-color) 20%, transparent);
-}
-
-.cardHeader,
-.cardBody,
-.cardFooter {
-  position: relative;
-  z-index: 2;
-  padding: 0 22px;
-}
-
-.cardHeader {
-  padding-top: 28px;
-}
-
-.cardFooter {
-  padding-bottom: 28px;
 }
 
 /* ─── CARD HEADER ────────────────────────────────────────────────── */
@@ -190,6 +236,9 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.5rem;
+  position: relative;
+  z-index: 2;
+  padding: 28px 22px 0;
 }
 
 .cardTag {
@@ -241,6 +290,10 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 8px;
+  position: relative;
+  z-index: 2;
+  padding: 0 22px;
+  flex: 1;
 }
 
 .cardTitle {
@@ -264,10 +317,12 @@
 /* ─── CARD FOOTER ────────────────────────────────────────────────── */
 .cardFooter {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 14px;
+  padding: 14px 22px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 .brandName {
@@ -285,6 +340,18 @@
   border-radius: 50%;
   background: color-mix(in srgb, var(--card-color) 60%, transparent);
   flex-shrink: 0;
+}
+
+/* Barra de color inferior */
+.colorBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 0 0 24px 24px;
+  background: var(--card-color);
+  z-index: 4;
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -349,7 +416,7 @@
   transition: transform 0.2s ease;
 }
 
-/* PREV — ghost, igual al btnSecondary del Hero */
+/* PREV — ghost */
 .btnPrev {
   color: rgba(255, 255, 255, 0.65);
   background: rgba(255, 255, 255, 0);
@@ -368,7 +435,7 @@
   transform: translateX(-3px);
 }
 
-/* NEXT — sólido azul, igual al btnPrimary del Hero */
+/* NEXT — sólido azul */
 .btnNext {
   color: #ffffff;
   background: var(--primary, #001DFF);
@@ -388,7 +455,6 @@
   transform: translateX(3px);
 }
 
-/* Separador entre botones */
 .controlsDivider {
   width: 1px;
   height: 20px;
@@ -410,6 +476,15 @@
     height: 360px;
     left: -130px;
     top: -180px;
+  }
+
+  .cardFront,
+  .cardBack {
+    border-radius: 20px;
+  }
+
+  .colorBar {
+    border-radius: 0 0 20px 20px;
   }
 
   .cardTag {
