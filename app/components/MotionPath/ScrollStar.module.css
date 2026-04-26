@@ -28,33 +28,31 @@
   align-items: center;
 }
 
-/* Waypoints — posiciones */
-.initial { left: 68.5%; top: 285px; }
-.second  { left: 30%;   top: 550px; }
-.third   { left: 10%;   top: 1000px; }
-.fourth  { left: 40%;   top: 1100px; }
-.fifth   { left: 50%;   top: 1150px; }
-.sixth   { left: 50%;   top: 1200px; }
-.seventh { left: 30%;   top: 1450px; }
-.eight   { left: 80%;   top: 2000px; }
-.nine    { left: 45%;   top: 2500px; }
-.ten     { left: 68.5%; top: 2700px; }
-.eleven  { left: 45%;   top: 2900px; }
-.twelve  { left: 13%;   top: 3100px; }
-.thirteen  { left: 45%; top: 3300px; }
-.fourteen  { left: 68.5%; top: 3500px; }
-.fifteen   { left: 45%; top: 3700px; }
-.sixteen   { left: 13%; top: 3900px; }
-.seventeen { left: 45%; top: 4100px; }
-.eighteen  { left: 33%; top: 4310px; }
+/* ── Waypoints ── */
+.initial    { left: 68.5%; top: 285px; }
+.second     { left: 30%;   top: 550px; }
+.third      { left: 10%;   top: 1000px; }
+.fourth     { left: 40%;   top: 1100px; }
+.fifth      { left: 50%;   top: 1150px; }
+.sixth      { left: 50%;   top: 1200px; }
+.seventh    { left: 30%;   top: 1450px; }
+.eight      { left: 80%;   top: 2000px; }
+.nine       { left: 45%;   top: 2500px; }
+.ten        { left: 68.5%; top: 2700px; }
+.eleven     { left: 45%;   top: 2900px; }
+.twelve     { left: 13%;   top: 3100px; }
+.thirteen   { left: 45%;   top: 3300px; }
+.fourteen   { left: 68.5%; top: 3500px; }
+.fifteen    { left: 45%;   top: 3700px; }
+.sixteen    { left: 13%;   top: 3900px; }
+.seventeen  { left: 45%;   top: 4100px; }
+.eighteen   { left: 33%;   top: 4310px; }
 
-/* Punto rojo de waypoint */
+/* Waypoint marker (oculto) */
 .marker {
   width: 12px;
   height: 12px;
-  /*background: red;*/
   border-radius: 50%;
-  /*box-shadow: 0 0 10px red;*/
 }
 
 /* ── Contenedor del elemento animado ── */
@@ -64,6 +62,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /* Estado inicial antes de la animación de entrada */
+  opacity: 0;
 }
 
 /* ── SVG principal ── */
@@ -71,13 +72,15 @@
   width: 140px;
   height: 140px;
   overflow: visible;
+  /* transform-origin centro para el giro con scroll */
+  transform-origin: center center;
   filter:
     drop-shadow(0 0 10px rgba(0, 29, 255, 0.95))
     drop-shadow(0 0 25px rgba(0, 29, 255, 0.65))
     drop-shadow(0 0 50px rgba(0, 29, 255, 0.3));
 }
 
-/* ── Anillo 1 — rota continuo ── */
+/* ── Anillo 1 — rota continuo (CSS, independiente del scroll) ── */
 .starRing {
   animation: ringRotate1 6s linear infinite;
   transform-origin: 100px 100px;
@@ -105,12 +108,10 @@
   animation: sparkOrbit1 4s linear infinite;
   transform-origin: 100px 100px;
 }
-
 .spark2 {
   animation: sparkOrbit2 5.5s linear infinite reverse;
   transform-origin: 100px 100px;
 }
-
 .spark3 {
   animation: sparkOrbit1 7s linear infinite;
   transform-origin: 100px 100px;
@@ -147,4 +148,11 @@
 @keyframes sparkOrbit2 {
   from { transform: rotate(0deg);   }
   to   { transform: rotate(360deg); }
+}
+
+/* ── Móvil: ocultar completamente la estrella ── */
+@media (max-width: 768px) {
+  .wrapper {
+    display: none;
+  }
 }
