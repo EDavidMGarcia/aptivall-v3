@@ -276,18 +276,6 @@ export default function ScrollStar() {
                 clipPath="url(#starClip)"
               />
 
-              {/* Núcleo pulsante */}
-              <circle cx="100" cy="100" r="18"
-                fill="url(#starCore)"
-                className={styles.starCore}
-              />
-
-              {/* Punto central */}
-              <circle cx="100" cy="100" r="4.5"
-                fill="white" opacity="0.9"
-                className={styles.starDot}
-              />
-
               {/* Lens flare */}
               <ellipse cx="72" cy="65" rx="11" ry="6"
                 fill="white" opacity="0.16"
@@ -309,6 +297,7 @@ export default function ScrollStar() {
 
         <div className={`${styles.container} ${styles.second}`}><div className={styles.marker}></div></div>
         <div className={`${styles.container} ${styles.third}`}><div className={styles.marker}></div></div>
+        <div className={`${styles.container} ${styles.four}`}><div className={styles.marker}></div></div>
         <div className={`${styles.container} ${styles.seventh}`}><div className={styles.marker}></div></div>
         <div className={`${styles.container} ${styles.eight}`}><div className={styles.marker}></div></div>
         <div className={`${styles.container} ${styles.twelve}`}><div className={styles.marker}></div></div>

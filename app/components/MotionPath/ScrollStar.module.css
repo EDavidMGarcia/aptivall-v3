@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 10;
+  z-index: 11;
 }
 
 :global(html),
@@ -30,29 +30,20 @@
 
 /* ── Waypoints ── */
 .initial    { left: 68.5%; top: 285px; }
-.second     { left: 30%;   top: 550px; }
-.third      { left: 10%;   top: 1000px; }
-.fourth     { left: 40%;   top: 1100px; }
-.fifth      { left: 50%;   top: 1150px; }
-.sixth      { left: 50%;   top: 1200px; }
-.seventh    { left: 30%;   top: 1450px; }
+.second     { left: 35%;   top: 520px; }
+.third      { left: 35%;   top: 750px; }
+.four       { left: 85%;   top: 1090px; }
+.seventh    { left: 80%;   top: 1500px; }
 .eight      { left: 80%;   top: 2000px; }
-.nine       { left: 45%;   top: 2500px; }
-.ten        { left: 68.5%; top: 2700px; }
-.eleven     { left: 45%;   top: 2900px; }
 .twelve     { left: 13%;   top: 3100px; }
-.thirteen   { left: 45%;   top: 3300px; }
-.fourteen   { left: 68.5%; top: 3500px; }
-.fifteen    { left: 45%;   top: 3700px; }
-.sixteen    { left: 13%;   top: 3900px; }
-.seventeen  { left: 45%;   top: 4100px; }
-.eighteen   { left: 33%;   top: 4310px; }
+.eighteen   { left: 33%;   top: 3950px; }
 
 /* Waypoint marker (oculto) */
 .marker {
   width: 12px;
   height: 12px;
   border-radius: 50%;
+  background-color: red; /* Esto rellena el círculo por completo */
 }
 
 /* ── Contenedor del elemento animado ── */
