@@ -159,23 +159,24 @@ const Philosophy: React.FC = () => {
       // Layout inicial sin animación
       layoutStack(0, false);
 
-      // SplitText en el título
+      // SplitText en el título — misma animación que el Hero (blur + y + opacity por chars)
       let splitTitle: SplitText | null = null;
       if (titleRef.current) {
         splitTitle = new SplitText(titleRef.current, {
-          type: "lines",
-          linesClass: styles.splitLine,
+          type: "words,chars",
+          wordsClass: styles.splitWord,
         });
 
         gsap.fromTo(
-          splitTitle.lines,
-          { yPercent: 100, opacity: 0 },
+          splitTitle.chars,
+          { opacity: 0, filter: "blur(10px)", y: 10 },
           {
-            yPercent: 0,
             opacity:  1,
-            duration: 0.9,
-            stagger:  0.08,
-            ease:     "power4.out",
+            filter:   "blur(0px)",
+            y:        0,
+            stagger:  0.02,
+            duration: 0.8,
+            ease:     "power2.out",
             scrollTrigger: {
               trigger: titleRef.current,
               start:   "top 85%",
@@ -199,17 +200,17 @@ const Philosophy: React.FC = () => {
         }
       );
 
-      // Entrada escalonada del stack completo
+      // Entrada del stack: fade in del wrapper completo como bloque
+      // Las tarjetas ya están posicionadas por layoutStack(0, false)
+      // así que solo hacemos aparecer el contenedor para evitar el salto
       gsap.fromTo(
-        `.${styles.card}`,
-        { y: 60, opacity: 0 },
+        `.${styles.stackWrapper}`,
+        { opacity: 0, y: 30 },
         {
-          y:        0,
           opacity:  1,
-          duration: 0.75,
+          y:        0,
+          duration: 0.85,
           ease:     "power3.out",
-          stagger:  0.1,
-          onComplete: () => layoutStack(activeIndexRef.current, false),
           scrollTrigger: {
             trigger: `.${styles.stackWrapper}`,
             start:   "top 82%",
@@ -217,12 +218,17 @@ const Philosophy: React.FC = () => {
         }
       );
 
-      // Auto-avance cada 5 segundos
-      const interval = setInterval(() => {
-        advanceStack();
-      }, 5000);
+      // Auto-avance cada 5 segundos con retraso inicial de 6s
+      // para no chocar con la animación de entrada de las tarjetas
+      let interval: ReturnType<typeof setInterval>;
+      const timeout = setTimeout(() => {
+        interval = setInterval(() => {
+          advanceStack();
+        }, 5000);
+      }, 1000);
 
       return () => {
+        clearTimeout(timeout);
         clearInterval(interval);
         if (splitTitle) splitTitle.revert();
       };
@@ -238,22 +244,6 @@ const Philosophy: React.FC = () => {
       <div className={styles.bgGlow} />
 
       <div className={styles.container}>
-        {/* Header */}
-        <div className={styles.sectionHeader}>
-          <span className={styles.eyebrow}>{t("eyebrow")}</span>
-
-          <h2 className={styles.sectionTitle} ref={titleRef}>
-            {t("title")}{" "}
-            <span className={styles.accentWord}>{t("titleHighlight")}</span>
-          </h2>
-
-          <p className={styles.sectionSubtitle}>
-            {t("subtitle")}{" "}
-            <span className={styles.accentWord}>{t("subtitleHighlight")}</span>{" "}
-            {t("subtitleEnd")}
-          </p>
-        </div>
-
         {/* Stack de tarjetas */}
         <div className={styles.stackOuter}>
           <div className={styles.stackWrapper} aria-label="Pilares filosóficos">
@@ -297,6 +287,22 @@ const Philosophy: React.FC = () => {
           {/* Label de navegación */}
           <p className={styles.stackHint}>
             {activeIndex + 1} / {TOTAL} · {pillars[activeIndex]?.title}
+          </p>
+        </div>
+
+        {/* Header */}
+        <div className={styles.sectionHeader}>
+          <span className={styles.eyebrow}>{t("eyebrow")}</span>
+
+          <h2 className={styles.sectionTitle} ref={titleRef}>
+            {t("title")}{" "}
+            <span className={styles.accentWord}>{t("titleHighlight")}</span>
+          </h2>
+
+          <p className={styles.sectionSubtitle}>
+            {t("subtitle")}{" "}
+            <span className={styles.accentWord}>{t("subtitleHighlight")}</span>{" "}
+            {t("subtitleEnd")}
           </p>
         </div>
       </div>

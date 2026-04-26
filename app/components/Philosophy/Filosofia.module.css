@@ -7,7 +7,7 @@
 
 .section {
   position: relative;
-  padding: 140px 5% 120px;
+  padding: 60px 5% 120px;
   background: transparent;
   overflow: hidden;
 }
@@ -40,6 +40,16 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 80px;
+}
+
+/* Stack a la izquierda → columna 1 */
+.stackOuter {
+  order: -1;
+}
+
+/* Header a la derecha → columna 2 */
+.sectionHeader {
+  order: 1;
 }
 
 /* ─── HEADER ─────────────────────────────────────────────────────── */
@@ -86,13 +96,13 @@
   color: var(--text-main, #ffffff);
   margin: 0;
   max-width: 700px;
-  overflow: hidden; /* necesario para SplitText */
+
 }
 
-/* Clase inyectada por SplitText en cada línea */
-.splitLine {
-  overflow: hidden;
-  display: block;
+/* Clase inyectada por SplitText — igual que Hero */
+.splitWord {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .accentWord {
