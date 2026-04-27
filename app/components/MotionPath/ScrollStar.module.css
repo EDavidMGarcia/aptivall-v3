@@ -42,8 +42,8 @@
 .marker {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
-  background-color: red; /* Esto rellena el círculo por completo */
+  /*border-radius: 50%;*/
+  /*background-color: red;*/ /* Esto rellena el círculo por completo */
 }
 
 /* ── Contenedor del elemento animado ── */
