@@ -541,3 +541,78 @@
     font-size: 0.85rem;
   }
 }
+
+/* ─── BOTÓN DE EQUIPO (ESTILO COPIADO DE BTNOUTLINE) ──────────────── */
+
+.teamButton {
+  position: relative;
+  margin-top: 1.5rem; /* Espaciado extra para separarlo del párrafo */
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; /* Radio consistente */
+  padding: 11px 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: color 0.25s ease, border-color 0.25s ease,
+    background 0.25s ease, transform 0.15s ease;
+  z-index: 20;
+}
+
+/* Efecto Shimmer (Brillo que recorre el botón) */
+.teamButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.teamButton:hover::before {
+  left: 160%;
+}
+
+.teamButton:hover {
+  color: rgba(255, 255, 255, 0.95);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.teamButton:active {
+  transform: scale(0.98);
+}
+
+/* Animación de la flecha */
+.btnArrow {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.teamButton:hover .btnArrow {
+  transform: translateX(3px);
+}
+
+/* Ajuste responsivo */
+@media (max-width: 1024px) {
+  .teamButton {
+    align-self: center; /* Se centra cuando el diseño colapsa a una columna */
+  }
+}

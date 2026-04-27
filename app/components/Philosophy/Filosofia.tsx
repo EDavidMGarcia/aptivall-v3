@@ -2,6 +2,7 @@
 
 import React, { useRef, useState, useCallback } from "react";
 import { useGSAP } from "@gsap/react";
+import Link from "next/link";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -304,6 +305,15 @@ const Philosophy: React.FC = () => {
             <span className={styles.accentWord}>{t("subtitleHighlight")}</span>{" "}
             {t("subtitleEnd")}
           </p>
+
+          {/* ─── NUEVO BOTÓN AGREGADO AQUÍ ─── */}
+          <Link href={`/${locale}/about`} className={styles.teamButton}>
+          {t("teamButtonLabel")} 
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+        </Link>
+
         </div>
       </div>
     </section>
