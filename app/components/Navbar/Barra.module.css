@@ -38,7 +38,7 @@
 .logoWrapper {
   display: flex;
   align-items: center;
-  cursor: pointer; /* ✅ Manito para el logo */
+  cursor: pointer;
   transition: 0.2s ease;
   position: relative;
   z-index: 1002;
@@ -56,73 +56,16 @@
   transform: translateY(-15px);
 }
 
-.navLinks li a {
+.navItem, .navLinks li a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.9rem;
   padding: 8px 14px;
   border-radius: 8px;
-  transition: 0.2s ease;
-  cursor: pointer; /* ✅ Manito para links */
-}
-
-/* --- BOTÓN CONTACTO --- */
-.navContact {
-  position: relative;
-  overflow: hidden;
-  background: var(--primary, #001DFF) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(0, 29, 255, 0.4) !important;
-  border-radius: 12px !important;
-  padding: 8px 18px !important;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease !important;
-  text-decoration: none;
-  cursor: pointer; /* ✅ Manito para botón contacto */
-}
-
-.navContact::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-  transition: left 0.6s ease;
-}
-
-.navContact:hover::before { left: 150%; }
-.navContact:hover {
-  background: #1a36ff !important;
-  transform: translateY(-1px);
-  box-shadow: 0 0 15px rgba(0, 29, 255, 0.4), 0 0 30px rgba(0, 29, 255, 0.1);
-}
-
-.navContact.active {
-  background: #001DFF !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 20px rgba(0, 29, 255, 0.5);
-  border-color: rgba(255, 255, 255, 0.3) !important;
-}
-
-.navContact.active::after {
-  display: none !important;
-}
-
-.navLinks li a, .navItem {
-  text-decoration: none;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.9rem;
-  padding: 8px 14px;
-  border-radius: 8px;
-  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  transition: all 0.2s ease;
   display: inline-block;
   position: relative;
-  cursor: pointer; /* ✅ Manito para items generales */
+  cursor: pointer;
   background: none;
   border: none;
 }
@@ -149,6 +92,30 @@
 
 .navItem:hover::after { transform: scaleX(1); }
 
+/* --- BOTÓN CONTACTO --- */
+.navContact {
+  position: relative;
+  overflow: hidden;
+  background: var(--primary, #001DFF) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(0, 29, 255, 0.4) !important;
+  border-radius: 12px !important;
+  padding: 8px 18px !important;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease !important;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navContact:hover {
+  background: #1a36ff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0 15px rgba(0, 29, 255, 0.4);
+}
+
 .active:not(.navContact) {
   color: #00FF81 !important;
   background: rgba(0, 255, 129, 0.08) !important;
@@ -166,63 +133,94 @@
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.75rem;
-  cursor: pointer; /* ✅ Manito para selector de idioma */
-  transition: border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
-
-.langSwitch button:hover { border-color: #00FF81; color: #00FF81; }
 
 .hamburger {
   display: none;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  cursor: pointer; /* ✅ Manito para móvil */
   gap: 5px;
-  z-index: 1002;
+  z-index: 1005;
   background: none;
   border: none;
-  padding: 6px;
-  border-radius: 8px;
+  cursor: pointer;
 }
 
 .hamburger span {
   width: 24px;
   height: 2px;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease;
-  display: block;
+  background: white;
+  transition: 0.3s;
 }
 
 .open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #00FF81; }
-.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.open span:nth-child(2) { opacity: 0; }
 .open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #00FF81; }
 
 @media (max-width: 768px) {
-  .hamburger { display: flex; }
-  .navLinks::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(0px);
-    transition: background 0.4s ease;
+  /* CAMBIO AQUÍ: Debe ser flex para que aparezca en móvil */
+  .hamburger { 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    z-index: 10001; /* Un nivel más arriba que el fondo */
+    background: none;
+    border: none;
+    cursor: pointer;
   }
-  .navLinks.active::before { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(4px); }
+
+  .logoWrapper {
+    z-index: 10001; /* Esto asegura que el logo "Aptivall" flote sobre el fondo negro */
+    position: relative;
+  }
+
   .navLinks {
     position: fixed;
     top: 0;
     right: -100%;
-    height: 100dvh;
-    width: min(75vw, 300px);
-    padding: 100px 2rem 3rem;
-    background: #080808;
+    height: 100vh;
+    width: 100%; /* CAMBIO: Ahora ocupa todo el ancho */
+    background: #080808 !important; 
     flex-direction: column;
-    transition: right 0.4s ease;
+    align-items: center; /* CAMBIO: Centramos los items para un look de pantalla completa */
+    justify-content: center; /* CAMBIO: Centramos verticalmente los links */
+    padding: 0; 
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más elegante */
+    z-index: 10000; 
   }
-  .navLinks.active { right: 0; }
-  .navLinks li { opacity: 1 !important; transform: none !important; width: 100%; }
-  .navLinks li a, .navItem { width: 100%; font-size: 1rem; padding: 12px 16px; cursor: pointer; }
-  .navItem::after { display: none; }
+
+  /* Esta es la clave: cuando está activo, el fondo debe ser inmediato */
+  .navLinks.active {
+    right: 0;
+    background: #080808 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navLinks li { 
+    opacity: 1 !important; 
+    transform: none !important; 
+    width: 80%; /* Contenedor de links un poco más estrecho para que no toquen bordes */
+    text-align: center;
+  }
+
+  .navItem, .navLinks li a {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5rem; /* Fuente más grande para el modo pantalla completa */
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: white !important;
+  }
+
+  .navContact {
+    width: 100% !important;
+    max-width: 250px; /* Evitamos que el botón de contacto sea gigante */
+    justify-content: center;
+    margin-top: 30px;
+    font-size: 1.2rem !important;
+  }
 }
