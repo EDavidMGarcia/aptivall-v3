@@ -88,7 +88,7 @@ const Navbar: React.FC = memo(() => {
     <nav ref={navRef} className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
       <div className={styles.navContainer}>
         <div className={styles.logoWrapper} onClick={() => scrollToSection("inicio")}>
-          <Image src="/icons/aptiLogo.svg" alt="Aptivall" width={140} height={35} priority className={styles.logo} />
+          <Image src="/icons/aptiLogo.png" alt="Aptivall" width={220} height={70} priority className={styles.logo} />
         </div>
 
         <button className={`${styles.hamburger} ${isOpen ? styles.open : ""}`} onClick={() => setIsOpen(!isOpen)}>

@@ -45,11 +45,12 @@ const Finisher: React.FC = () => {
           <div className={styles.footerBrand}>
             <Link href={`/${locale}`}>
               <Image
-                src="/icons/aptiLogo.svg"
+                src="/icons/aptiLogo.png"
                 alt="Aptivall"
-                width={120}
-                height={30}
-                style={{ objectFit: "contain" }}
+                width={220}
+                height={70}
+                
+                className={styles.footerLogo}
               />
             </Link>
             <p className={styles.footerTagline}>{t("footer.tagline")}</p>
