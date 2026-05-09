@@ -3,6 +3,7 @@
     "inicio": "Home",
     "sobre": "About us",
     "servicios": "Services",
+    "clientes": "Success Stories",
     "contacto": "Contact",
     "elearning": "E-learning"
   },
@@ -187,6 +188,115 @@
       "copyright": "All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"
+    }
+  },
+  
+  "ServicesPage": {
+    "meta": {
+      "title": "Services | Aptivall — AI, EdTech, Global Talent & Digital Media",
+      "description": "Discover Aptivall's 4 pillars: Innovation Lab, EdTech Studio, Global Talent and Digital Media."
+    },
+    "hero": {
+      "eyebrow": "Services",
+      "title": "Solutions Designed to",
+      "titleHighlight": "Scale",
+      "titleEnd": "Your Business",
+      "subtitle": "We integrate technology, talent and strategy to transform organizations into industry leaders.",
+      "stats": {
+        "projects": "projects",
+        "pillars": "service pillars",
+        "results": "measurable results"
+      }
+    },
+    "services": {
+      "s1": {
+        "eyebrow": "Innovation Lab",
+        "title": "AI, Computer Vision & Software",
+        "desc": "We develop AI solutions with video models for object identification and AI Agents with logical reasoning.",
+  
+        "subA": {
+          "label": "Artificial Intelligence and Automation",
+          "title": "*Artificial Intelligence* that Solves Real Challenges",
+          "text": "We develop AI solutions with video models for object identification and *AI Agents* with logical reasoning capabilities. Our technology doesn't just *automate* — it *optimizes* critical processes.",
+    
+          "features": [
+            {
+              "title": "Autonomous Agents and Task Bots",
+              "description": "We implement intelligent workflows using leading tools like n8n for orchestration, and integrate advanced models like Microsoft Copilot and Claude to empower systems with reasoning capabilities, content creation, and complex process automation.",
+              "tags": ["AI Agents", "n8n", "Microsoft Copilot", "Claude", "Autonomous Automation"]
+            },
+            {
+              "title": "Real-Time Computer Vision",
+              "description": "We integrate AI with your existing surveillance and security systems (Cameras/CCTV). Through regional partnerships with specialist companies, we ensure real-time analysis of elements — from anomaly detection on production lines to inventory analysis.",
+              "tags": ["Computer Vision", "CCTV", "Real-Time Analysis", "Enterprise AI"]
+            },
+            {
+              "title": "LLM-Powered Video Creation",
+              "description": "We use the latest Language Models (LLMs) and generative AI tools for automated or semi-automated creation of corporate, explanatory, and marketing videos, dramatically accelerating content time-to-market.",
+              "tags": ["AI Video", "LLM", "Generative AI", "Marketing Automation"]
+            }
+          ],
+    
+          "keywords": ["AI Agents", "Autonomous Automation", "Computer Vision", "AI in HR", "Copilot", "Claude", "Task Bots", "CCTV Analysis", "LLM Video AI"]
+        },
+  
+        "subB": {
+          "label": "Software Engineering & Corporate Gaming",
+          "title": "*High-Impact Software* & *B2B Gamification*",
+          "text": "We build scalable digital ecosystems and video games for companies looking to transform engagement with their internal and external audiences.",
+    
+          "items": [
+            "Full corporate games",
+            "Casual video games for mass engagement",
+            "Immersive advergaming for marketing strategies",
+            "Gamified resources (badges, points, rankings) for upskilling/reskilling"
+          ],
+    
+          "tags": ["Custom Development", "Corporate Video Games", "Advergaming", "B2B Gamification", "Gamified Resources"],
+          "keywords": ["Custom software development", "Corporate video games", "Advergaming", "B2B Gamification", "Gamified resources for skills"]
+        }
+      },
+      "s2": {
+        "eyebrow": "02 · EdTech Studio",
+        "title": "Learning Ecosystems",
+        "desc": "As Open edX partners, we build enterprise-grade e-learning platforms.",
+        "subA": {
+          "label": "A — Human Capital Transformation",
+          "title": "Elite EdTech for Human Capital",
+          "caseTitle": "Success Stories"
+        }
+      },
+      "s3": {
+        "eyebrow": "03 · Global Talent",
+        "title": "High-Impact Talent",
+        "desc": "Offshore staff augmentation with senior IT and Marketing professionals in Latin America.",
+        "categories": {
+          "engineering": "Engineering & Software Development",
+          "pmo": "Project Management (PMO)",
+          "marketing": "Marketing & Digital Media"
+        }
+      },
+      "s4": {
+        "eyebrow": "04 · Digital Media",
+        "title": "Audiovisual Content & B2B Websites",
+        "desc": "Corporate videos, 2D/3D animation, special effects and web development with CRO and SEO.",
+        "subA": {
+          "label": "A — Video, Animation & Post-Production",
+          "title": "High-Impact Audiovisual Content for the B2B Sector"
+        },
+        "subB": {
+          "label": "B — Websites & Strategic Digital Design",
+          "title": "High-Performance B2B Web Experiences"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Next Step",
+      "title": "Ready for the next",
+      "titleHighlight": "level?",
+      "text": "Your vision deserves a partner who masters complexity. At Aptivall, we turn your strategy into cutting-edge technology.",
+      "btnPrimary": "Start Strategic Consultancy",
+      "btnSecondary": "View all services"
     }
   }
 }

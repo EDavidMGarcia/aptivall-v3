@@ -3,6 +3,7 @@
     "inicio": "Inicio",
     "sobre": "Sobre Nosotros",
     "servicios": "Servicios",
+    "clientes": "Casos de Éxito",
     "contacto": "Contacto",
     "elearning": "Campus Virtual"
   },
@@ -47,7 +48,6 @@
         "description": "Cada línea de código y cada agente de IA tiene una misión clara: optimizar, escalar o rentabilizar."
       }
     ]
-    
   },
 
   "Services": {
@@ -188,6 +188,115 @@
       "copyright": "Todos los derechos reservados.",
       "privacy": "Política de Privacidad",
       "terms": "Términos de Uso"
+    }
+  },
+
+  "ServicesPage": {
+    "meta": {
+      "title": "Servicios | Aptivall — IA, EdTech, Talento Global y Digital Media",
+      "description": "Descubre los 4 pilares de Aptivall: Innovation Lab, EdTech Studio, Global Talent y Digital Media."
+    },
+    "hero": {
+      "eyebrow": "Servicios",
+      "title": "Soluciones Diseñadas para",
+      "titleHighlight": "Escalar",
+      "titleEnd": "su Negocio",
+      "subtitle": "Integramos tecnología, talento y estrategia para transformar organizaciones en líderes de su industria.",
+      "stats": {
+        "projects": "proyectos",
+        "pillars": "pilares de servicio",
+        "results": "resultados medibles"
+      }
+    },
+    "services": {
+      "s1": {
+        "eyebrow": "Innovation Lab",
+        "title": "IA, Visión Computacional & Software",
+        "desc": "Desarrollamos soluciones de IA con modelos de video para identificación de objetos y AI Agents con razonamiento lógico.",
+  
+        "subA": {
+          "label": "Inteligencia Artificial y Automatización",
+          "title": "*Inteligencia Artificial* que Resuelve Desafíos Reales",
+          "text": "Desarrollamos soluciones de IA con modelos de video para identificación de objetos y *AI Agents* con capacidad de razonamiento lógico. Nuestra tecnología no solo *automatiza*, sino que *optimiza* procesos críticos.",
+    
+          "features": [
+            {
+              "title": "Agentes Autónomos y Robots de Tareas",
+              "description": "Implementamos flujos de trabajo inteligentes utilizando herramientas líderes como n8n para la orquestación, e integramos modelos avanzados como Microsoft Copilot y Claude para dotar a los sistemas de capacidad de razonamiento, creación de contenido y automatización de procesos complejos.",
+              "tags": ["AI Agents corporativos", "n8n", "Microsoft Copilot", "Claude", "Automatización autónoma"]
+            },
+            {
+              "title": "Visión Computacional en Tiempo Real",
+              "description": "Integramos IA con sus sistemas de vigilancia y seguridad existentes (Cámaras/CCTV). Mediante partnerships regionales con empresas especialistas, garantizamos el análisis de elementos en tiempo real, desde detección de anomalías hasta análisis de inventario.",
+              "tags": ["Visión computacional", "CCTV", "Análisis en tiempo real", "IA empresarial"]
+            },
+            {
+              "title": "Creación de Video con LLM",
+              "description": "Utilizamos los últimos modelos de lenguaje (LLM) y herramientas de IA generativa para la creación automatizada o semi-automatizada de videos corporativos, explicativos y de marketing, acelerando drásticamente el time-to-market de contenidos.",
+              "tags": ["Video IA", "LLM", "IA generativa", "Marketing automation"]
+            }
+          ],
+    
+          "keywords": ["AI Agents corporativos", "Automatización autónoma", "Visión computacional", "IA en recursos humanos", "Copilot", "Claude", "Robots de tareas", "Análisis CCTV", "Video IA con LLM"]
+        },
+  
+        "subB": {
+          "label": "Ingeniería de Software y Videojuegos Corporativos",
+          "title": "*Software* de Alto Impacto y *Gamificación B2B*",
+          "text": "Creamos ecosistemas digitales escalables y videojuegos para empresas que buscan transformar el compromiso de su audiencia interna y externa.",
+  
+          "items": [
+            "Juegos corporativos completos",
+            "Videojuegos casuales para engagement masivo",
+            "Advergaming inmersivo para estrategias de marketing",
+            "Recursos gamificados (badges, puntos, rankings) para upskilling/reskilling"
+          ],
+    
+          "tags": ["Desarrollo a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados"],
+          "keywords": ["Desarrollo de software a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados para habilidades"]
+        }
+      },
+      "s2": {
+        "eyebrow": "02 · EdTech Studio",
+        "title": "Ecosistemas de Aprendizaje",
+        "desc": "Como partners de Open edX, construimos plataformas e-learning de grado empresarial.",
+        "subA": {
+          "label": "A — Transformación del Capital Humano",
+          "title": "EdTech de Élite para Capital Humano",
+          "caseTitle": "Casos de Éxito"
+        }
+      },
+      "s3": {
+        "eyebrow": "03 · Global Talent",
+        "title": "Talento de Alto Impacto",
+        "desc": "Staff augmentation offshore con profesionales senior en IT y Marketing en Latinoamérica.",
+        "categories": {
+          "engineering": "Ingeniería y Desarrollo",
+          "pmo": "Gerencia de Proyectos (PMO)",
+          "marketing": "Marketing y Medios Digitales"
+        }
+      },
+      "s4": {
+        "eyebrow": "04 · Digital Media",
+        "title": "Contenido Audiovisual y Webs B2B",
+        "desc": "Videos corporativos, animación 2D/3D, efectos especiales y desarrollo web con CRO y SEO.",
+        "subA": {
+          "label": "A — Video, Animación y Post-Producción",
+          "title": "Contenido Audiovisual de Alto Impacto para el Sector B2B"
+        },
+        "subB": {
+          "label": "B — Webs y Diseño Digital Estratégico",
+          "title": "Desarrollo de Experiencias Web de Alto Rendimiento B2B"
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Siguiente Paso",
+      "title": "¿Listo para el siguiente",
+      "titleHighlight": "nivel?",
+      "text": "Su visión merece un aliado que domine la complejidad. En Aptivall, convertimos su estrategia en tecnología de vanguardia.",
+      "btnPrimary": "Iniciar Consultoría Estratégica",
+      "btnSecondary": "Ver todos los servicios"
     }
   }
 }

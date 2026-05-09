@@ -70,3 +70,13 @@ body::after {
   z-index: 0;
   filter: blur(80px);
 }
+
+:root {
+  /* Tipografía principal */
+  --font-heading-1: clamp(2.5rem, 5vw, 4rem);
+  --font-heading-2: clamp(2rem, 3.5vw, 3rem);
+  --font-heading-3: clamp(1.5rem, 2.5vw, 2rem);
+  --font-body-large: clamp(1rem, 1.4vw, 1.15rem);
+  --font-body: clamp(0.95rem, 1.3vw, 1rem);
+  --font-small: 0.85rem;
+}

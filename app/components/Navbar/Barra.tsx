@@ -22,7 +22,7 @@ const Navbar: React.FC = memo(() => {
 
   // --- 1. Lógica de Resaltado (Intersection Observer) ---
   useEffect(() => {
-    const sections = ["inicio", "sobre", "servicios", "contacto"];
+    const sections = ["inicio", "sobre", "servicios", "clientes", "contacto"];
     
     const observerOptions = {
       root: null,
@@ -88,7 +88,7 @@ const Navbar: React.FC = memo(() => {
     <nav ref={navRef} className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ""}`}>
       <div className={styles.navContainer}>
         <div className={styles.logoWrapper} onClick={() => scrollToSection("inicio")}>
-          <Image src="/icons/aptiLogo.png" alt="Aptivall" width={220} height={70} priority className={styles.logo} />
+          <Image src="/icons/aptiLogo.png" alt="Aptivall" width={130} height={10} priority className={styles.logo} />
         </div>
 
         <button className={`${styles.hamburger} ${isOpen ? styles.open : ""}`} onClick={() => setIsOpen(!isOpen)}>
@@ -120,6 +120,16 @@ const Navbar: React.FC = memo(() => {
               {t("servicios")}
             </button>
           </li>
+
+          <li>
+            <button 
+              className={`${styles.navItem} ${activeSection === "clientes" ? styles.active : ""}`} 
+              onClick={() => scrollToSection("clientes")}
+            >
+              {t("clientes")}
+            </button>
+          </li>
+
           <li>
             <a
               href="https://aptivall.com/elearning/login/index.php"
