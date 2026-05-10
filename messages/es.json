@@ -213,12 +213,10 @@
         "eyebrow": "Innovation Lab",
         "title": "IA, Visión Computacional & Software",
         "desc": "Desarrollamos soluciones de IA con modelos de video para identificación de objetos y AI Agents con razonamiento lógico.",
-  
         "subA": {
           "label": "Inteligencia Artificial y Automatización",
           "title": "*Inteligencia Artificial* que Resuelve Desafíos Reales",
           "text": "Desarrollamos soluciones de IA con modelos de video para identificación de objetos y *AI Agents* con capacidad de razonamiento lógico. Nuestra tecnología no solo *automatiza*, sino que *optimiza* procesos críticos.",
-    
           "features": [
             {
               "title": "Agentes Autónomos y Robots de Tareas",
@@ -236,26 +234,21 @@
               "tags": ["Video IA", "LLM", "IA generativa", "Marketing automation"]
             }
           ],
-    
           "keywords": ["AI Agents corporativos", "Automatización autónoma", "Visión computacional", "IA en recursos humanos", "Copilot", "Claude", "Robots de tareas", "Análisis CCTV", "Video IA con LLM"]
         },
-  
         "subB": {
           "label": "Ingeniería de Software y Videojuegos Corporativos",
           "title": "*Software* de Alto Impacto y *Gamificación B2B*",
           "text": "Creamos ecosistemas digitales escalables y videojuegos para empresas que buscan transformar el compromiso de su audiencia interna y externa.",
-  
           "items": [
             "Juegos corporativos completos",
             "Videojuegos casuales para engagement masivo",
             "Advergaming inmersivo para estrategias de marketing",
             "Recursos gamificados (badges, puntos, rankings) para upskilling/reskilling"
           ],
-    
           "tags": ["Desarrollo a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados"],
           "keywords": ["Desarrollo de software a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados para habilidades"]
         },
-
         "impact": {
           "header": "Impacto en cifras",
           "badge": "resultados reales",
@@ -271,12 +264,47 @@
       "s2": {
         "eyebrow": "02 · EdTech Studio",
         "title": "Ecosistemas de Aprendizaje",
-        "desc": "Como partners de Open edX, construimos plataformas e-learning de grado empresarial.",
+        "desc": "Como partners de Open edX, construimos plataformas e-learning de grado empresarial con diseño instruccional e interactividad H5P para sectores de alta complejidad.",
         "subA": {
           "label": "A — Transformación del Capital Humano",
-          "title": "EdTech de Élite para Capital Humano",
-          "caseTitle": "Casos de Éxito"
-        }
+          "title": "*Transformación del Capital Humano* mediante EdTech de Élite",
+          "text": "Como partners de Open edX, construimos plataformas e-learning de grado empresarial que integran diseño instruccional y tecnología de vanguardia para sectores de alta complejidad. Nuestro enfoque en la interactividad se potencia con la integración de recursos como H5P.org, diseñando experiencias de aprendizaje inmersivas que garantizan un alto índice de retención. En Aptivall, erradicamos la obsolescencia del entrenamiento corporativo. No solo digitalizamos; reingenierizamos la experiencia de aprendizaje.",
+          "features": [
+            {
+              "title": "Diseño Instruccional Quirúrgico",
+              "description": "Articulamos cada tema en objetivos de aprendizaje quirúrgicamente medibles, sentando las bases para un ecosistema de inmersión total.",
+              "tags": ["Diseño instruccional", "Objetivos medibles"]
+            },
+            {
+              "title": "Ecosistema de Inmersión Total",
+              "description": "Diseñamos objetos interactivos con H5P.org, autoevaluaciones en tiempo real, videolecciones y recursos lúdicos que garantizan retención superior.",
+              "tags": ["H5P", "Interactividad", "Retención"]
+            },
+            {
+              "title": "Gamificación & Realidad Aumentada",
+              "description": "Convertimos diapositivas estáticas en experiencias emocionales profundas. Implementamos gamificación B2B y AR para un aprendizaje memorable.",
+              "tags": ["Gamificación B2B", "Realidad Aumentada", "Engagement"]
+            },
+            {
+              "title": "Métricas Avanzadas",
+              "description": "Entregamos análisis granular más allá de las tasas de finalización. Identificamos quiénes absorbieron mejor los contenidos para optimizar la inversión.",
+              "tags": ["Analítica avanzada", "ROI", "Optimización"]
+            }
+          ],
+          "keywords": ["Plataformas e-learning B2B", "Open edX partner", "Capacitación médica online", "Interactividad H5P", "Gamificación B2B", "Realidad Aumentada", "Métricas avanzadas"]
+        },
+        "cases": [
+          {
+            "client": "Universidad del Norte",
+            "title": "Seguridad Industrial Gamificada",
+            "desc": "Diseñamos cursos gamificados de alto impacto en SST, transformando la capacitación en una experiencia interactiva que elevó el compromiso del personal."
+          },
+          {
+            "client": "Pfizer",
+            "title": "Educación Médica Continua",
+            "desc": "Personalización integral de su LMS corporativo con diseño instruccional de vanguardia para formación en nuevas tecnologías de tratamiento cardiovascular y oncológico."
+          }
+        ]
       },
       "s3": {
         "eyebrow": "03 · Global Talent",

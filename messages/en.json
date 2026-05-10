@@ -190,7 +190,7 @@
       "terms": "Terms of Use"
     }
   },
-  
+
   "ServicesPage": {
     "meta": {
       "title": "Services | Aptivall — AI, EdTech, Global Talent & Digital Media",
@@ -271,12 +271,47 @@
       "s2": {
         "eyebrow": "02 · EdTech Studio",
         "title": "Learning Ecosystems",
-        "desc": "As Open edX partners, we build enterprise-grade e-learning platforms.",
+        "desc": "As Open edX partners, we build enterprise-grade e-learning platforms with instructional design and H5P interactivity for high-complexity sectors.",
         "subA": {
           "label": "A — Human Capital Transformation",
-          "title": "Elite EdTech for Human Capital",
-          "caseTitle": "Success Stories"
-        }
+          "title": "*Human Capital Transformation* through Elite EdTech",
+          "text": "As Open edX partners, we build enterprise-grade e-learning platforms that integrate instructional design and cutting-edge technology for highly complex sectors. Our focus on interactivity is enhanced with resources like H5P.org, designing immersive learning experiences that guarantee a high retention rate. At Aptivall, we eradicate the obsolescence of corporate training. We don't just digitize; we re‑engineer the learning experience.",
+          "features": [
+            {
+              "title": "Surgical Instructional Design",
+              "description": "We articulate each topic into surgically measurable learning objectives, laying the foundation for a total immersion ecosystem.",
+              "tags": ["Instructional design", "Measurable objectives"]
+            },
+            {
+              "title": "Total Immersion Ecosystem",
+              "description": "We design interactive objects with H5P.org, real‑time self‑assessments, video lessons and playful resources that guarantee superior retention.",
+              "tags": ["H5P", "Interactivity", "Retention"]
+            },
+            {
+              "title": "Gamification & Augmented Reality",
+              "description": "We turn static slides into deep emotional experiences. We implement B2B gamification and AR for memorable learning.",
+              "tags": ["B2B Gamification", "Augmented Reality", "Engagement"]
+            },
+            {
+              "title": "Advanced Metrics",
+              "description": "We deliver granular analysis beyond completion rates. We identify who absorbed the content best, allowing you to optimise your training investment.",
+              "tags": ["Advanced analytics", "ROI", "Optimization"]
+            }
+          ],
+          "keywords": ["B2B e-learning platforms", "Open edX partner", "Online medical training", "H5P interactivity", "B2B Gamification", "Augmented Reality", "Advanced metrics"]
+        },
+        "cases": [
+          {
+            "client": "Universidad del Norte",
+            "title": "Gamified Industrial Safety",
+            "desc": "We designed high‑impact gamified HSE courses, transforming training into an interactive experience that raised staff engagement."
+          },
+          {
+            "client": "Pfizer",
+            "title": "Continuing Medical Education",
+            "desc": "Comprehensive customisation of their corporate LMS with cutting‑edge instructional design for training in new cardiovascular and oncology treatment technologies."
+          }
+        ]
       },
       "s3": {
         "eyebrow": "03 · Global Talent",
