@@ -254,6 +254,18 @@
     
           "tags": ["Desarrollo a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados"],
           "keywords": ["Desarrollo de software a medida", "Videojuegos corporativos", "Advergaming", "Gamificación B2B", "Recursos gamificados para habilidades"]
+        },
+
+        "impact": {
+          "header": "Impacto en cifras",
+          "badge": "resultados reales",
+          "metrics": [
+            { "value": 65, "symbol": "%", "label": "más engagement" },
+            { "value": 40, "symbol": "%", "label": "menos tiempo de onboarding" },
+            { "value": 90, "symbol": "%", "label": "retención de usuarios" }
+          ],
+          "description": "Nuestras soluciones de gamificación transforman la experiencia de usuario, aumentando la participación y acelerando el aprendizaje en entornos B2B.",
+          "button": "Descubrir casos reales →"
         }
       },
       "s2": {

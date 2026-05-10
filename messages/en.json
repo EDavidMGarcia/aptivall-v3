@@ -1,11 +1,11 @@
 {
   "Navbar": {
     "inicio": "Home",
-    "sobre": "About us",
+    "sobre": "About Us",
     "servicios": "Services",
     "clientes": "Success Stories",
     "contacto": "Contact",
-    "elearning": "E-learning"
+    "elearning": "Campus Virtual"
   },
 
   "Hero": {
@@ -254,6 +254,18 @@
     
           "tags": ["Custom Development", "Corporate Video Games", "Advergaming", "B2B Gamification", "Gamified Resources"],
           "keywords": ["Custom software development", "Corporate video games", "Advergaming", "B2B Gamification", "Gamified resources for skills"]
+        },
+
+        "impact": {
+          "header": "Impact in numbers",
+          "badge": "real results",
+          "metrics": [
+            { "value": 65, "symbol": "%", "label": "more engagement" },
+            { "value": 40, "symbol": "%", "label": "less onboarding time" },
+            { "value": 90, "symbol": "%", "label": "user retention" }
+          ],
+          "description": "Our gamification solutions transform the user experience, increasing participation and accelerating learning in B2B environments.",
+          "button": "Discover real cases →"
         }
       },
       "s2": {
