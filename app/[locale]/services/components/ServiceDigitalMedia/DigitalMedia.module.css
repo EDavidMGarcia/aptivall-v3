@@ -1,0 +1,313 @@
+/* ===== DIGITAL MEDIA SECTION ===== */
+.digitalMedia {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+  background: #050a0e;
+  border-top: none;
+  border-bottom: none;
+}
+
+/* === FONDOS (compartidos) === */
+.bgNoise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-size: 200px;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(0, 255, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 129, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 80%);
+  pointer-events: none;
+}
+
+.bgGlow1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 29, 255, 0.15) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.bgGlow2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 255, 129, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header (idéntico) */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #00FF81;
+  background: rgba(0, 255, 129, 0.08);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  border-radius: 100px;
+  padding: 6px 14px;
+  margin-bottom: 24px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00FF81;
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.sectionTitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0 0 20px;
+}
+
+.sectionDesc {
+  font-family: var(--font-geist), sans-serif;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: #888888;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Dos columnas (subsecciones A y B) */
+.twoColumns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin: 3rem 0;
+}
+
+.mediaColumn {
+  background: rgba(10, 20, 30, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  border-radius: 28px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.mediaColumn:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 255, 129, 0.4);
+  box-shadow: 0 20px 30px rgba(0, 255, 129, 0.1);
+}
+
+.mediaHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mediaIcon svg {
+  width: 32px;
+  height: 32px;
+  stroke: #00FF81;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 129, 0.3));
+}
+
+.mediaLabel {
+  font-family: monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #00FF81;
+  background: rgba(0, 255, 129, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.mediaTitle {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.mediaText {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: #b0b0b0;
+  margin-bottom: 1.5rem;
+}
+
+.mediaList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.mediaList li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.listBullet {
+  color: #00FF81;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 30px;
+  background: rgba(0, 255, 129, 0.1);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  color: #00FF81;
+}
+
+.tagBlue {
+  font-size: 0.7rem;
+  padding: 4px 12px;
+  border-radius: 30px;
+  background: rgba(0, 29, 255, 0.15);
+  border: 1px solid rgba(0, 29, 255, 0.4);
+  color: #3b82f6;
+}
+
+/* Palabra resaltada en verde */
+.accentWord {
+  color: #00FF81;
+  text-shadow: 0 0 40px rgba(0, 255, 129, 0.35), 0 0 80px rgba(0, 255, 129, 0.1);
+}
+
+/* Nube de tags animada */
+.tagCloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 2rem;
+  margin: 2rem 0;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0, 255, 129, 0.2);
+  border-bottom: 1px solid rgba(0, 255, 129, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.tagItem {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  color: #ccc;
+  background: rgba(0, 255, 129, 0.05);
+  padding: 6px 14px;
+  border-radius: 40px;
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: inline-block;
+  will-change: transform;
+}
+
+.tagItem:hover {
+  background: rgba(0, 255, 129, 0.2);
+  color: #00FF81;
+  border-color: #00FF81;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .twoColumns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .mediaColumn {
+    padding: 1.5rem;
+  }
+  .mediaTitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mediaTitle {
+    font-size: 1.3rem;
+  }
+  .mediaText {
+    font-size: 0.9rem;
+  }
+  .mediaList li {
+    font-size: 0.85rem;
+  }
+  .tagCloud {
+    gap: 0.8rem;
+  }
+  .tagItem {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+  }
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  .sectionDesc {
+    font-size: 0.9rem;
+  }
+}

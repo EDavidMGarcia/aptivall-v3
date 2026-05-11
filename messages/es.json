@@ -12,7 +12,7 @@
     "tag": "Innovación Personalizada",
     "title1": "Liderando la Frontera de la ",
     "titleHighlight": "Evolución Digital",
-    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar organizaciones que se niegan a ser parte del pasado.",
+    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar Organizaciones Innovadoras.",
     "viewServices": "Ver Servicios",
     "projectsCount": "proyectos",
     "cta": "Iniciar Consultoría Estratégica",
@@ -309,25 +309,96 @@
       "s3": {
         "eyebrow": "03 · Global Talent",
         "title": "Talento de Alto Impacto",
-        "desc": "Staff augmentation offshore con profesionales senior en IT y Marketing en Latinoamérica.",
+        "desc": "Staff augmentation offshore con profesionales senior en IT y Marketing en Latinoamérica. Contamos con una red de Gerentes de Proyectos especializados en liderar iniciativas de alto impacto.",
+        "subA": {
+          "label": "A — Perfiles de Staff Augmentation Offshore",
+          "text": "Aptivall ofrece la integración rápida de talento especializado, alineado con nuestros pilares de innovación."
+        },
         "categories": {
-          "engineering": "Ingeniería y Desarrollo",
-          "pmo": "Gerencia de Proyectos (PMO)",
-          "marketing": "Marketing y Medios Digitales"
+          "engineering": {
+            "name": "Ingeniería y Desarrollo de Software",
+            "profiles": [
+              { "title": "Desarrolladores Full Stack Senior", "description": "Especializados en entornos de alta escalabilidad (React, Node.js, Python).", "icon": "</>" },
+              { "title": "AI/ML Engineers", "description": "Expertos en Visión Computacional, Modelos de Video y desarrollo de AI Agents corporativos.", "icon": "⚡" },
+              { "title": "DevOps / Cloud Engineers", "description": "Con experiencia en gestión de infraestructura en AWS, GCP o Azure.", "icon": "☁️" },
+              { "title": "Diseñadores Instruccionales / Especialistas EdTech", "description": "Enfocados en plataformas LMS (Open edX) y experiencias gamificadas.", "icon": "📐" }
+            ]
+          },
+          "pmo": {
+            "name": "Gerencia de Proyectos (PMO)",
+            "profiles": [
+              { "title": "Project Managers Senior (PMP/PMI/Scrum)", "description": "Líderes con dominio en metodologías ágiles y tradicionales para proyectos de tecnología compleja.", "icon": "🎯" },
+              { "title": "Scrum Masters y Agile Coaches", "description": "Para impulsar la adopción de prácticas ágiles y optimizar la productividad de equipos de desarrollo internos.", "icon": "🔄" }
+            ]
+          },
+          "marketing": {
+            "name": "Marketing y Medios Digitales",
+            "profiles": [
+              { "title": "Content Strategists y Copywriters B2B", "description": "Creación de contenido técnico y narrativas de valor para la audiencia corporativa.", "icon": "✍️" },
+              { "title": "Video Editors y Motion Graphic Designers", "description": "Especialistas en post‑producción y animación 2D/3D.", "icon": "🎬" },
+              { "title": "Especialistas SEO/SEM Senior", "description": "Optimización de visibilidad y performance de campañas de marketing digital.", "icon": "📈" }
+            ]
+          }
+        },
+        "keywords": [
+          "Staff augmentation IT",
+          "Gerencia de proyectos offshore",
+          "Project Managers para tecnología",
+          "Desarrolladores offshore",
+          "Ingenieros AI remotos",
+          "Scrum Master offshore",
+          "Diseño instruccional remoto"
+        ],
+        "stats": {
+          "colocados": "1,200+",
+          "retencion": "95%",
+          "satisfaccion": "4.8/5"
         }
       },
       "s4": {
         "eyebrow": "04 · Digital Media",
         "title": "Contenido Audiovisual y Webs B2B",
-        "desc": "Videos corporativos, animación 2D/3D, efectos especiales y desarrollo web con CRO y SEO.",
+        "desc": "Producción de videos corporativos, animación 2D/3D y efectos especiales. Desarrollo de sitios web con enfoque en CRO, arquitectura SEO‑friendly e integración con CRM.",
         "subA": {
-          "label": "A — Video, Animación y Post-Producción",
-          "title": "Contenido Audiovisual de Alto Impacto para el Sector B2B"
+          "label": "A — Video, Animación y Post‑Producción Profesional",
+          "title": "Contenido Audiovisual de Alto Impacto para el Sector B2B",
+          "text": "Desarrollamos y producimos productos de marketing audiovisual que consolidan su mensaje corporativo. Nuestra oferta abarca la creación de videos (incluyendo videos explicativos y videos corporativos profesionales), la producción de video, animación 2D/3D, edición avanzada y la aplicación de efectos especiales, asegurando que su comunicación de valor sea clara, dinámica y memorable para los tomadores de decisiones.",
+          "items": [
+            "Videos corporativos profesionales",
+            "Videos explicativos y animados",
+            "Animación 2D / 3D",
+            "Efectos especiales (VFX)",
+            "Post‑producción avanzada",
+            "Contenido de marketing audiovisual"
+          ],
+          "tags": ["Video Corporativo", "Animación 3D", "VFX", "Post‑Producción"],
+          "keywords": ["Producción de videos corporativos profesionales", "videos explicativos", "animación profesional", "edición de video", "efectos especiales", "creación de contenido de marketing"]
         },
         "subB": {
-          "label": "B — Webs y Diseño Digital Estratégico",
-          "title": "Desarrollo de Experiencias Web de Alto Rendimiento B2B"
-        }
+          "label": "B — Creación de Webs y Diseño Digital Estratégico",
+          "title": "Desarrollo de Experiencias Web de Alto Rendimiento B2B",
+          "text": "Creamos sitios web corporativos y landing pages que son la columna vertebral de su estrategia digital. Nos enfocamos en el diseño centrado en la conversión (CRO), la arquitectura SEO‑friendly y la integración con sus sistemas de marketing y ventas (CRM), asegurando que su presencia online impulse resultados medibles.",
+          "items": [
+            "Sitios web corporativos",
+            "Landing pages de alta conversión",
+            "Arquitectura SEO‑friendly",
+            "Integración con CRM y herramientas de marketing",
+            "Diseño centrado en CRO",
+            "Optimización de rendimiento"
+          ],
+          "tags": ["Webs B2B", "Landing Pages", "SEO", "CRO & CRM"],
+          "keywords": ["Creación de webs B2B", "diseño web corporativo", "desarrollo de landing pages", "SEO web"]
+        },
+        "keywords": [
+          "Producción de Videos Corporativos",
+          "Videos Explicativos",
+          "Animación Profesional",
+          "Efectos Especiales",
+          "Creación de Webs B2B",
+          "Diseño Web Corporativo",
+          "Landing Pages",
+          "SEO Web"
+        ]
       }
     },
     "cta": {

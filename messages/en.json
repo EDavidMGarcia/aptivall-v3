@@ -213,12 +213,10 @@
         "eyebrow": "Innovation Lab",
         "title": "AI, Computer Vision & Software",
         "desc": "We develop AI solutions with video models for object identification and AI Agents with logical reasoning.",
-  
         "subA": {
           "label": "Artificial Intelligence and Automation",
           "title": "*Artificial Intelligence* that Solves Real Challenges",
           "text": "We develop AI solutions with video models for object identification and *AI Agents* with logical reasoning capabilities. Our technology doesn't just *automate* — it *optimizes* critical processes.",
-    
           "features": [
             {
               "title": "Autonomous Agents and Task Bots",
@@ -236,26 +234,21 @@
               "tags": ["AI Video", "LLM", "Generative AI", "Marketing Automation"]
             }
           ],
-    
           "keywords": ["AI Agents", "Autonomous Automation", "Computer Vision", "AI in HR", "Copilot", "Claude", "Task Bots", "CCTV Analysis", "LLM Video AI"]
         },
-  
         "subB": {
           "label": "Software Engineering & Corporate Gaming",
           "title": "*High-Impact Software* & *B2B Gamification*",
           "text": "We build scalable digital ecosystems and video games for companies looking to transform engagement with their internal and external audiences.",
-    
           "items": [
             "Full corporate games",
             "Casual video games for mass engagement",
             "Immersive advergaming for marketing strategies",
             "Gamified resources (badges, points, rankings) for upskilling/reskilling"
           ],
-    
           "tags": ["Custom Development", "Corporate Video Games", "Advergaming", "B2B Gamification", "Gamified Resources"],
           "keywords": ["Custom software development", "Corporate video games", "Advergaming", "B2B Gamification", "Gamified resources for skills"]
         },
-
         "impact": {
           "header": "Impact in numbers",
           "badge": "real results",
@@ -316,11 +309,50 @@
       "s3": {
         "eyebrow": "03 · Global Talent",
         "title": "High-Impact Talent",
-        "desc": "Offshore staff augmentation with senior IT and Marketing professionals in Latin America.",
+        "desc": "Offshore staff augmentation with senior IT and Marketing professionals in Latin America. We have a network of Project Managers specialized in leading high‑impact initiatives.",
+        "subA": {
+          "label": "A — Staff Augmentation Offshore Profiles",
+          "text": "Aptivall offers rapid integration of specialized talent, aligned with our innovation pillars."
+        },
         "categories": {
-          "engineering": "Engineering & Software Development",
-          "pmo": "Project Management (PMO)",
-          "marketing": "Marketing & Digital Media"
+          "engineering": {
+            "name": "Engineering & Software Development",
+            "profiles": [
+              { "title": "Senior Full Stack Developers", "description": "Specialized in high‑scalability environments (React, Node.js, Python).", "icon": "</>" },
+              { "title": "AI/ML Engineers", "description": "Experts in Computer Vision, Video Models and corporate AI Agents development.", "icon": "⚡" },
+              { "title": "DevOps / Cloud Engineers", "description": "Experienced in infrastructure management on AWS, GCP or Azure.", "icon": "☁️" },
+              { "title": "Instructional Designers / EdTech Specialists", "description": "Focused on LMS platforms (Open edX) and gamified experiences.", "icon": "📐" }
+            ]
+          },
+          "pmo": {
+            "name": "Project Management (PMO)",
+            "profiles": [
+              { "title": "Senior Project Managers (PMP/PMI/Scrum)", "description": "Leaders skilled in agile and traditional methodologies for complex technology projects.", "icon": "🎯" },
+              { "title": "Scrum Masters & Agile Coaches", "description": "To drive agile adoption and optimise the productivity of internal development teams.", "icon": "🔄" }
+            ]
+          },
+          "marketing": {
+            "name": "Marketing & Digital Media",
+            "profiles": [
+              { "title": "B2B Content Strategists & Copywriters", "description": "Creation of technical content and value narratives for corporate audiences.", "icon": "✍️" },
+              { "title": "Video Editors & Motion Graphic Designers", "description": "Post‑production and 2D/3D animation specialists.", "icon": "🎬" },
+              { "title": "Senior SEO/SEM Specialists", "description": "Optimisation of visibility and performance of digital marketing campaigns.", "icon": "📈" }
+            ]
+          }
+        },
+        "keywords": [
+          "IT Staff augmentation",
+          "Offshore project management",
+          "Project Managers for technology",
+          "Offshore developers",
+          "Remote AI engineers",
+          "Offshore Scrum Master",
+          "Remote instructional design"
+        ],
+        "stats": {
+          "placed": "1,200+",
+          "retention": "95%",
+          "satisfaction": "4.8/5"
         }
       },
       "s4": {
@@ -328,13 +360,45 @@
         "title": "Audiovisual Content & B2B Websites",
         "desc": "Corporate videos, 2D/3D animation, special effects and web development with CRO and SEO.",
         "subA": {
-          "label": "A — Video, Animation & Post-Production",
-          "title": "High-Impact Audiovisual Content for the B2B Sector"
+          "label": "A — Video, Animation & Professional Post‑Production",
+          "title": "High‑Impact Audiovisual Content for the B2B Sector",
+          "text": "We develop and produce audiovisual marketing products that consolidate your corporate message. Our offering includes video creation (including explanatory videos and professional corporate videos), video production, 2D/3D animation, advanced editing and the application of special effects, ensuring that your value communication is clear, dynamic and memorable for decision‑makers.",
+          "items": [
+            "Professional corporate videos",
+            "Explanatory and animated videos",
+            "2D / 3D animation",
+            "Special effects (VFX)",
+            "Advanced post‑production",
+            "Marketing content creation"
+          ],
+          "tags": ["Corporate Video", "3D Animation", "VFX", "Post‑Production"],
+          "keywords": ["Professional corporate video production", "explanatory videos", "professional animation", "video editing", "special effects", "marketing content creation"]
         },
         "subB": {
-          "label": "B — Websites & Strategic Digital Design",
-          "title": "High-Performance B2B Web Experiences"
-        }
+          "label": "B — Website Creation & Strategic Digital Design",
+          "title": "High‑Performance B2B Web Experiences Development",
+          "text": "We create corporate websites and landing pages that are the backbone of your digital strategy. We focus on conversion‑centered design (CRO), SEO‑friendly architecture and integration with your marketing and sales systems (CRM), ensuring that your online presence drives measurable results.",
+          "items": [
+            "Corporate websites",
+            "High‑conversion landing pages",
+            "SEO‑friendly architecture",
+            "CRM and marketing tools integration",
+            "CRO‑focused design",
+            "Performance optimisation"
+          ],
+          "tags": ["B2B Websites", "Landing Pages", "SEO", "CRO & CRM"],
+          "keywords": ["B2B website creation", "corporate web design", "landing page development", "web SEO"]
+        },
+        "keywords": [
+          "Corporate Video Production",
+          "Explanatory Videos",
+          "Professional Animation",
+          "Special Effects",
+          "B2B Website Creation",
+          "Corporate Web Design",
+          "Landing Pages",
+          "Web SEO"
+        ]
       }
     },
     "cta": {

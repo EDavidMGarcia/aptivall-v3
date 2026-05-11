@@ -5,6 +5,8 @@ import { Metadata } from "next";
 import Hero from "./components/ServiceHero/Hero";
 import InnovationLab from "./components/ServiceInnovationLab/InnovationLab";
 import EdtechStudio from "./components/ServiceEdtechStudio/EdtechStudio";
+import GlobalTalent from "./components/ServiceGlobalTalent/GlobalTalent";
+import DigitalMedia from "./components/ServiceDigitalMedia/DigitalMedia";
 // DigitalMedia aún no está creado, lo importamos cuando exista
 // import DigitalMedia from "./components/ServiceDigitalMedia/DigitalMedia";
 
@@ -25,6 +27,13 @@ export default function ServicesPage() {
 
       {/* 2. Edtech Studio */}
       <EdtechStudio />
+
+
+      {/* 3. Global Talent */}
+      <GlobalTalent />
+
+      {/* 4. Digital Media */}
+      <DigitalMedia />
 
 
       {/* 4. Digital Media - Comentado hasta que exista el componente */}
