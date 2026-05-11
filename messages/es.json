@@ -5,14 +5,20 @@
     "servicios": "Servicios",
     "clientes": "Casos de Éxito",
     "contacto": "Contacto",
-    "elearning": "Campus Virtual"
+    "elearning": "Campus Virtual",
+    "services": {
+    "innovation": "Innovation Lab",
+    "edtech": "EdTech Studio",
+    "talent": "Global Talent",
+    "media": "Digital Media"
+  }
   },
 
   "Hero": {
     "tag": "Innovación Personalizada",
     "title1": "Liderando la Frontera de la ",
     "titleHighlight": "Evolución Digital",
-    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar Organizaciones Innovadoras.",
+    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar organizaciones innnovadoras.",
     "viewServices": "Ver Servicios",
     "projectsCount": "proyectos",
     "cta": "Iniciar Consultoría Estratégica",

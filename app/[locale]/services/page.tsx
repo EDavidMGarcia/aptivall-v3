@@ -1,14 +1,9 @@
-// app/[locale]/services/page.tsx
-// Server Component - Orquestador principal
-
 import { Metadata } from "next";
 import Hero from "./components/ServiceHero/Hero";
 import InnovationLab from "./components/ServiceInnovationLab/InnovationLab";
 import EdtechStudio from "./components/ServiceEdtechStudio/EdtechStudio";
 import GlobalTalent from "./components/ServiceGlobalTalent/GlobalTalent";
 import DigitalMedia from "./components/ServiceDigitalMedia/DigitalMedia";
-// DigitalMedia aún no está creado, lo importamos cuando exista
-// import DigitalMedia from "./components/ServiceDigitalMedia/DigitalMedia";
 
 export const metadata: Metadata = {
   title: "Servicios | Soluciones de IA, EdTech, Talento Global y Medios Digitales",

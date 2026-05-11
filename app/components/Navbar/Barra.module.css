@@ -90,7 +90,9 @@
   transform: translateY(-1px);
 }
 
-.navItem:hover::after { transform: scaleX(1); }
+.navItem:hover::after {
+  transform: scaleX(1);
+}
 
 /* --- BOTÓN CONTACTO --- */
 .navContact {
@@ -155,25 +157,117 @@
   transition: 0.3s;
 }
 
-.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #00FF81; }
-.open span:nth-child(2) { opacity: 0; }
-.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #00FF81; }
+.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: #00FF81;
+}
 
+.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: #00FF81;
+}
+
+/* ========== DROPDOWN DE SERVICIOS ========== */
+.dropdownContainer {
+  position: relative;
+}
+
+.dropdownWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0; /* Sin espacio entre el botón y la flecha */
+}
+
+/* Ajustamos el padding del botón para que la flecha quede pegada */
+.dropdownWrapper .navItem {
+  padding-right: 4px; /* Menos padding a la derecha */
+}
+
+.dropdownArrow {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.85rem; /* Ligeramente más grande */
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  transition: all 0.2s ease;
+  display: inline-block;
+  transform: translateY(0);
+  font-weight: 500;
+}
+
+/* En escritorio: solo animación de la flecha al hover (el menú ya no se muestra por CSS) */
+@media (min-width: 769px) {
+  .dropdownContainer:hover .dropdownArrow {
+    transform: translateY(2px);
+    color: #00FF81;
+  }
+}
+
+/* Menú base: oculto */
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  background: rgba(10, 20, 30, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 129, 0.25);
+  border-radius: 20px;
+  padding: 0.5rem 0;
+  min-width: 220px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* Menú visible (controlado por JavaScript) */
+.dropdownMenuVisible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 20px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background: rgba(0, 255, 129, 0.1);
+  color: #00FF81;
+}
+
+/* ========== RESPONSIVE (MÓVIL) ========== */
 @media (max-width: 768px) {
-  /* CAMBIO AQUÍ: Debe ser flex para que aparezca en móvil */
-  .hamburger { 
-    display: flex; 
+  .hamburger {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    z-index: 10001; /* Un nivel más arriba que el fondo */
+    z-index: 10001;
     background: none;
     border: none;
     cursor: pointer;
   }
 
   .logoWrapper {
-    z-index: 10001; /* Esto asegura que el logo "Aptivall" flote sobre el fondo negro */
+    z-index: 10001;
     position: relative;
   }
 
@@ -182,17 +276,16 @@
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 100%; /* CAMBIO: Ahora ocupa todo el ancho */
-    background: #080808 !important; 
+    width: 100%;
+    background: #080808 !important;
     flex-direction: column;
-    align-items: center; /* CAMBIO: Centramos los items para un look de pantalla completa */
-    justify-content: center; /* CAMBIO: Centramos verticalmente los links */
-    padding: 0; 
-    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Transición más elegante */
-    z-index: 10000; 
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10000;
   }
 
-  /* Esta es la clave: cuando está activo, el fondo debe ser inmediato */
   .navLinks.active {
     right: 0;
     background: #080808 !important;
@@ -200,27 +293,45 @@
     opacity: 1 !important;
   }
 
-  .navLinks li { 
-    opacity: 1 !important; 
-    transform: none !important; 
-    width: 80%; /* Contenedor de links un poco más estrecho para que no toquen bordes */
+  .navLinks li {
+    opacity: 1 !important;
+    transform: none !important;
+    width: 80%;
     text-align: center;
   }
 
-  .navItem, .navLinks li a {
+  .navItem,
+  .navLinks li a {
     width: 100%;
     text-align: center;
     padding: 20px 0;
-    font-size: 1.5rem; /* Fuente más grande para el modo pantalla completa */
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     color: white !important;
   }
 
   .navContact {
     width: 100% !important;
-    max-width: 250px; /* Evitamos que el botón de contacto sea gigante */
+    max-width: 250px;
     justify-content: center;
     margin-top: 30px;
     font-size: 1.2rem !important;
+  }
+
+  /* Flecha más grande en móvil */
+  .dropdownArrow {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .dropdownWrapper .navItem {
+    padding-right: 2px;
+  }
+  .dropdownMenu {
+    position: fixed;
+    top: 72px;
+    left: 20px;
+    right: 20px;
+    width: auto;
+    min-width: auto;
   }
 }

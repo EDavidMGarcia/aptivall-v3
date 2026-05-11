@@ -127,7 +127,7 @@ const Services: React.FC = () => {
 
         <div className={styles.bentoGrid}>
 
-          <Link href={`/${locale}/services`} className={`${styles.card} ${styles.cardFeatured}`}>
+          <Link href={`/${locale}/services#service-1`} className={`${styles.card} ${styles.cardFeatured}`}>
             <div className={styles.cardInner}>
               <span className={styles.featuredNumber}>{featured.number}</span>
               <div className={styles.featuredIconWrapper}>{ICONS[0]}</div>
@@ -154,31 +154,31 @@ const Services: React.FC = () => {
           </Link>
 
           <div className={styles.rightColumn}>
-            {smallServices.map((service, i) => (
-              <Link
-                key={service.id}
-                href={`/${locale}/services`}
-                className={`${styles.card} ${styles.cardSmall}`}
-              >
-                <div className={styles.cardInner}>
-                  <span className={styles.smallNumber}>{service.number}</span> {/* 👈 NUEVO */}
-
-                  <div className={styles.iconWrapper}>{ICONS[i + 1]}</div>
-
-                  <div className={styles.cardContent}>
-                    <span className={styles.cardEyebrow}>{service.eyebrow}</span>
-                    <h3 className={styles.cardTitle}>{service.title}</h3>
-                    <p className={styles.cardDescription}>{service.description}</p>
-
-                    <div className={styles.cardTags}>
-                      {service.tags.map((tag) => (
-                        <span key={tag} className={styles.tag}>{tag}</span>
-                      ))}
+            {smallServices.map((service, i) => {
+              const serviceIndex = i + 2; // 2, 3, 4
+              return (
+                <Link
+                  key={service.id}
+                  href={`/${locale}/services#service-${serviceIndex}`}
+                  className={`${styles.card} ${styles.cardSmall}`}
+                >
+                  <div className={styles.cardInner}>
+                    <span className={styles.smallNumber}>{service.number}</span>
+                    <div className={styles.iconWrapper}>{ICONS[i + 1]}</div>
+                    <div className={styles.cardContent}>
+                      <span className={styles.cardEyebrow}>{service.eyebrow}</span>
+                      <h3 className={styles.cardTitle}>{service.title}</h3>
+                      <p className={styles.cardDescription}>{service.description}</p>
+                      <div className={styles.cardTags}>
+                        {service.tags.map((tag) => (
+                          <span key={tag} className={styles.tag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
 
         </div>

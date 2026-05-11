@@ -5,7 +5,13 @@
     "servicios": "Services",
     "clientes": "Success Stories",
     "contacto": "Contact",
-    "elearning": "Campus Virtual"
+    "elearning": "Campus Virtual",
+    "services": {
+    "innovation": "Innovation Lab",
+    "edtech": "EdTech Studio",
+    "talent": "Global Talent",
+    "media": "Digital Media"
+  }
   },
 
   "Hero": {
