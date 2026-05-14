@@ -1,26 +1,26 @@
 {
   "Metadata": {
-  "home": {
-    "title": "Aptivall — Dedicated Technological Transformation",
-    "description": "We transform technological complexity into operational simplicity. AI, software engineering, and senior global talent."
+    "home": {
+      "title": "Aptivall — Dedicated Technological Transformation",
+      "description": "We transform technological complexity into operational simplicity. AI, software engineering, and senior global talent."
+    },
+    "services": {
+      "title": "Services | Aptivall",
+      "description": "Innovation Lab, EdTech Studio, Global Talent, and Digital Media."
+    },
+    "about": {
+      "title": "About Us | Aptivall",
+      "description": "Meet the team behind Aptivall."
+    },
+    "privacy": {
+      "title": "Privacy Policy | Aptivall",
+      "description": "How we protect your personal information at Aptivall."
+    },
+    "terms": {
+      "title": "Terms of Use | Aptivall",
+      "description": "Terms and conditions for using the Aptivall website."
+    }
   },
-  "services": {
-    "title": "Services | Aptivall",
-    "description": "Innovation Lab, EdTech Studio, Global Talent, and Digital Media."
-  },
-  "about": {
-    "title": "About Us | Aptivall",
-    "description": "Meet the team behind Aptivall."
-  },
-  "privacy": {
-    "title": "Privacy Policy | Aptivall",
-    "description": "How we protect your personal information at Aptivall."
-  },
-  "terms": {
-    "title": "Terms of Use | Aptivall",
-    "description": "Terms and conditions for using the Aptivall website."
-}
-},
   "Navbar": {
     "inicio": "Home",
     "sobre": "About Us",
@@ -40,7 +40,6 @@
       "media": "Digital Media"
     }
   },
-
   "Hero": {
     "tag": "Custom Innovation",
     "title1": "Leading the Frontier of ",
@@ -52,7 +51,6 @@
     "badge1": "Flawless Execution",
     "badge2": "Measurable Results"
   },
-
   "Philosophy": {
     "eyebrow": "The Aptivall Way",
     "title": "Innovation with",
@@ -82,7 +80,6 @@
       }
     ]
   },
-
   "Services": {
     "eyebrow": "Services",
     "title": "Solutions Designed to",
@@ -126,7 +123,6 @@
       }
     ]
   },
-
   "CaseStudies": {
     "eyebrow": "Results",
     "title": "Transformation Milestones and",
@@ -170,10 +166,9 @@
       }
     ]
   },
-
   "ContactBar": {
     "emailTemplates": {
-      "userSubject": "We’ve received your message - Aptivall",
+      "userSubject": "We've received your message - Aptivall",
       "userGreeting": "Hello {name}!",
       "userBody": "Thank you for reaching out and for your interest in working with us. We have successfully received your request regarding:",
       "userFollowUp": "Our team will review your message and one of our advisors will get in touch with you as soon as possible.",
@@ -238,9 +233,8 @@
       "cta": "Back to home",
       "eta": "Coming Soon",
       "loading": "Under construction"
-}
+    }
   },
-
   "ServicesPage": {
     "meta": {
       "title": "Services | Aptivall — AI, EdTech, Global Talent & Digital Media",
@@ -316,7 +310,7 @@
         "title": "Learning Ecosystems",
         "desc": "As Open edX partners, we build enterprise-grade e-learning platforms with instructional design and H5P interactivity for high-complexity sectors.",
         "subA": {
-          "label": "A — Human Capital Transformation",
+          "label": "Human Capital Transformation",
           "title": "*Human Capital Transformation* through Elite EdTech",
           "text": "As Open edX partners, we build enterprise-grade e-learning platforms that integrate instructional design and cutting-edge technology for highly complex sectors. Our focus on interactivity is enhanced with resources like H5P.org, designing immersive learning experiences that guarantee a high retention rate. At Aptivall, we eradicate the obsolescence of corporate training. We don't just digitize; we re‑engineer the learning experience.",
           "features": [
@@ -361,7 +355,8 @@
         "title": "High-Impact Talent",
         "desc": "Offshore staff augmentation with senior IT and Marketing professionals in Latin America. We have a network of Project Managers specialized in leading high‑impact initiatives.",
         "subA": {
-          "label": "A — Staff Augmentation Offshore Profiles",
+          "title": "*High-Impact Talent* for your Operation",
+          "label": "Staff Augmentation Offshore Profiles",
           "text": "Aptivall offers rapid integration of specialized talent, aligned with our innovation pillars."
         },
         "categories": {
@@ -400,17 +395,22 @@
           "Remote instructional design"
         ],
         "stats": {
-          "placed": "1,200+",
-          "retention": "95%",
-          "satisfaction": "4.8/5"
-        }
+            "colocados": "1,200+",
+            "retencion": "95%",
+            "satisfaccion": "4.8/5"
+          },
+          "statsLabels": {
+            "colocados": "professionals placed",
+            "retencion": "annual retention",
+            "satisfaccion": "client satisfaction"
+          }
       },
       "s4": {
         "eyebrow": "04 · Digital Media",
         "title": "Audiovisual Content & B2B Websites",
         "desc": "Corporate videos, 2D/3D animation, special effects and web development with CRO and SEO.",
         "subA": {
-          "label": "A — Video, Animation & Professional Post‑Production",
+          "label": "Video, Animation & Professional Post‑Production",
           "title": "High‑Impact Audiovisual Content for the B2B Sector",
           "text": "We develop and produce audiovisual marketing products that consolidate your corporate message. Our offering includes video creation (including explanatory videos and professional corporate videos), video production, 2D/3D animation, advanced editing and the application of special effects, ensuring that your value communication is clear, dynamic and memorable for decision‑makers.",
           "items": [
@@ -425,7 +425,7 @@
           "keywords": ["Professional corporate video production", "explanatory videos", "professional animation", "video editing", "special effects", "marketing content creation"]
         },
         "subB": {
-          "label": "B — Website Creation & Strategic Digital Design",
+          "label": "Website Creation & Strategic Digital Design",
           "title": "High‑Performance B2B Web Experiences Development",
           "text": "We create corporate websites and landing pages that are the backbone of your digital strategy. We focus on conversion‑centered design (CRO), SEO‑friendly architecture and integration with your marketing and sales systems (CRM), ensuring that your online presence drives measurable results.",
           "items": [
@@ -451,6 +451,24 @@
         ]
       }
     },
+    "edtech": {
+      "enhancedMockup": {
+        "title": "Open edX Partner",
+        "partnerBadge": "Official Partner",
+        "partnerDescription": "Aptivall is an official partner of the world's most powerful open-source learning platform.",
+        "impactLabel": "Global Impact",
+        "impactLearners": "Registered Learners",
+        "impactSites": "Active Sites"
+      },
+      "openEdxFeatures": [
+        { "title": "Global Scale", "desc": "From hundreds to millions of users" },
+        { "title": "Full Customization", "desc": "Open source, tailored to your business" },
+        { "title": "Advanced Analytics", "desc": "Detailed learning metrics" },
+        { "title": "Integrated Ecosystem", "desc": "SSO, APIs, LTI & more" }
+      ],
+      "subB": { "label": "Success Stories" },
+      "caseBadge": "Success"
+    },
     "cta": {
       "eyebrow": "Next Step",
       "title": "Ready for the next",
@@ -461,77 +479,77 @@
     }
   },
   "PrivacyPage": {
-  "title": "Privacy Policy",
-  "lastUpdated": "Last updated: May 14, 2025",
-  "intro": "At Aptivall, we respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and protect your information when you interact with us through our website.",
-  "sections": [
-    {
-      "heading": "1. Information We Collect",
-      "body": "We only collect information that you voluntarily provide through the contact form: name, email address, subject, and message. We do not use tracking cookies or analytics tools that collect personal data without your consent."
-    },
-    {
-      "heading": "2. How We Use Your Information",
-      "body": "We use the information you send us solely to respond to your inquiry and, if you request it, to contact you about the services we offer. We do not use your data for automated marketing purposes or share it with third parties."
-    },
-    {
-      "heading": "3. Storage and Security",
-      "body": "Your data is stored securely and only for as long as necessary to manage your inquiry. We implement technical and organizational security measures to protect your information against unauthorized access, loss, or alteration."
-    },
-    {
-      "heading": "4. No Tracking Cookies",
-      "body": "Our website does not use tracking cookies, advertising cookies, or analytics that compromise your privacy. We only use cookies strictly necessary for the technical operation of the site, which do not require your consent under current legislation."
-    },
-    {
-      "heading": "5. Your Rights",
-      "body": "You may request access, rectification, or deletion of your personal data at any time by writing to info@aptivall.com. We will respond to your request within a maximum of 15 business days."
-    },
-    {
-      "heading": "6. Changes to This Policy",
-      "body": "Any future changes to this Privacy Policy will be posted on this page. We recommend reviewing it periodically to stay informed about how we protect your information."
-    },
-    {
-      "heading": "7. Contact",
-      "body": "If you have any questions about this Privacy Policy, please contact us at info@aptivall.com."
-    }
-  ]
-},
-"TermsPage": {
-  "title": "Terms of Use",
-  "lastUpdated": "Last updated: May 14, 2025",
-  "intro": "Welcome to Aptivall. By accessing and using our website, you agree to comply with the following Terms of Use. If you do not agree with any of these conditions, we recommend not using the site.",
-  "sections": [
-    {
-      "heading": "1. Website Use",
-      "body": "The content of this site is for informational purposes only regarding the services offered by Aptivall. Using the site for illegal, fraudulent activities or those that may damage the company's image is not permitted."
-    },
-    {
-      "heading": "2. Intellectual Property",
-      "body": "All content on the site (texts, images, logos, graphics, source code, and design) is the exclusive property of Aptivall or third parties who have authorized its use. Reproduction, distribution, or modification without prior written consent is prohibited."
-    },
-    {
-      "heading": "3. Limitation of Liability",
-      "body": "Aptivall is not responsible for any damages or losses that may arise from the use of the information contained on the site. While we strive to keep the information up to date, we do not guarantee the accuracy or completeness of the content."
-    },
-    {
-      "heading": "4. Third-Party Links",
-      "body": "This site may contain links to third-party websites (e.g., the Virtual Campus). Aptivall assumes no responsibility for the content or privacy policies of those sites."
-    },
-    {
-      "heading": "5. Data Protection",
-      "body": "The processing of your personal data is governed by our Privacy Policy, which we recommend you read carefully."
-    },
-    {
-      "heading": "6. Modifications",
-      "body": "Aptivall reserves the right to modify these Terms of Use at any time. Changes will take effect upon publication on this page."
-    },
-    {
-      "heading": "7. Applicable Law",
-      "body": "These Terms of Use are governed by the laws of the Republic of Colombia. Any dispute shall be submitted to the competent courts of Bogotá D.C."
-    },
-    {
-      "heading": "8. Contact",
-      "body": "If you have any questions about these Terms of Use, you can write to us at info@aptivall.com."
-    }
-  ]
-}
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: May 14, 2025",
+    "intro": "At Aptivall, we respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and protect your information when you interact with us through our website.",
+    "sections": [
+      {
+        "heading": "1. Information We Collect",
+        "body": "We only collect information that you voluntarily provide through the contact form: name, email address, subject, and message. We do not use tracking cookies or analytics tools that collect personal data without your consent."
+      },
+      {
+        "heading": "2. How We Use Your Information",
+        "body": "We use the information you send us solely to respond to your inquiry and, if you request it, to contact you about the services we offer. We do not use your data for automated marketing purposes or share it with third parties."
+      },
+      {
+        "heading": "3. Storage and Security",
+        "body": "Your data is stored securely and only for as long as necessary to manage your inquiry. We implement technical and organizational security measures to protect your information against unauthorized access, loss, or alteration."
+      },
+      {
+        "heading": "4. No Tracking Cookies",
+        "body": "Our website does not use tracking cookies, advertising cookies, or analytics that compromise your privacy. We only use cookies strictly necessary for the technical operation of the site, which do not require your consent under current legislation."
+      },
+      {
+        "heading": "5. Your Rights",
+        "body": "You may request access, rectification, or deletion of your personal data at any time by writing to info@aptivall.com. We will respond to your request within a maximum of 15 business days."
+      },
+      {
+        "heading": "6. Changes to This Policy",
+        "body": "Any future changes to this Privacy Policy will be posted on this page. We recommend reviewing it periodically to stay informed about how we protect your information."
+      },
+      {
+        "heading": "7. Contact",
+        "body": "If you have any questions about this Privacy Policy, please contact us at info@aptivall.com."
+      }
+    ]
+  },
+  "TermsPage": {
+    "title": "Terms of Use",
+    "lastUpdated": "Last updated: May 14, 2025",
+    "intro": "Welcome to Aptivall. By accessing and using our website, you agree to comply with the following Terms of Use. If you do not agree with any of these conditions, we recommend not using the site.",
+    "sections": [
+      {
+        "heading": "1. Website Use",
+        "body": "The content of this site is for informational purposes only regarding the services offered by Aptivall. Using the site for illegal, fraudulent activities or those that may damage the company's image is not permitted."
+      },
+      {
+        "heading": "2. Intellectual Property",
+        "body": "All content on the site (texts, images, logos, graphics, source code, and design) is the exclusive property of Aptivall or third parties who have authorized its use. Reproduction, distribution, or modification without prior written consent is prohibited."
+      },
+      {
+        "heading": "3. Limitation of Liability",
+        "body": "Aptivall is not responsible for any damages or losses that may arise from the use of the information contained on the site. While we strive to keep the information up to date, we do not guarantee the accuracy or completeness of the content."
+      },
+      {
+        "heading": "4. Third-Party Links",
+        "body": "This site may contain links to third-party websites (e.g., the Virtual Campus). Aptivall assumes no responsibility for the content or privacy policies of those sites."
+      },
+      {
+        "heading": "5. Data Protection",
+        "body": "The processing of your personal data is governed by our Privacy Policy, which we recommend you read carefully."
+      },
+      {
+        "heading": "6. Modifications",
+        "body": "Aptivall reserves the right to modify these Terms of Use at any time. Changes will take effect upon publication on this page."
+      },
+      {
+        "heading": "7. Applicable Law",
+        "body": "These Terms of Use are governed by the laws of the Republic of Colombia. Any dispute shall be submitted to the competent courts of Bogotá D.C."
+      },
+      {
+        "heading": "8. Contact",
+        "body": "If you have any questions about these Terms of Use, you can write to us at info@aptivall.com."
+      }
+    ]
+  }
 }
