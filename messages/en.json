@@ -11,7 +11,15 @@
   "about": {
     "title": "About Us | Aptivall",
     "description": "Meet the team behind Aptivall."
-  }
+  },
+  "privacy": {
+    "title": "Privacy Policy | Aptivall",
+    "description": "How we protect your personal information at Aptivall."
+  },
+  "terms": {
+    "title": "Terms of Use | Aptivall",
+    "description": "Terms and conditions for using the Aptivall website."
+}
 },
   "Navbar": {
     "inicio": "Home",
@@ -451,5 +459,79 @@
       "btnPrimary": "Start Strategic Consultancy",
       "btnSecondary": "View all services"
     }
-  }
+  },
+  "PrivacyPage": {
+  "title": "Privacy Policy",
+  "lastUpdated": "Last updated: May 14, 2025",
+  "intro": "At Aptivall, we respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and protect your information when you interact with us through our website.",
+  "sections": [
+    {
+      "heading": "1. Information We Collect",
+      "body": "We only collect information that you voluntarily provide through the contact form: name, email address, subject, and message. We do not use tracking cookies or analytics tools that collect personal data without your consent."
+    },
+    {
+      "heading": "2. How We Use Your Information",
+      "body": "We use the information you send us solely to respond to your inquiry and, if you request it, to contact you about the services we offer. We do not use your data for automated marketing purposes or share it with third parties."
+    },
+    {
+      "heading": "3. Storage and Security",
+      "body": "Your data is stored securely and only for as long as necessary to manage your inquiry. We implement technical and organizational security measures to protect your information against unauthorized access, loss, or alteration."
+    },
+    {
+      "heading": "4. No Tracking Cookies",
+      "body": "Our website does not use tracking cookies, advertising cookies, or analytics that compromise your privacy. We only use cookies strictly necessary for the technical operation of the site, which do not require your consent under current legislation."
+    },
+    {
+      "heading": "5. Your Rights",
+      "body": "You may request access, rectification, or deletion of your personal data at any time by writing to info@aptivall.com. We will respond to your request within a maximum of 15 business days."
+    },
+    {
+      "heading": "6. Changes to This Policy",
+      "body": "Any future changes to this Privacy Policy will be posted on this page. We recommend reviewing it periodically to stay informed about how we protect your information."
+    },
+    {
+      "heading": "7. Contact",
+      "body": "If you have any questions about this Privacy Policy, please contact us at info@aptivall.com."
+    }
+  ]
+},
+"TermsPage": {
+  "title": "Terms of Use",
+  "lastUpdated": "Last updated: May 14, 2025",
+  "intro": "Welcome to Aptivall. By accessing and using our website, you agree to comply with the following Terms of Use. If you do not agree with any of these conditions, we recommend not using the site.",
+  "sections": [
+    {
+      "heading": "1. Website Use",
+      "body": "The content of this site is for informational purposes only regarding the services offered by Aptivall. Using the site for illegal, fraudulent activities or those that may damage the company's image is not permitted."
+    },
+    {
+      "heading": "2. Intellectual Property",
+      "body": "All content on the site (texts, images, logos, graphics, source code, and design) is the exclusive property of Aptivall or third parties who have authorized its use. Reproduction, distribution, or modification without prior written consent is prohibited."
+    },
+    {
+      "heading": "3. Limitation of Liability",
+      "body": "Aptivall is not responsible for any damages or losses that may arise from the use of the information contained on the site. While we strive to keep the information up to date, we do not guarantee the accuracy or completeness of the content."
+    },
+    {
+      "heading": "4. Third-Party Links",
+      "body": "This site may contain links to third-party websites (e.g., the Virtual Campus). Aptivall assumes no responsibility for the content or privacy policies of those sites."
+    },
+    {
+      "heading": "5. Data Protection",
+      "body": "The processing of your personal data is governed by our Privacy Policy, which we recommend you read carefully."
+    },
+    {
+      "heading": "6. Modifications",
+      "body": "Aptivall reserves the right to modify these Terms of Use at any time. Changes will take effect upon publication on this page."
+    },
+    {
+      "heading": "7. Applicable Law",
+      "body": "These Terms of Use are governed by the laws of the Republic of Colombia. Any dispute shall be submitted to the competent courts of Bogotá D.C."
+    },
+    {
+      "heading": "8. Contact",
+      "body": "If you have any questions about these Terms of Use, you can write to us at info@aptivall.com."
+    }
+  ]
+}
 }

@@ -96,6 +96,7 @@ export default async function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <link rel="manifest" href="/manifest.json" />
+      <link rel="apple-touch-icon" href="/icons/aptiLogo.png" />
       <body className="min-h-screen flex flex-col text-white">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Toaster position="bottom-right" richColors theme="dark" closeButton />

@@ -148,24 +148,12 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} <span>Aptivall</span>. {t("footer.copyright")}
           </p>
           <div className={styles.footerLegal}>
-            <span
-              className={styles.footerLegalLink}
-              role="button"
-              tabIndex={0}
-              onClick={() => {}}
-              onKeyDown={(e) => { if (e.key === "Enter") e.preventDefault(); }}
-            >
+            <Link href={`/${locale}/privacy`} className={styles.footerLegalLink}>
               {t("footer.privacy")}
-            </span>
-            <span
-              className={styles.footerLegalLink}
-              role="button"
-              tabIndex={0}
-              onClick={() => {}}
-              onKeyDown={(e) => { if (e.key === "Enter") e.preventDefault(); }}
-            >
+            </Link>
+            <Link href={`/${locale}/terms`} className={styles.footerLegalLink}>
               {t("footer.terms")}
-            </span>
+            </Link>
           </div>
         </div>
       </footer>

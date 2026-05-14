@@ -1,0 +1,43 @@
+.container {
+  max-width: 800px;
+  margin: 120px auto 80px;
+  padding: 0 5%;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: var(--font-geist), sans-serif;
+  line-height: 1.7;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.lastUpdated {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 2rem;
+}
+
+.intro {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.body {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
