@@ -1,5 +1,5 @@
 import React from "react";
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { notFound } from "next/navigation";
@@ -95,6 +95,7 @@ export default async function RootLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <link rel="manifest" href="/manifest.json" />
       <body className="min-h-screen flex flex-col text-white">
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Toaster position="bottom-right" richColors theme="dark" closeButton />

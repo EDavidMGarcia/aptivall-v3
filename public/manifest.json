@@ -1,0 +1,21 @@
+{
+  "name": "Aptivall — Transformación Tecnológica",
+  "short_name": "Aptivall",
+  "description": "IA, EdTech, Talento Global y Digital Media",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#001DFF",
+  "icons": [
+    {
+      "src": "/icons/aptiLogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/aptiLogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
