@@ -1,3 +1,8 @@
+/* ============================================================
+   NAVBAR — Barra de navegación fija
+   Contiene estilos para escritorio, móvil, dropdown y animaciones.
+   ============================================================ */
+
 .navbar {
   position: fixed;
   top: 0;
@@ -56,7 +61,8 @@
   transform: translateY(-15px);
 }
 
-.navItem, .navLinks li a {
+.navItem,
+.navLinks li a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.65);
   font-size: 0.9rem;
@@ -94,40 +100,43 @@
   transform: scaleX(1);
 }
 
+/* Estado activo */
+.navItem.active,
+.navItem.active:hover {
+  color: #00FF81;
+  background: rgba(0, 255, 129, 0.08);
+}
+
+.navItem.active::after {
+  background: #00FF81;
+  transform: scaleX(1);
+}
+
 /* --- BOTÓN CONTACTO --- */
 .navContact {
   position: relative;
   overflow: hidden;
-  background: var(--primary, #001DFF) !important;
-  color: #ffffff !important;
-  border: 1px solid rgba(0, 29, 255, 0.4) !important;
-  border-radius: 12px !important;
-  padding: 8px 18px !important;
+  background: var(--primary, #001DFF);
+  color: #ffffff;
+  border: 1px solid rgba(0, 29, 255, 0.4);
+  border-radius: 12px;
+  padding: 8px 18px;
   font-weight: 500;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
   text-decoration: none;
   cursor: pointer;
 }
 
 .navContact:hover {
-  background: #1a36ff !important;
+  background: #1a36ff;
   transform: translateY(-1px);
   box-shadow: 0 0 15px rgba(0, 29, 255, 0.4);
 }
 
-.active:not(.navContact) {
-  color: #00FF81 !important;
-  background: rgba(0, 255, 129, 0.08) !important;
-}
-
-.active:not(.navContact)::after {
-  background: #00FF81 !important;
-  transform: scaleX(1) !important;
-}
-
+/* Cambio de idioma */
 .langSwitch button {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,6 +148,7 @@
   transition: all 0.2s ease;
 }
 
+/* --- HAMBURGUESA --- */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -179,30 +189,28 @@
 .dropdownWrapper {
   display: flex;
   align-items: center;
-  gap: 0; /* Sin espacio entre el botón y la flecha */
+  gap: 0;
 }
 
-/* Ajustamos el padding del botón para que la flecha quede pegada */
 .dropdownWrapper .navItem {
-  padding-right: 4px; /* Menos padding a la derecha */
+  padding-right: 4px;
 }
 
 .dropdownArrow {
   background: transparent;
   border: none;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem; /* Ligeramente más grande */
+  font-size: 0.85rem;
   cursor: pointer;
   padding: 0;
   margin: 0;
   line-height: 1;
   transition: all 0.2s ease;
   display: inline-block;
-  transform: translateY(0);
   font-weight: 500;
 }
 
-/* En escritorio: solo animación de la flecha al hover (el menú ya no se muestra por CSS) */
+/* En escritorio: solo animación de la flecha al hover */
 @media (min-width: 769px) {
   .dropdownContainer:hover .dropdownArrow {
     transform: translateY(2px);
@@ -210,7 +218,13 @@
   }
 }
 
-/* Menú base: oculto */
+/* Flecha activa (cuando el dropdown está abierto) */
+.dropdownArrowActive {
+  transform: rotate(180deg);
+  color: #00FF81;
+}
+
+/* Menú desplegable */
 .dropdownMenu {
   position: absolute;
   top: calc(100% + 12px);
@@ -228,7 +242,6 @@
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-/* Menú visible (controlado por JavaScript) */
 .dropdownMenuVisible {
   opacity: 1;
   visibility: visible;
@@ -251,6 +264,16 @@
 .dropdownItem:hover {
   background: rgba(0, 255, 129, 0.1);
   color: #00FF81;
+}
+
+/* ========== FOCOS VISIBLES (ACCESIBILIDAD) ========== */
+.navItem:focus-visible,
+.navContact:focus-visible,
+.langButton:focus-visible,
+.dropdownItem:focus-visible,
+.hamburger:focus-visible {
+  outline: 2px solid var(--primary, #001DFF);
+  outline-offset: 2px;
 }
 
 /* ========== RESPONSIVE (MÓVIL) ========== */
@@ -277,7 +300,7 @@
     right: -100%;
     height: 100vh;
     width: 100%;
-    background: #080808 !important;
+    background: #080808;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -288,14 +311,14 @@
 
   .navLinks.active {
     right: 0;
-    background: #080808 !important;
-    visibility: visible !important;
-    opacity: 1 !important;
+    background: #080808;
+    visibility: visible;
+    opacity: 1;
   }
 
   .navLinks li {
-    opacity: 1 !important;
-    transform: none !important;
+    opacity: 1;
+    transform: none;
     width: 80%;
     text-align: center;
   }
@@ -307,25 +330,26 @@
     padding: 20px 0;
     font-size: 1.5rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    color: white !important;
+    color: white;
   }
 
   .navContact {
-    width: 100% !important;
+    width: 100%;
     max-width: 250px;
     justify-content: center;
     margin-top: 30px;
-    font-size: 1.2rem !important;
+    font-size: 1.2rem;
   }
 
-  /* Flecha más grande en móvil */
   .dropdownArrow {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
   }
+
   .dropdownWrapper .navItem {
     padding-right: 2px;
   }
+
   .dropdownMenu {
     position: fixed;
     top: 72px;

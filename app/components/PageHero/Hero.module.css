@@ -1,16 +1,19 @@
-.hero {
-  opacity: 0;
+/* ============================================================
+   HERO — Sección principal de la landing page
+   ============================================================ */
 
+.hero {
+  opacity: 0; /* Se usa como estado inicial antes de la animación */
   position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden;
   padding: 0 5%;
-  background: transparent; /* 🔥 CAMBIO CLAVE */
+  background: transparent;
 }
 
-/* Grid de ruido sutil — da textura sin ser pesado */
+/* Textura de ruido sutil */
 .bgNoise {
   position: absolute;
   inset: 0;
@@ -20,7 +23,7 @@
   pointer-events: none;
 }
 
-/* ─── LAYOUT PRINCIPAL ─────────────────────────────────────────────── */
+/* Layout principal */
 .heroContainer {
   width: 100%;
   max-width: 1400px;
@@ -29,10 +32,10 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
-  padding-top: 80px; /* compensa el navbar fixed */
+  padding-top: 80px; /* Compensa el navbar fixed */
 }
 
-/* ─── COLUMNA IZQUIERDA: Texto ─────────────────────────────────────── */
+/* Columna de texto */
 .heroContent {
   display: flex;
   flex-direction: column;
@@ -40,7 +43,6 @@
   z-index: 15;
 }
 
-/* Eyebrow — pequeña etiqueta sobre el título */
 .heroEyebrow {
   display: inline-flex;
   align-items: center;
@@ -51,15 +53,11 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--secondary, #00FF81);
-  
-  /* Pill con borde verde sutil */
   background: rgba(0, 255, 129, 0.08);
   border: 1px solid rgba(0, 255, 129, 0.2);
   border-radius: 100px;
   padding: 6px 14px;
   width: fit-content;
-
-  /* Punto pulsante a la izquierda */
 }
 
 .heroEyebrow::before {
@@ -77,7 +75,7 @@
   50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
-/* ─── TÍTULO PRINCIPAL ─────────────────────────────────────────────── */
+/* Título */
 .heroTitle {
   font-family: var(--font-geist), sans-serif;
   font-size: clamp(2.6rem, 5vw, 4.2rem);
@@ -88,21 +86,14 @@
   margin: 0;
 }
 
-/*
-  .accentWord recrea el efecto de las imágenes donde
-  una palabra clave tiene el color de acento de la marca.
-  Usamos el verde secundario para contrastar con el azul
-  del resto de la UI.
-*/
 .accentWord {
   color: var(--secondary, #00FF81);
-  /* Texto con ligero "glow" para reforzar el acento */
   text-shadow:
     0 0 40px rgba(0, 255, 129, 0.35),
     0 0 80px rgba(0, 255, 129, 0.1);
 }
 
-/* ─── SUBTÍTULO ──────────────────────────────────────────────────── */
+/* Subtítulo */
 .heroSubtitle {
   font-family: var(--font-geist), sans-serif;
   font-size: clamp(1rem, 1.4vw, 1.15rem);
@@ -113,7 +104,7 @@
   margin: 0;
 }
 
-/* ─── BOTONES ─────────────────────────────────────────────────────── */
+/* Botones */
 .heroCtas {
   display: flex;
   align-items: center;
@@ -122,31 +113,23 @@
   margin-top: 0.5rem;
 }
 
-/* 
-  Botón Primario: relleno azul con glow animado en hover.
-  El "shimmer" es un pseudo-elemento que recorre el botón
-  de izquierda a derecha — técnica usada por Stripe y Linear.
-*/
 .btnPrimary {
   position: relative;
   overflow: hidden;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  
   font-family: var(--font-geist), sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: -0.01em;
   color: #ffffff;
   text-decoration: none;
-  
   background: var(--primary, #001DFF);
   border: 1px solid rgba(0, 29, 255, 0.5);
   border-radius: 12px;
   padding: 13px 24px;
   cursor: pointer;
-
   transition:
     background 0.25s ease,
     box-shadow 0.3s ease,
@@ -154,7 +137,6 @@
     border-color 0.25s ease;
 }
 
-/* Shimmer sweep */
 .btnPrimary::before {
   content: '';
   position: absolute;
@@ -190,7 +172,6 @@
   box-shadow: 0 0 15px rgba(0, 29, 255, 0.4);
 }
 
-/* Icono flecha dentro del botón */
 .btnArrow {
   display: inline-flex;
   transition: transform 0.2s ease;
@@ -200,31 +181,23 @@
   transform: translateX(3px);
 }
 
-/*
-  Botón Secundario: "ghost" — sin fondo, solo borde.
-  Glassmorphism sutil en hover. 
-*/
 .btnSecondary {
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  
   font-family: var(--font-geist), sans-serif;
   font-size: 0.9rem;
   font-weight: 450;
   letter-spacing: -0.01em;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  
   background: rgba(255, 255, 255, 0);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 13px 24px;
   cursor: pointer;
-  
   backdrop-filter: blur(4px);
-  
   transition:
     color 0.25s ease,
     background 0.25s ease,
@@ -243,7 +216,7 @@
   transform: translateY(0px) scale(0.98);
 }
 
-/* ─── SOCIAL PROOF / BADGE ─────────────────────────────────────────── */
+/* Social proof */
 .heroMeta {
   display: flex;
   align-items: center;
@@ -269,7 +242,7 @@
   font-weight: 500;
 }
 
-/* ─── COLUMNA DERECHA: Visual ─────────────────────────────────────── */
+/* Visual decorativo */
 .heroVisual {
   position: relative;
   display: flex;
@@ -277,19 +250,15 @@
   justify-content: center;
   height: 500px;
   z-index: 2;
+  will-change: transform, opacity;
 }
 
-/* Estrella / forma decorativa — la pieza icónica de las referencias */
 .starShape {
   position: relative;
   width: 280px;
   height: 280px;
 }
 
-/* 
-  Anillo exterior giratorio — efecto conic-gradient
-  que recrea el borde tipo "aurora" de las imágenes.
-*/
 .starRing {
   position: absolute;
   inset: -24px;
@@ -313,7 +282,6 @@
   to   { transform: rotate(360deg); }
 }
 
-/* Card glass que envuelve la estrella */
 .starCard {
   position: absolute;
   inset: 0;
@@ -322,13 +290,11 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px);
   overflow: hidden;
-  
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Fresnel highlight en el borde superior */
 .starCard::before {
   content: '';
   position: absolute;
@@ -345,21 +311,7 @@
   );
 }
 
-/* La estrella SVG animada */
-.starSvg {
-  width: 160px;
-  height: 160px;
-  animation: starFloat 4s ease-in-out infinite;
-  filter: drop-shadow(0 0 30px rgba(0, 255, 129, 0.5));
-}
-
-@keyframes starFloat {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33%       { transform: translateY(-12px) rotate(3deg); }
-  66%       { transform: translateY(-6px) rotate(-2deg); }
-}
-
-/* ─── Tarjetas flotantes alrededor de la estrella ────────────────── */
+/* Tarjetas flotantes */
 .floatingCard {
   position: absolute;
   background: rgba(255, 255, 255, 0.04);
@@ -409,7 +361,7 @@
   50%       { transform: translateY(8px); }
 }
 
-/* ─── SCROLL INDICATOR ────────────────────────────────────────────── */
+/* Scroll indicator */
 .scrollIndicator {
   position: absolute;
   bottom: 2.5rem;
@@ -436,7 +388,13 @@
   50%       { transform: translateX(-50%) translateY(6px); }
 }
 
-/* ─── RESPONSIVE ───────────────────────────────────────────────────── */
+/* SplitText word style (fuera de media query) */
+.splitWord {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* Responsive */
 @media (max-width: 1024px) {
   .heroContainer {
     grid-template-columns: 1fr;
@@ -444,23 +402,18 @@
     text-align: center;
     padding-top: 100px;
   }
-
   .heroSubtitle {
     max-width: 100%;
   }
-
   .heroCtas {
     justify-content: center;
   }
-
   .heroMeta {
     justify-content: center;
   }
-
   .heroVisual {
     height: 340px;
   }
-
   .starShape {
     width: 220px;
     height: 220px;
@@ -471,23 +424,15 @@
   .hero {
     padding: 0 6%;
   }
-
   .heroCtas {
     flex-direction: column;
     align-items: stretch;
   }
-
   .btnPrimary,
   .btnSecondary {
     justify-content: center;
   }
-
   .heroVisual {
     height: 260px;
   }
-
-  .splitWord {
-  display: inline-block;
-  white-space: nowrap;
-}
 }

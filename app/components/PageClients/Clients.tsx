@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useTranslations, useLocale } from "next-intl";
-import styles from "./Clientes.module.css";
+import { useTranslations } from "next-intl";
+import styles from "./Clients.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,6 @@ function getVisualProps(distance: number) {
 // ─── Componente ──────────────────────────────────────────────────────────────
 
 export default function CaseStudies() {
-  const locale = useLocale();
   const t      = useTranslations("CaseStudies");
 
   const casesData = t.raw("cases") as CaseCard[];
@@ -44,12 +44,6 @@ export default function CaseStudies() {
 
   // ── Refs ────────────────────────────────────────────────────────────────────
 
-  /**
-   * cardRefs[i] apunta al contenedor externo .card
-   * frontRefs[i] apunta a .cardFront   (cara visible por defecto)
-   * backRefs[i]  apunta a .cardBack    (cara que muestra el texto)
-   * flipTLs[i]   guarda la timeline de flip de cada tarjeta
-   */
   const cardRefs  = useRef<(HTMLDivElement | null)[]>([]);
   const frontRefs = useRef<(HTMLDivElement | null)[]>([]);
   const backRefs  = useRef<(HTMLDivElement | null)[]>([]);
@@ -117,7 +111,6 @@ export default function CaseStudies() {
   // ── Efecto flip 3D ──────────────────────────────────────────────────────────
 
   useEffect(() => {
-    // Limpiar timelines anteriores
     flipTLs.current.forEach((tl) => tl.kill());
     flipTLs.current = [];
 
@@ -127,21 +120,16 @@ export default function CaseStudies() {
       const back  = backRefs.current[i];
       if (!card || !front || !back) return;
 
-      // Configuración 3D del contenedor
       gsap.set(card, {
         transformPerspective: 1000,
         transformStyle: "preserve-3d",
       });
 
-      // La cara trasera empieza girada -180°
       gsap.set(back, { rotationY: -180 });
 
-      // Timeline de flip (pausada; se activa con hover)
       const tl = gsap.timeline({ paused: true })
-        // Gira ambas caras simultáneamente
         .to(front, { rotationY:  180, duration: 0.75, ease: "power2.inOut" }, 0)
         .to(back,  { rotationY:    0, duration: 0.75, ease: "power2.inOut" }, 0)
-        // Elevación Z para efecto de "salir del plano"
         .to(card,  { z: 40, duration: 0.3, ease: "power2.out" }, 0)
         .to(card,  { z:  0, duration: 0.3, ease: "power2.in"  }, 0.45);
 
@@ -153,25 +141,24 @@ export default function CaseStudies() {
       card.addEventListener("mouseenter", onEnter);
       card.addEventListener("mouseleave", onLeave);
 
-      // Cleanup de listeners cuando el efecto se repita
       return () => {
         card.removeEventListener("mouseenter", onEnter);
         card.removeEventListener("mouseleave", onLeave);
       };
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [locale, TOTAL]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [TOTAL]);
 
-  // ── Reset del carrusel al cambiar idioma ────────────────────────────────────
+  // ── Inicialización del carrusel ─────────────────────────────────────────────
 
   useEffect(() => {
-    cardRefs.current = cardRefs.current.slice(0, TOTAL);
     cardRefs.current.forEach((card) => {
       if (card) gsap.set(card, { visibility: "hidden" });
     });
     currentIndex.current = 0;
     layoutCards(0, false);
-  }, [layoutCards, locale, TOTAL]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // ── Animaciones de entrada (ScrollTrigger) ──────────────────────────────────
 
@@ -218,7 +205,7 @@ export default function CaseStudies() {
     }, sectionRef);
 
     return () => ctx.revert();
-  }, [locale]);
+  }, []);
 
   // ─── Render ────────────────────────────────────────────────────────────────
 
@@ -254,12 +241,12 @@ export default function CaseStudies() {
                * │  cardBack   (texto/info)    │  ← aparece al hacer hover
                * └─────────────────────────────┘
                *
-               * Rutas de imagen esperadas en /public/images/cases/:
-               *   case-1.jpg → Pfizer
-               *   case-2.jpg → Johnson & Johnson
-               *   case-3.jpg → Microsoft
-               *   case-4.jpg → Lean Solutions Group
-               *   case-5.jpg → Universidad del Norte
+               * Rutas de imagen esperadas en /public/logos/:
+               *   1.png → Pfizer
+               *   2.png → Johnson & Johnson
+               *   3.png → Microsoft
+               *   4.png → Lean Solutions Group
+               *   5.png → Universidad del Norte
                */}
 
               {/* Cara frontal — imagen */}
@@ -267,11 +254,13 @@ export default function CaseStudies() {
                 ref={(el) => { frontRefs.current[i] = el; }}
                 className={styles.cardFront}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={`/logos/${i + 1}.png`}
                   alt={`${card.client} — ${card.title}`}
+                  fill
+                  sizes="300px"
                   className={styles.cardImage}
+                  priority={i === 0}
                 />
                 <div className={styles.cardFrontOverlay}>
                   <span className={styles.cardFrontLabel}>{card.client}</span>

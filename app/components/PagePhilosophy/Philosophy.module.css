@@ -1,9 +1,6 @@
-/* ═══════════════════════════════════════════════════════════════════
-   Filosofia.module.css
-   Sistema de diseño Aptivall — Stack interactivo
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ─── SECCIÓN ────────────────────────────────────────────────────── */
+/* ============================================================
+   FILOSOFÍA — Sección de pilares con stack interactivo
+   ============================================================ */
 
 .section {
   position: relative;
@@ -17,18 +14,15 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 0%, transparent 100%);
   pointer-events: none;
 }
 
-/* Eliminamos bgGlow del TSX — el section::before ya hace eso */
 .bgGlow { display: none; }
-
-/* ─── CONTENEDOR ─────────────────────────────────────────────────── */
 
 .container {
   position: relative;
@@ -42,17 +36,13 @@
   gap: 80px;
 }
 
-/* Stack a la izquierda → columna 1 */
 .stackOuter {
   order: -1;
 }
 
-/* Header a la derecha → columna 2 */
 .sectionHeader {
   order: 1;
 }
-
-/* ─── HEADER ─────────────────────────────────────────────────────── */
 
 .sectionHeader {
   display: flex;
@@ -96,10 +86,8 @@
   color: var(--text-main, #ffffff);
   margin: 0;
   max-width: 700px;
-
 }
 
-/* Clase inyectada por SplitText — igual que Hero */
 .splitWord {
   display: inline-block;
   white-space: nowrap;
@@ -114,7 +102,7 @@
 
 .sectionSubtitle {
   font-family: var(--font-geist), sans-serif;
-  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-size: clamp(1rem, 1.4vw, 1.15rem); /* Tamaño igual a la descripción del Hero */
   font-weight: 400;
   line-height: 1.7;
   color: var(--text-muted, #888888);
@@ -122,10 +110,7 @@
   margin: 0;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   STACK — columna derecha
-   ═══════════════════════════════════════════════════════════════════ */
-
+/* Stack */
 .stackOuter {
   display: flex;
   flex-direction: column;
@@ -133,19 +118,13 @@
   gap: 32px;
 }
 
-/* Contenedor del stack: las tarjetas viven en absolute dentro */
 .stackWrapper {
   position: relative;
   width: 100%;
   max-width: 400px;
-  /* altura tarjeta + espacio para capas traseras que suben */
   height: 480px;
   margin: 0 auto;
 }
-
-/* ═══════════════════════════════════════════════════════════════════
-   CARD — mismo sistema visual que tu CSS original
-   ═══════════════════════════════════════════════════════════════════ */
 
 .card {
   position: absolute;
@@ -155,7 +134,6 @@
   width: 100%;
   max-width: 380px;
   height: 400px;
-
   border-radius: var(--radius-lg, 24px);
   padding: 1px;
   background: linear-gradient(
@@ -165,14 +143,9 @@
     rgba(255, 255, 255, 0.04) 100%
   );
   overflow: hidden;
-
   will-change: transform, opacity;
   transform-origin: center bottom;
-  outline: none;
-
-  /* Fondo sólido para que las tarjetas traseras no traspasen */
   isolation: isolate;
-
   transition: background 0.4s ease;
 }
 
@@ -185,7 +158,6 @@
   );
 }
 
-/* Tarjeta al frente */
 .cardCurrent {
   cursor: default;
   background: linear-gradient(
@@ -196,12 +168,9 @@
   );
 }
 
-/* Tarjetas traseras */
 .card:not(.cardCurrent) {
   cursor: pointer;
 }
-
-/* ─── INNER ──────────────────────────────────────────────────────── */
 
 .cardInner {
   position: relative;
@@ -223,11 +192,12 @@
   background: rgba(14, 14, 18, 0.99);
 }
 
-/* Borde superior luminoso */
 .cardInner::before {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 1px;
   background: linear-gradient(
     90deg,
@@ -247,12 +217,13 @@
   );
 }
 
-/* Glow radial superior izquierda */
 .cardInner::after {
   content: '';
   position: absolute;
-  top: -60px; left: -60px;
-  width: 200px; height: 200px;
+  top: -60px;
+  left: -60px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
@@ -267,8 +238,6 @@
 .card:hover .cardInner::after {
   opacity: 1;
 }
-
-/* ─── NÚMERO ─────────────────────────────────────────────────────── */
 
 .cardNumber {
   position: absolute;
@@ -286,8 +255,6 @@
 .card:hover .cardNumber {
   color: rgba(0, 255, 129, 0.35);
 }
-
-/* ─── ICONO ──────────────────────────────────────────────────────── */
 
 .iconWrapper {
   width: 48px;
@@ -319,11 +286,9 @@
   color: var(--secondary, #00FF81);
 }
 
-/* ─── TÍTULO ─────────────────────────────────────────────────────── */
-
 .cardTitle {
   font-family: var(--font-geist), sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.25rem; /* Aumentado de 1.15rem */
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.025em;
@@ -331,19 +296,15 @@
   margin: 0;
 }
 
-/* ─── DESCRIPCIÓN ────────────────────────────────────────────────── */
-
 .cardDescription {
   font-family: var(--font-geist), sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem; /* Aumentado de 0.9rem */
   font-weight: 400;
   line-height: 1.65;
   color: var(--text-muted, #888888);
   margin: 0;
   flex: 1;
 }
-
-/* ─── TAG ────────────────────────────────────────────────────────── */
 
 .cardTag {
   display: inline-flex;
@@ -374,36 +335,6 @@
 .card:hover .cardTag::before {
   width: 28px;
 }
-
-/* ─── CLICK HINT ─────────────────────────────────────────────────── */
-
-.clickHint {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.3);
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.card:not(.cardCurrent):hover .clickHint {
-  opacity: 1;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   ESTADO ACTIVO — GSAP lo aplica via cardCurrent
-   (mantenemos .activeCard por compatibilidad con animaciones GSAP)
-   ═══════════════════════════════════════════════════════════════════ */
 
 .card.activeCard .cardInner::after,
 .cardCurrent .cardInner::after {
@@ -451,10 +382,7 @@
   width: 28px;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   DOTS DE NAVEGACIÓN
-   ═══════════════════════════════════════════════════════════════════ */
-
+/* Dots */
 .stackDots {
   display: flex;
   align-items: center;
@@ -481,8 +409,6 @@
   background: var(--secondary, #00FF81);
 }
 
-/* ─── LABEL DE ESTADO ────────────────────────────────────────────── */
-
 .stackHint {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.7rem;
@@ -493,60 +419,10 @@
   user-select: none;
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════════════════════ */
-
-@media (max-width: 1024px) {
-  .container {
-    grid-template-columns: 1fr;
-    gap: 56px;
-  }
-
-  .sectionHeader {
-    align-items: center;
-    text-align: center;
-  }
-
-  .sectionSubtitle {
-    max-width: 560px;
-  }
-}
-
-@media (max-width: 640px) {
-  .section {
-    padding: 100px 6% 80px;
-  }
-
-  .stackWrapper {
-    height: 430px;
-    max-width: 340px;
-  }
-
-  .card {
-    height: 360px;
-    border-radius: 20px;
-  }
-
-  .cardInner {
-    border-radius: 19px;
-    padding: 2rem 1.5rem;
-  }
-
-  .cardTitle {
-    font-size: 1.05rem;
-  }
-
-  .cardDescription {
-    font-size: 0.85rem;
-  }
-}
-
-/* ─── BOTÓN DE EQUIPO (ESTILO COPIADO DE BTNOUTLINE) ──────────────── */
-
+/* Botón de equipo */
 .teamButton {
   position: relative;
-  margin-top: 1.5rem; /* Espaciado extra para separarlo del párrafo */
+  margin-top: 1.5rem;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -558,7 +434,7 @@
   text-decoration: none;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px; /* Radio consistente */
+  border-radius: 12px;
   padding: 11px 20px;
   white-space: nowrap;
   overflow: hidden;
@@ -567,7 +443,6 @@
   z-index: 20;
 }
 
-/* Efecto Shimmer (Brillo que recorre el botón) */
 .teamButton::before {
   content: '';
   position: absolute;
@@ -600,7 +475,6 @@
   transform: scale(0.98);
 }
 
-/* Animación de la flecha */
 .btnArrow {
   display: inline-flex;
   transition: transform 0.2s ease;
@@ -610,9 +484,52 @@
   transform: translateX(3px);
 }
 
-/* Ajuste responsivo */
+/* Responsive */
 @media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .sectionHeader {
+    align-items: center;
+    text-align: center;
+  }
+
+  .sectionSubtitle {
+    max-width: 560px;
+  }
+
   .teamButton {
-    align-self: center; /* Se centra cuando el diseño colapsa a una columna */
+    align-self: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 100px 6% 80px;
+  }
+
+  .stackWrapper {
+    height: 430px;
+    max-width: 340px;
+  }
+
+  .card {
+    height: 360px;
+    border-radius: 20px;
+  }
+
+  .cardInner {
+    border-radius: 19px;
+    padding: 2rem 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.15rem; /* ligeramente menor en móvil */
+  }
+
+  .cardDescription {
+    font-size: 0.95rem;
   }
 }

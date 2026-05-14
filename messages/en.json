@@ -1,4 +1,18 @@
 {
+  "Metadata": {
+  "home": {
+    "title": "Aptivall — Dedicated Technological Transformation",
+    "description": "We transform technological complexity into operational simplicity. AI, software engineering, and senior global talent."
+  },
+  "services": {
+    "title": "Services | Aptivall",
+    "description": "Innovation Lab, EdTech Studio, Global Talent, and Digital Media."
+  },
+  "about": {
+    "title": "About Us | Aptivall",
+    "description": "Meet the team behind Aptivall."
+  }
+},
   "Navbar": {
     "inicio": "Home",
     "sobre": "About Us",
@@ -6,19 +20,24 @@
     "clientes": "Success Stories",
     "contacto": "Contact",
     "elearning": "Campus Virtual",
+    "mainNavigation": "Main navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openServicesMenu": "Open services menu",
+    "switchLanguage": "Switch language",
     "services": {
-    "innovation": "Innovation Lab",
-    "edtech": "EdTech Studio",
-    "talent": "Global Talent",
-    "media": "Digital Media"
-  }
+      "innovation": "Innovation Lab",
+      "edtech": "EdTech Studio",
+      "talent": "Global Talent",
+      "media": "Digital Media"
+    }
   },
 
   "Hero": {
     "tag": "Custom Innovation",
     "title1": "Leading the Frontier of ",
     "titleHighlight": "Digital Evolution",
-    "description": "We transform technological complexity into operational simplicity. We integrate next-generation AI, high-fidelity software engineering, and senior global talent to empower organizations that refuse to be left behind.",
+    "description": "We transform technological complexity into operational simplicity. We integrate next-generation AI, high-fidelity software engineering, and senior global talent to empower innovative organizations.",
     "viewServices": "View Services",
     "projectsCount": "projects",
     "cta": "Start Strategic Consultancy",
@@ -161,10 +180,18 @@
     "form": {
       "success_message": "Message sent successfully!",
       "errors": {
-        "name_short": "Name is too short",
-        "email_invalid": "Invalid email address",
+        "name_short": "Name must be at least 2 characters",
+        "name_invalid": "Name can only contain letters and spaces",
+        "email_invalid": "Enter a valid email address",
         "message_short": "Message must be at least 10 characters",
-        "server_error": "There was a server error, please try again later"
+        "server_error": "There was a server error, please try again later",
+        "rate_limit": "Too many requests. Please wait a few minutes.",
+        "too_fast": "Please wait a few seconds before sending.",
+        "invalid_data": "Invalid data. Please check the information entered.",
+        "name_too_long": "Name must not exceed 50 characters",
+        "email_too_long": "Email address is too long",
+        "subject_too_long": "Subject must not exceed 100 characters",
+        "message_too_long": "Message must not exceed 5000 characters"
       },
       "validation": {
         "required": "This field is required",
@@ -177,7 +204,7 @@
       "placeholderEmail": "you@email.com",
       "labelSubject": "Subject",
       "placeholderSubject": "How can we help you?",
-      "labelMessage": "Message",
+      "labelMessage": "Message*",
       "placeholderMessage": "Tell us about your project...",
       "btnSubmit": "Schedule Consultation",
       "btnSending": "Sending...",
@@ -194,7 +221,16 @@
       "copyright": "All rights reserved.",
       "privacy": "Privacy Policy",
       "terms": "Terms of Use"
-    }
+    },
+    "underConstruction": {
+      "badge": "IN DEVELOPMENT",
+      "title": "Something epic",
+      "titleAccent": "is coming",
+      "description": "We're building something extraordinary. Come back soon to discover what we have prepared for you.",
+      "cta": "Back to home",
+      "eta": "Coming Soon",
+      "loading": "Under construction"
+}
   },
 
   "ServicesPage": {

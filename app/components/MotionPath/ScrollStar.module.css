@@ -1,3 +1,7 @@
+/* ============================================================
+   SCROLLSTAR — 5 rangos de resolución
+   ============================================================ */
+
 .wrapper {
   position: absolute;
   top: 0;
@@ -5,12 +9,7 @@
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 11;
-}
-
-:global(html),
-:global(body) {
-  height: auto;
+  z-index: 3;
 }
 
 .main {
@@ -28,122 +27,205 @@
   align-items: center;
 }
 
-/* ── Waypoints ── */
-.initial    { left: 68.5%; top: 285px; }
-.second     { left: 35%;   top: 520px; }
-.third      { left: 35%;   top: 750px; }
-.four       { left: 85%;   top: 1090px; }
-.seventh    { left: 80%;   top: 1500px; }
-.eight      { left: 80%;   top: 2000px; }
-.twelve     { left: 13%;   top: 3100px; }
-.eighteen   { left: 33%;   top: 3950px; }
+.initial {
+  left: 68.5%; top: 335px; /* Desktop HD por defecto */
+}
 
-/* Waypoint marker (oculto) */
 .marker {
   width: 12px;
   height: 12px;
-  /*border-radius: 50%;*/
-  /*background-color: red;*/ /* Esto rellena el círculo por completo */
+  /* Para depuración, asigna un color de fondo temporal:
+  border-radius: 50%;
+  background-color: red;
+  */
 }
 
-/* ── Contenedor del elemento animado ── */
+/* ── Visibilidad base ── */
+.hd2, .hd3, .hd4, .hd5, .hd6, .hd7, .hd8 { display: flex; }
+.ll2, .ll3, .ll4, .ll5, .ll6, .ll7, .ll8 { display: none; }
+.ls2, .ls3, .ls4, .ls5, .ls6, .ls7, .ls8 { display: none; }
+.t2, .t3, .t4, .t5, .t6, .t7, .t8 { display: none; }
+.m2, .m3, .m4, .m5, .m6, .m7, .m8 { display: none; }
+
+/* ── Coordenadas Desktop HD (≥1441px) ── */
+.hd2 { left: 27%; top: 520px; }
+.hd3 { left: 30%; top: 750px; }
+.hd4 { left: 85%; top: 1100px; }
+.hd5 { left: 80%; top: 1550px; }
+.hd6 { left: 80%; top: 2000px; }
+.hd7 { left: 13%; top: 3100px; }
+.hd8 { left: 38%; top: 4100px; }
+
+/* =================================================================
+   LAPTOP GRANDE (1367px – 1440px)
+   ================================================================= */
+@media (min-width: 1367px) and (max-width: 1440px) {
+  .hd2, .hd3, .hd4, .hd5, .hd6, .hd7, .hd8 { display: none; }
+  .ll2, .ll3, .ll4, .ll5, .ll6, .ll7, .ll8 { display: flex; }
+  .ls2, .ls3, .ls4, .ls5, .ls6, .ls7, .ls8 { display: none; }
+  .t2, .t3, .t4, .t5, .t6, .t7, .t8 { display: none; }
+  .m2, .m3, .m4, .m5, .m6, .m7, .m8 { display: none; }
+
+  .initial { left: 68%; top: 410px; }
+
+  .ll2 { left: 18%; top: 540px; }
+  .ll3 { left: 20%; top: 900px; }
+  .ll4 { left: 90%; top: 1348px; }
+  .ll5 { left: 80%; top: 1650px; }
+  .ll6 { left: 80%; top: 2250px; }
+  .ll7 { left: 15%; top: 3250px; }
+  .ll8 { left: 35%; top: 4280px; }
+
+  .marker{
+    width: 12px;
+    height: 12px;
+    /* Depuración 
+    border-radius: 50%;
+    background-color: yellow;
+    */
+  }
+}
+
+/* =================================================================
+   LAPTOP PEQUEÑA (1025px – 1366px)
+   ================================================================= */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .hd2, .hd3, .hd4, .hd5, .hd6, .hd7, .hd8 { display: none; }
+  .ll2, .ll3, .ll4, .ll5, .ll6, .ll7, .ll8 { display: none; }
+  .ls2, .ls3, .ls4, .ls5, .ls6, .ls7, .ls8 { display: flex; }
+  .t2, .t3, .t4, .t5, .t6, .t7, .t8 { display: none; }
+  .m2, .m3, .m4, .m5, .m6, .m7, .m8 { display: none; }
+
+  .initial { left: 68.5%; top: 285px; }
+
+  .ls2 { left: 33%; top: 520px; }
+  .ls3 { left: 33%; top: 750px; }
+  .ls4 { left: 85%; top: 1090px; }
+  .ls5 { left: 80%; top: 1500px; }
+  .ls6 { left: 80%; top: 2000px; }
+  .ls7 { left: 13%; top: 3100px; }
+  .ls8 { left: 35%; top: 4020px; }
+
+  .marker{ 
+    width: 12px;
+    height: 12px;
+    /* Depuración 
+    border-radius: 50%;
+    background-color: orange;
+    */
+  }
+}
+
+/* =================================================================
+   TABLET (769px – 1024px)
+   ================================================================= */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hd2, .hd3, .hd4, .hd5, .hd6, .hd7, .hd8 { display: none; }
+  .ll2, .ll3, .ll4, .ll5, .ll6, .ll7, .ll8 { display: none; }
+  .ls2, .ls3, .ls4, .ls5, .ls6, .ls7, .ls8 { display: none; }
+  .t2, .t3, .t4, .t5, .t6, .t7, .t8 { display: flex; }
+  .m2, .m3, .m4, .m5, .m6, .m7, .m8 { display: none; }
+
+  .initial { left: 50%; top: 600px; }
+
+  .t2 { left: 85%; top: 700px; }
+  .t3 { left: 10%; top: 1200px; }
+  .t4 { left: 85%; top: 1600px; }
+  .t5 { left: 10%; top: 2000px; }
+  .t6 { left: 85%; top: 2500px; }
+  .t7 { left: 10%; top: 4000px; }
+  .t8 { left: 80%; top: 4700px; }
+
+  .marker{ 
+    width: 12px;
+    height: 12px;
+    /* Depuración 
+    border-radius: 50%;
+    background-color: fuchsia; 
+    */
+    }
+}
+
+/* =================================================================
+   MÓVIL (≤768px)
+   ================================================================= */
+@media (max-width: 768px) {
+  .hd2, .hd3, .hd4, .hd5, .hd6, .hd7, .hd8 { display: none; }
+  .ll2, .ll3, .ll4, .ll5, .ll6, .ll7, .ll8 { display: none; }
+  .ls2, .ls3, .ls4, .ls5, .ls6, .ls7, .ls8 { display: none; }
+  .t2, .t3, .t4, .t5, .t6, .t7, .t8 { display: none; }
+  .m2, .m3, .m4, .m5, .m6, .m7, .m8 { display: flex; }
+
+  .initial { left: 40%; top: 720px; }
+
+  .m2 { left: 80%; top: 1000px; }
+  .m3 { left: 10%; top: 2000px; }
+  .m4 { left: 80%; top: 2500px; }
+  .m5 { left: 10%; top: 3000px; }
+  .m6 { left: 80%; top: 3500px; }
+  .m7 { left: 10%; top: 4200px; }
+  .m8 { left: 50%; top: 5750px; }
+
+  .marker{
+    width: 12px;
+    height: 12px;
+    /* Depuración 
+    border-radius: 50%;
+    background-color: pink; 
+    */
+  }
+    
+}
+
+/* ── Caja y SVG ── */
 .box {
   width: 140px;
   height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Estado inicial antes de la animación de entrada */
   opacity: 0;
+  will-change: transform, opacity;
 }
 
-/* ── SVG principal ── */
 .starSvg {
-  width: 140px;
-  height: 140px;
-  overflow: visible;
-  /* transform-origin centro para el giro con scroll */
+  width: 140px; height: 140px; overflow: visible;
   transform-origin: center center;
-  filter:
-    drop-shadow(0 0 10px rgba(0, 29, 255, 0.95))
-    drop-shadow(0 0 25px rgba(0, 29, 255, 0.65))
-    drop-shadow(0 0 50px rgba(0, 29, 255, 0.3));
+  filter: drop-shadow(0 0 10px rgba(0, 255, 129, 0.95))
+          drop-shadow(0 0 25px rgba(0, 255, 129, 0.65))
+          drop-shadow(0 0 50px rgba(0, 255, 129, 0.3));
+  will-change: transform;
 }
-
-/* ── Anillo 1 — rota continuo (CSS, independiente del scroll) ── */
 .starRing {
   animation: ringRotate1 6s linear infinite;
   transform-origin: 100px 100px;
 }
-
-/* ── Anillo 2 — rota inverso ── */
 .starRing2 {
   animation: ringRotate2 9s linear infinite reverse;
   transform-origin: 100px 100px;
 }
+.spark1 { animation: sparkOrbit1 4s linear infinite; transform-origin: 100px 100px; }
+.spark2 { animation: sparkOrbit2 5.5s linear infinite reverse; transform-origin: 100px 100px; }
+.spark3 { animation: sparkOrbit1 7s linear infinite; transform-origin: 100px 100px; }
 
-/* ── Núcleo pulsa ── */
-.starCore {
-  animation: corePulse 2.8s ease-in-out infinite;
-  transform-origin: 100px 100px;
-}
-
-/* ── Punto central destella ── */
-.starDot {
-  animation: dotFlicker 3.5s ease-in-out infinite;
-}
-
-/* ── Partículas orbitales ── */
-.spark1 {
-  animation: sparkOrbit1 4s linear infinite;
-  transform-origin: 100px 100px;
-}
-.spark2 {
-  animation: sparkOrbit2 5.5s linear infinite reverse;
-  transform-origin: 100px 100px;
-}
-.spark3 {
-  animation: sparkOrbit1 7s linear infinite;
-  transform-origin: 100px 100px;
-}
-
-/* ── Keyframes ── */
 @keyframes ringRotate1 {
   from { transform: rotate(-22deg); }
   to   { transform: rotate(338deg); }
 }
-
 @keyframes ringRotate2 {
   from { transform: rotate(58deg); }
   to   { transform: rotate(418deg); }
 }
-
-@keyframes corePulse {
-  0%, 100% { opacity: 0.7; transform: scale(0.85); }
-  50%       { opacity: 1;   transform: scale(1.2);  }
-}
-
-@keyframes dotFlicker {
-  0%, 100% { opacity: 0.9; }
-  45%       { opacity: 0.4; }
-  50%       { opacity: 1;   }
-  55%       { opacity: 0.6; }
-}
-
 @keyframes sparkOrbit1 {
-  from { transform: rotate(0deg);   }
+  from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
-
 @keyframes sparkOrbit2 {
-  from { transform: rotate(0deg);   }
+  from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
 }
 
-/* ── Móvil: ocultar completamente la estrella ── */
-@media (max-width: 768px) {
-  .wrapper {
-    display: none;
-  }
+/* Evitar overflow horizontal */
+html, body {
+  overflow-x: hidden;
 }

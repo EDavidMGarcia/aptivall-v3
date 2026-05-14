@@ -1,3 +1,7 @@
+/* ============================================================
+   SECCIÓN SERVICIOS — Landing page
+   ============================================================ */
+
 .section {
   position: relative;
   padding: 80px 5% 120px;
@@ -5,7 +9,6 @@
   overflow: hidden;
 }
 
-/* ─── CONTENEDOR ────────────────────────────────────────────────── */
 .container {
   position: relative;
   width: 100%;
@@ -14,7 +17,6 @@
   z-index: 15;
 }
 
-/* ─── HEADER ────────────────────────────────────────────────────── */
 .sectionHeader {
   display: flex;
   justify-content: space-between;
@@ -23,7 +25,6 @@
   gap: 2rem;
 }
 
-/* El texto del header va a la izquierda */
 .headerLeft {
   display: flex;
   flex-direction: column;
@@ -48,11 +49,6 @@
   width: fit-content;
 }
 
-/* 
-  Usamos el color primario (azul) para el eyebrow de Services
-  en vez del verde. Esto diferencia las secciones visualmente
-  manteniendo el mismo componente. Philosophy = verde, Services = azul.
-*/
 .eyebrow::before {
   content: '';
   width: 5px;
@@ -81,21 +77,16 @@
 
 .sectionSubtitle {
   font-family: var(--font-geist), sans-serif;
-  font-size: 0.95rem;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
   line-height: 1.65;
   color: var(--text-muted, #888888);
   margin: 0;
 }
 
-/* CTA alineado a la derecha del header */
 .headerRight {
   flex-shrink: 0;
 }
 
-/* 
-  Botón Ver Todos los Servicios — "ghost" con icono flecha.
-  Coherente con el btnSecondary del Hero, pero más compacto.
-*/
 .btnOutline {
   position: relative;
   display: inline-flex;
@@ -117,7 +108,6 @@
     background 0.25s ease, transform 0.15s ease;
 }
 
-/* Shimmer igual que en btnPrimary del Hero — consistencia */
 .btnOutline::before {
   content: '';
   position: absolute;
@@ -159,24 +149,14 @@
   transform: translateX(3px);
 }
 
-/* ─── GRID DE SERVICIOS ─────────────────────────────────────────── */
-/*
-  Layout asimétrico en 2 columnas:
-  - Izquierda: 1 card grande (featured) que ocupa las 2 filas
-  - Derecha: 3 cards medianas apiladas
-
-  Este patrón "bento grid" asimétrico es el que usan Linear,
-  Vercel y Chronicle — rompe la monotonía del grid uniforme.
-*/
 .bentoGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 20px;
-  align-items: stretch; /* 🔥 importante */
+  align-items: stretch;
 }
 
-/* ─── CARD BASE ─────────────────────────────────────────────────── */
 .card {
   position: relative;
   border-radius: var(--radius-lg, 24px);
@@ -189,7 +169,7 @@
   );
   overflow: hidden;
   cursor: pointer;
-  transition: background 0.4s ease, transform 0.3s ease;
+  transition: background 0.4s ease, transform 0.35s ease;
 }
 
 .card:hover {
@@ -225,7 +205,6 @@
   background: rgba(12, 12, 16, 0.97);
 }
 
-/* Fresnel highlight — borde superior */
 .cardInner::before {
   content: '';
   position: absolute;
@@ -252,36 +231,28 @@
   );
 }
 
-/* ─── CARD FEATURED (izquierda, grande) ─────────────────────────── */
-/*
-  Ocupa las 2 filas del grid — es el servicio estrella,
-  visualmente más prominente que los demás.
-*/
 .cardFeatured {
   grid-row: span 2;
   min-height: 520px;
 }
 
-/* 
-  El fondo de la card featured tiene un gradiente sutil
-  que la diferencia de las cards normales — más presencia visual.
-*/
 .cardFeatured .cardInner {
-  background: rgba(10, 10, 13, 0.95); /* Fondo sólido oscuro igual a las demás */
+  background: rgba(10, 10, 13, 0.95);
   justify-content: flex-end;
   padding: 2.5rem;
 }
 
-/* 2. Eliminamos el resplandor radial de la parte superior */
-.cardFeatured .cardInner::after {
-  content: none; /* Esto quita el brillo azul de arriba */
+.cardFeatured .cardTitle {
+  font-size: 1.5rem;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
 }
 
-.cardFeatured:hover .cardInner::after {
-  opacity: 1.5;
+.cardFeatured .cardDescription {
+  font-size: 0.95rem;
+  max-width: 380px;
 }
 
-/* Número grande decorativo en la card featured */
 .featuredNumber {
   position: absolute;
   top: 1.5rem;
@@ -296,7 +267,6 @@
   transition: all 0.4s ease;
   user-select: none;
   z-index: 1;
-
   filter: brightness(1.3);
   text-shadow: 0 0 25px rgba(0, 29, 255, 0.15);
 }
@@ -307,7 +277,6 @@
   text-shadow: 0 0 35px rgba(0, 29, 255, 0.3);
 }
 
-/* Icono grande de la featured */
 .featuredIconWrapper {
   width: 64px;
   height: 64px;
@@ -318,7 +287,6 @@
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 0.5rem;
-  filter: brightness(1);
   transition: all 0.3s ease;
 }
 
@@ -332,64 +300,59 @@
   width: 28px;
   height: 28px;
   color: rgba(255, 255, 255, 0.6);
-  filter: brightness(1.8);
-  transition: filter 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .cardFeatured:hover .featuredIconWrapper svg {
   color: var(--primary, #001DFF);
-  filter: brightness(2) drop-shadow(0 0 8px rgba(0, 29, 255, 0.5));
 }
 
-/* Badge "Destacado" */
-.featuredBadge {
-  position: absolute;
-  top: 1.75rem;
-  left: 2rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-geist), sans-serif;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(0, 255, 129, 0.8);
-  background: rgba(0, 255, 129, 0.08);
-  border: 1px solid rgba(0, 255, 129, 0.18);
-  border-radius: 100px;
-  padding: 4px 10px;
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
 }
 
-.featuredBadge::before {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: currentColor;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.4; transform: scale(0.7); }
-}
-
-/* ─── CARDS NORMALES (3 en la derecha) ──────────────────────────── */
 .cardSmall {
-  min-height: 160px;
+  flex: 1;
+  min-height: 0;
+  transition: flex-grow 0.4s ease;
 }
 
-/* Layout horizontal para las cards pequeñas —
-   icono a la izquierda, texto a la derecha */
 .cardSmall .cardInner {
   flex-direction: row;
   align-items: flex-start;
   gap: 1.25rem;
   padding: 1.75rem 2rem;
+  height: 100%;
+  width: 100%;
 }
 
-/* ─── ICONO (cards pequeñas) ─────────────────────────────────────── */
+.smallNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: var(--font-geist), sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(0, 29, 255, 0.45);
+  font-variant-numeric: tabular-nums;
+  user-select: none;
+  z-index: 1;
+  font-size: 1.2rem;
+  filter: brightness(1.2);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card:hover .smallNumber {
+  font-size: 5rem;
+  color: rgba(0, 29, 255, 0.15);
+  filter: brightness(1.6);
+  text-shadow: 0 0 30px rgba(0, 29, 255, 0.3);
+  transform: translateY(-10px);
+}
+
 .iconWrapper {
   width: 44px;
   height: 44px;
@@ -405,9 +368,8 @@
 
 .card:hover .iconWrapper {
   background: rgba(0, 29, 255, 0.15);
-  border-color: rgba(0, 29, 255, 0.35); /* Un poco más de borde */
+  border-color: rgba(0, 29, 255, 0.35);
   transform: scale(1.1) rotate(-3deg);
-  
 }
 
 .iconWrapper svg {
@@ -419,15 +381,31 @@
 
 .card:hover .iconWrapper svg {
   color: var(--primary, #001DFF);
-  filter: brightness(2) drop-shadow(0 0 8px rgba(0, 29, 255, 0.5));
 }
 
-/* ─── TEXTO DENTRO DE CARDS ─────────────────────────────────────── */
 .cardContent {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   flex: 1;
+  transition: transform 0.35s ease;
+}
+
+.card:hover .cardContent {
+  transform: translateY(-2px);
+}
+
+.cardEyebrow {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-main, #ffffff);
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .cardEyebrow {
+  opacity: 1;
 }
 
 .cardTitle {
@@ -440,12 +418,6 @@
   margin: 0;
 }
 
-.cardFeatured .cardTitle {
-  font-size: 1.5rem;
-  letter-spacing: -0.035em;
-  line-height: 1.15;
-}
-
 .cardDescription {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.875rem;
@@ -455,12 +427,6 @@
   margin: 0;
 }
 
-.cardFeatured .cardDescription {
-  font-size: 0.95rem;
-  max-width: 380px;
-}
-
-/* Flecha de navegación — aparece en hover */
 .cardArrow {
   display: inline-flex;
   align-items: center;
@@ -479,7 +445,6 @@
   gap: 10px;
 }
 
-/* Tag de tecnología */
 .cardTags {
   display: flex;
   flex-wrap: wrap;
@@ -506,7 +471,6 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
-/* ─── RESPONSIVE ────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .sectionHeader {
     flex-direction: column;
@@ -547,136 +511,4 @@
   .cardFeatured {
     min-height: 280px;
   }
-
-  /* Eyebrow interno de cada card — identifica el pilar */
-.cardEyebrow {
-  font-family: var(--font-geist), sans-serif;
-  font-size: 0.85rem; /* Puedes ajustar este tamaño si lo necesitas */
-  font-weight: 500;
-  color: var(--text-main, #ffffff); /* Vuelve a ser blanco */
-  opacity: 0.85;
-  transition: opacity 0.3s ease;
-}
-
-.card:hover .cardEyebrow {
-  opacity: 1;
-}
-
-/* En la featured, el eyebrow va encima del título */
-.cardFeatured .cardContent {
-  gap: 0.65rem;
-}
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%; /* 🔥 hereda altura de la featured */
-}
-
-.cardSmall {
-  flex: 1; /* 🔥 TODAS empiezan iguales */
-  min-height: 0; /* 🔥 evita bugs de overflow en flex */
-  display: flex;
-  transition: flex-grow 0.4s ease;
-}
-
-.cardSmall .cardInner {
-  height: 100%;
-  width: 100%;
-}
-
-/* --- NÚMEROS PEQUEÑOS: CRECEN EN HOVER --- */
-.smallNumber {
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
-  font-family: var(--font-geist), sans-serif;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(0, 29, 255, 0.45); /* Visible pero sutil al inicio */
-  font-variant-numeric: tabular-nums;
-  user-select: none;
-  z-index: 1;
-  /* Estado inicial: Pequeño */
-  font-size: 1.2rem; 
-  filter: brightness(1.2);
-  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); /* Efecto elástico */
-}
-
-.card:hover .smallNumber {
-  font-size: 5rem; /* Crece al mismo tamaño que el 01 */
-  color: rgba(0, 29, 255, 0.15);
-  filter: brightness(1.6);
-  text-shadow: 0 0 30px rgba(0, 29, 255, 0.3);
-  transform: translateY(-10px); /* Ajuste leve de posición al crecer */
-}
-
-.card {
-  position: relative;
-  border-radius: var(--radius-lg, 24px);
-  padding: 1px;
-  overflow: hidden;
-  cursor: pointer;
-
-  transition: transform 0.35s ease, background 0.4s ease;
-}
-
-/* Glow dinámico */
-.card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 29, 255, 0.18),
-    transparent 45%
-  );
-
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-
-.card:hover::after {
-  opacity: 1;
-}
-
-.cardFeatured .cardInner::before {
-  z-index: 1;
-}
-
-.cardFeatured .cardInner::after {
-  z-index: 2;
-}
-
-.card:active {
-  transform: translateY(-2px) scale(0.995);
-}
-
-.cardContent {
-  transition: transform 0.35s ease;
-}
-
-.card:hover .cardContent {
-  transform: translateY(-2px);
-}
-
-.card:hover .iconWrapper,
-.card:hover .featuredIconWrapper {
-  transform: scale(1.1) rotate(-3deg);
-}
-
-/* Gradiente de fondo de la card en hover - Unificado */
-.card:hover {
-  background: linear-gradient(
-    135deg,
-    rgba(0, 29, 255, 0.25) 0%,   /* Azul */
-    rgba(255, 255, 255, 0) 40%,  /* Transparente al centro */
-    rgba(0, 255, 129, 0.15) 100% /* Verde sutil al final */
-  );
-  transform: translateY(-3px);
 }

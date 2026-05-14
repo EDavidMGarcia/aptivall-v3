@@ -301,6 +301,16 @@
   cursor: default;
 }
 
+/* Contador de caracteres */
+.charCounter {
+  display: block;
+  text-align: right;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.2);
+  margin-top: 4px;
+}
+
 @media (max-width: 1024px) {
   .ctaContainer {
     grid-template-columns: 1fr;

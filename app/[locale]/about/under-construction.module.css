@@ -27,6 +27,7 @@
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
   pointer-events: none;
   z-index: 0;
+  opacity: 0; /* GSAP lo revela */
 }
 
 /* ── Scanlines ── */
@@ -110,8 +111,8 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   font-family: var(--font-geist-mono, monospace);
-  /* ensure visible even before GSAP runs */
-  opacity: 1;
+  opacity: 0; /* GSAP lo revela */
+  transform: translateY(30px); /* estado inicial */
 }
 
 .badgeDot {
@@ -138,7 +139,8 @@
   letter-spacing: -0.03em;
   font-family: var(--font-geist-sans, sans-serif);
   will-change: transform;
-  opacity: 1;
+  opacity: 0; /* GSAP lo revela */
+  transform: translateY(50px); /* estado inicial */
 }
 
 .titleAccent {
@@ -153,7 +155,8 @@
   max-width: 500px;
   line-height: 1.75;
   font-family: var(--font-geist-sans, sans-serif);
-  opacity: 1;
+  opacity: 0; /* GSAP lo revela */
+  transform: translateY(25px); /* estado inicial */
 }
 
 /* ── Actions ── */
@@ -163,7 +166,8 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  opacity: 1;
+  opacity: 0; /* GSAP lo revela */
+  transform: translateY(25px); /* estado inicial */
 }
 
 .ctaBtn {

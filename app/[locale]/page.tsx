@@ -1,32 +1,24 @@
 "use client";
 
-import Hero from "../components/Start/Hero";
-import Filosofia from "../components/Philosophy/Filosofia";
-import Servicios from "../components/Services/Servicios";
-import Clientes from "../components/Clients/Clientes"
-import Formulario from "../components/Forms/Formulario";
+import Hero from "../components/PageHero/Hero";
+import Philosophy from "../components/PagePhilosophy/Philosophy";
+import Services from "../components/PageServices/Services";
+import Clients from "../components/PageClients/Clients";
+import Forms from "../components/PageForms/Forms";
 import ScrollStar from "../components/MotionPath/ScrollStar";
 
 export default function Home() {
-return (
+  return (
     <>
+      <div aria-hidden="true">
+        <ScrollStar />
+      </div>
 
-    <ScrollStar />
-      <div id="inicio"> 
-        <Hero /> 
-        </div>
-      <div id="sobre">
-        <Filosofia />
-        </div>
-      <div id="servicios">
-        <Servicios />
-        </div>
-      <div id="clientes">
-        <Clientes />
-        </div>
-      <div id="contacto">
-        <Formulario />
-        </div>
+      <section id="inicio"><Hero /></section>
+      <section id="sobre"><Philosophy /></section>
+      <section id="servicios"><Services /></section>
+      <section id="clientes"><Clients /></section>
+      <section id="contacto"><Forms /></section>
     </>
   );
 }

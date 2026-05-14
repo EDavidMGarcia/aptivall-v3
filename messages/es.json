@@ -1,4 +1,18 @@
 {
+  "Metadata": {
+  "home": {
+    "title": "Aptivall — Transformación Tecnológica Dedicada",
+    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. IA, ingeniería de software y talento global senior."
+  },
+  "services": {
+    "title": "Servicios | Aptivall",
+    "description": "Innovation Lab, EdTech Studio, Global Talent y Digital Media."
+  },
+  "about": {
+    "title": "Sobre Nosotros | Aptivall",
+    "description": "Conoce al equipo detrás de Aptivall."
+  }
+},
   "Navbar": {
     "inicio": "Inicio",
     "sobre": "Sobre Nosotros",
@@ -6,19 +20,24 @@
     "clientes": "Casos de Éxito",
     "contacto": "Contacto",
     "elearning": "Campus Virtual",
+    "mainNavigation": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "openServicesMenu": "Abrir menú de servicios",
+    "switchLanguage": "Cambiar idioma",
     "services": {
-    "innovation": "Innovation Lab",
-    "edtech": "EdTech Studio",
-    "talent": "Global Talent",
-    "media": "Digital Media"
-  }
+      "innovation": "Innovation Lab",
+      "edtech": "EdTech Studio",
+      "talent": "Global Talent",
+      "media": "Digital Media"
+    }
   },
 
   "Hero": {
     "tag": "Innovación Personalizada",
     "title1": "Liderando la Frontera de la ",
     "titleHighlight": "Evolución Digital",
-    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar organizaciones innnovadoras.",
+    "description": "Transformamos la complejidad tecnológica en simplicidad operativa. Integramos IA de última generación, ingeniería de software de alta fidelidad y talento global senior para potenciar organizaciones innovadoras.",
     "viewServices": "Ver Servicios",
     "projectsCount": "proyectos",
     "cta": "Iniciar Consultoría Estratégica",
@@ -161,10 +180,18 @@
     "form": {
       "success_message": "¡Mensaje enviado con éxito!",
       "errors": {
-        "name_short": "El nombre es muy corto",
-        "email_invalid": "Correo electrónico inválido",
+        "name_short": "El nombre debe tener al menos 2 caracteres",
+        "name_invalid": "El nombre solo puede contener letras y espacios",
+        "email_invalid": "Introduce un correo electrónico válido",
         "message_short": "El mensaje debe tener al menos 10 caracteres",
-        "server_error": "Hubo un error en el servidor, intenta más tarde"
+        "server_error": "Hubo un error en el servidor, intenta más tarde",
+        "rate_limit": "Demasiadas solicitudes. Por favor, espera unos minutos.",
+        "too_fast": "Por favor, espera unos segundos antes de enviar.",
+        "invalid_data": "Datos inválidos. Por favor, revisa la información.",
+        "name_too_long": "El nombre no debe exceder los 50 caracteres",
+        "email_too_long": "El correo electrónico es demasiado largo",
+        "subject_too_long": "El asunto no debe exceder los 100 caracteres",
+        "message_too_long": "El mensaje no debe exceder los 5000 caracteres"
       },
       "validation": {
         "required": "Este campo es obligatorio",
@@ -177,7 +204,7 @@
       "placeholderEmail": "tu@email.com",
       "labelSubject": "Asunto",
       "placeholderSubject": "¿En qué podemos ayudarte?",
-      "labelMessage": "Mensaje",
+      "labelMessage": "Mensaje*",
       "placeholderMessage": "Cuéntanos sobre tu proyecto...",
       "btnSubmit": "Agendar Consultoría",
       "btnSending": "Enviando...",
@@ -194,7 +221,16 @@
       "copyright": "Todos los derechos reservados.",
       "privacy": "Política de Privacidad",
       "terms": "Términos de Uso"
-    }
+    },
+    "underConstruction": {
+      "badge": "EN DESARROLLO",
+      "title": "Algo épico",
+      "titleAccent": "está llegando",
+      "description": "Estamos construyendo algo extraordinario. Vuelve pronto para descubrir lo que tenemos preparado para ti.",
+      "cta": "Volver al inicio",
+      "eta": "Próximamente",
+      "loading": "En construcción"
+}
   },
 
   "ServicesPage": {

@@ -1,82 +1,117 @@
+/* ============================================================
+   ESTILOS GLOBALES — APTIVALL_V3
+   Contiene:
+   - Configuración de Tailwind CSS
+   - Variables de diseño (colores, tipografía, radios)
+   - Utilidades de layout
+   - Efectos decorativos de fondo con optimización GPU
+   ============================================================ */
+
 @import "tailwindcss";
 
-.section-container {
-  width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 1.5rem; /* Margen de seguridad para móviles */
-}
-
-.globalGlow::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(0,29,255,0.15), transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0,255,129,0.15), transparent 50%);
-  filter: blur(120px);
-  z-index: 1000;
-  pointer-events: none;
-}
-
-/* Fondo base */
-body, #__next, main {
-  background: radial-gradient(
-  circle at center,
-  #0a0a0d 0%,
-  #050505 100%
-);
-  position: relative;
-}
-
-/* 🔵 GLOW AZUL IZQUIERDA — MÁS PRESENTE (como ContactBar) */
-body::before {
-  content: '';
-  position: fixed;
-  width: 900px;
-  height: 900px;
-  left: -150px;
-  bottom: -100px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 29, 255, 0.35) 0%,
-    rgba(0, 29, 255, 0.15) 35%,
-    rgba(0, 29, 255, 0.05) 60%,
-    transparent 75%
-  );
-  pointer-events: none;
-  z-index: 1;
-  filter: blur(80px);
-}
-
-/* 🟢 GLOW VERDE DERECHA — equilibrado */
-body::after {
-  content: '';
-  position: fixed;
-  width: 800px;
-  height: 800px;
-  right: -100px;
-  top: 10%;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 255, 129, 0.28) 0%,
-    rgba(0, 255, 129, 0.12) 40%,
-    rgba(0, 255, 129, 0.04) 65%,
-    transparent 75%
-  );
-  pointer-events: none;
-  z-index: 0;
-  filter: blur(80px);
-}
-
+/* ----------------------------------------------------------
+   VARIABLES GLOBALES
+   Fuente única de verdad para el sistema de diseño.
+   ---------------------------------------------------------- */
 :root {
-  /* Tipografía principal */
+  /* Colores de marca */
+  --primary: #001DFF;
+  --secondary: #00FF81;
+  --bg-dark: #080808;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-main: #FFFFFF;
+  --text-muted: #888888;
+
+  /* Bordes */
+  --radius-lg: 24px;
+
+  /* Tipografía */
+  --font-geist: 'Geist', sans-serif; /* La fuente debe cargarse vía next/font en el layout */
   --font-heading-1: clamp(2.5rem, 5vw, 4rem);
   --font-heading-2: clamp(2rem, 3.5vw, 3rem);
   --font-heading-3: clamp(1.5rem, 2.5vw, 2rem);
   --font-body-large: clamp(1rem, 1.4vw, 1.15rem);
   --font-body: clamp(0.95rem, 1.3vw, 1rem);
   --font-small: 0.85rem;
+}
+
+/* ----------------------------------------------------------
+   UTILIDADES DE CONTENEDOR
+   Máximo ancho y padding lateral consistente.
+   ---------------------------------------------------------- */
+.section-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ----------------------------------------------------------
+   FONDO BASE OSCURO Y EFECTOS DE GLOW
+   Se utilizan pseudo-elementos fijos con alto desenfoque
+   para crear una atmósfera tecnológica sin interferir
+   en la interacción (pointer-events: none).
+   ---------------------------------------------------------- */
+
+/* Fondo principal con gradiente radial suave */
+body,
+#__next,
+main {
+  background: radial-gradient(
+    circle at center,
+    #0a0a0d 0%,
+    #050505 100%
+  );
+  position: relative;
+}
+
+/* Los efectos glow solo están activos si el usuario no prefiere reducción de movimiento */
+@media (prefers-reduced-motion: no-preference) {
+  /* Glow azul izquierdo (posición inferior izquierda) */
+  body::before {
+    content: '';
+    position: fixed;
+    width: 900px;
+    height: 900px;
+    left: -150px;
+    bottom: -100px;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 29, 255, 0.35) 0%,
+      rgba(0, 29, 255, 0.15) 35%,
+      rgba(0, 29, 255, 0.05) 60%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 1;
+    filter: blur(80px);
+    /* Promociona a capa GPU para evitar repintados costosos */
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Glow verde derecho (posición superior derecha) */
+  body::after {
+    content: '';
+    position: fixed;
+    width: 800px;
+    height: 800px;
+    right: -100px;
+    top: 10%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 255, 129, 0.28) 0%,
+      rgba(0, 255, 129, 0.12) 40%,
+      rgba(0, 255, 129, 0.04) 65%,
+      transparent 75%
+    );
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(80px);
+    will-change: transform;
+    transform: translateZ(0);
+  }
 }

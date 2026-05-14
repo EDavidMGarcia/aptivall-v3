@@ -8,11 +8,12 @@
   position: relative;
   padding: 48px 5% 40px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0; /* Animación de entrada controlada por JS */
 }
 
 .footerLogo {
-  width: 180px !important;
-  height: auto !important;
+  width: 180px;
+  height: auto;
   display: block;
   object-fit: contain;
 }
@@ -70,6 +71,7 @@
   text-decoration: none;
   transition: color 0.2s ease;
   width: fit-content;
+  display: inline-block;
 }
 
 .footerLink:hover {
@@ -111,12 +113,14 @@
   color: rgba(255, 255, 255, 0.2);
   text-decoration: none;
   transition: color 0.2s ease;
+  cursor: pointer;
 }
 
 .footerLegalLink:hover {
   color: rgba(255, 255, 255, 0.45);
 }
 
+/* ========== ESTILOS RESPONSIVE (MÓVIL) ========== */
 @media (max-width: 1024px) {
   .footerContainer {
     grid-template-columns: 1fr 1fr;
@@ -124,7 +128,40 @@
 }
 
 @media (max-width: 640px) {
+  .footer {
+    padding: 40px 5% 30px;
+  }
+
   .footerContainer {
     grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* En móvil, cada columna se separa con un borde sutil */
+  .footerCol {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .footerCol:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .footerBrand {
+    margin-bottom: 0.5rem;
+  }
+
+  .footerTagline {
+    max-width: 100%;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footerLegal {
+    justify-content: center;
   }
 }
