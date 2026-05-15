@@ -246,20 +246,22 @@
   background: rgba(0, 255, 129, 0.2);
 }
 
-.tagBlue {
+.tagGreen {
   font-family: var(--font-geist), sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
   padding: 4px 12px;
   border-radius: 20px;
-  background: rgba(0, 29, 255, 0.15);
-  border: 1px solid rgba(0, 29, 255, 0.4);
-  color: var(--primary, #3b82f6);
+  background: rgba(0, 255, 129, 0.1);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  color: var(--secondary, #00FF81);
   transition: all 0.2s ease;
 }
 
-.tagBlue:hover {
-  background: rgba(0, 29, 255, 0.25);
+.tagGreen:hover {
+  background: rgba(0, 255, 129, 0.2);
+  border-color: var(--secondary, #00FF81);
+  transform: translateY(-1px);
 }
 
 /* Palabra resaltada en verde */

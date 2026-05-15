@@ -3,53 +3,9 @@
   position: relative;
   padding: 100px 0;
   overflow: hidden;
-  background: #050a0e;
+  background: transparent; /* Hereda el gradiente global */
   border-top: none;
   border-bottom: none;
-}
-
-/* === FONDOS === */
-.bgNoise {
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-  background-size: 200px;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.bgGrid {
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(0, 255, 129, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 129, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 0%, transparent 80%);
-  pointer-events: none;
-}
-
-.bgGlow1 {
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 60vw;
-  height: 60vw;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0, 29, 255, 0.15) 0%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
-}
-
-.bgGlow2 {
-  position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 50vw;
-  height: 50vw;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(0, 255, 129, 0.08) 0%, transparent 70%);
-  filter: blur(80px);
-  pointer-events: none;
 }
 
 /* Contenedor */
@@ -59,6 +15,7 @@
   padding: 0 5%;
   position: relative;
   z-index: 2;
+  visibility: hidden; /* Anti-FOUC: GSAP lo revelará */
 }
 
 /* Header */
@@ -76,7 +33,7 @@
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   background: rgba(0, 255, 129, 0.08);
   border: 1px solid rgba(0, 255, 129, 0.2);
   border-radius: 100px;
@@ -91,7 +48,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #00FF81;
+  background: var(--secondary, #00FF81);
   animation: pulse 2s ease-in-out infinite;
   flex-shrink: 0;
 }
@@ -107,16 +64,16 @@
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--text-main, #ffffff);
   margin: 0 0 20px;
 }
 
 .sectionDesc {
   font-family: var(--font-geist), sans-serif;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: var(--font-body-large);
   font-weight: 400;
   line-height: 1.65;
-  color: #888888;
+  color: var(--text-muted, #888888);
   max-width: 700px;
   margin: 0 auto;
 }
@@ -137,9 +94,10 @@
 .cubeContainer {
   flex: 0.8;
   min-width: 280px;
-  background: rgba(10, 20, 30, 0.4);
-  border-radius: 28px;
-  border: 1px solid rgba(0, 255, 129, 0.2);
+  background: rgba(10, 10, 13, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
@@ -167,39 +125,39 @@
 .subLabelLine {
   width: 40px;
   height: 2px;
-  background: linear-gradient(90deg, #00FF81, #001DFF);
+  background: linear-gradient(90deg, var(--secondary, #00FF81), var(--primary, #001DFF));
 }
 
 .subLabelText {
   font-family: monospace;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   background: rgba(0, 255, 129, 0.05);
   padding: 4px 12px;
   border-radius: 20px;
 }
 
 .accentWord {
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   text-shadow: 0 0 40px rgba(0, 255, 129, 0.35), 0 0 80px rgba(0, 255, 129, 0.1);
 }
 
 .subTitle {
   font-family: var(--font-geist), sans-serif;
-  font-size: 2.4rem;
+  font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--text-main, #ffffff);
   margin-bottom: 24px;
   line-height: 1.2;
 }
 
 .subText {
   font-family: var(--font-geist), sans-serif;
-  font-size: 1.3rem;
+  font-size: var(--font-body-large);
   line-height: 1.6;
-  color: #b0b0b0;
+  color: var(--text-muted, #b0b0b0);
 }
 
 /* Grid de features */
@@ -213,10 +171,10 @@
 /* Tarjeta individual (estilo home) */
 .featureCard {
   position: relative;
-  border-radius: 24px;
+  border-radius: var(--radius-lg, 24px);
   padding: 1px;
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.04) 100%);
-  transition: background 0.4s ease, transform 0.3s ease;
+  transition: background 0.4s ease, transform 0.35s ease;
 }
 
 .featureCard:hover {
@@ -228,7 +186,7 @@
   position: relative;
   background: rgba(10, 10, 13, 0.92);
   backdrop-filter: blur(20px);
-  border-radius: 23px;
+  border-radius: calc(var(--radius-lg, 24px) - 1px);
   padding: 1.8rem;
   height: 100%;
   display: flex;
@@ -306,7 +264,7 @@
 }
 
 .featureCard:hover .cardIconWrapper svg {
-  color: #001DFF;
+  color: var(--primary, #001DFF);
   filter: brightness(2) drop-shadow(0 0 8px rgba(0, 29, 255, 0.5));
 }
 
@@ -323,43 +281,43 @@
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.3;
-  color: #ffffff;
+  color: var(--text-main, #ffffff);
   margin: 0;
 }
 
 .cardDescription {
   font-family: var(--font-geist), sans-serif;
-  font-size: 0.9rem;
+  font-size: var(--font-body-small, 0.85rem);
   font-weight: 400;
-  line-height: 1.6;
-  color: #aaaaaa;
+  line-height: 1.55;
+  color: var(--text-muted, #aaaaaa);
   margin: 0;
 }
 
 .cardTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   margin-top: 0.5rem;
 }
 
 .tag {
   font-family: var(--font-geist), sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 4px 10px;
-  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 3px 8px;
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
 }
 
 .featureCard:hover .tag {
-  color: rgba(255, 255, 255, 0.8);
-  border-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Nube de tags */
@@ -376,8 +334,9 @@
 }
 
 .tagItem {
-  font-family: 'Fira Code', monospace;
-  font-size: 0.95rem;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
   color: #ccc;
   background: rgba(0, 255, 129, 0.05);
   padding: 6px 14px;
@@ -391,8 +350,8 @@
 
 .tagItem:hover {
   background: rgba(0, 255, 129, 0.2);
-  color: #00FF81;
-  border-color: #00FF81;
+  color: var(--secondary, #00FF81);
+  border-color: var(--secondary, #00FF81);
 }
 
 /* Subsección B */
@@ -416,18 +375,28 @@
   padding: 0;
   margin: 1.5rem 0;
 }
+
 .itemsList li {
   display: flex;
   gap: 12px;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 14px;
   font-size: 1rem;
   color: #ddd;
   line-height: 1.5;
 }
+
 .itemCheck {
-  color: #00FF81;
-  font-size: 1.1rem;
+  color: var(--secondary, #00FF81);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.itemCheck svg {
+  width: 14px;
+  height: 14px;
 }
 
 .tagRow {
@@ -437,24 +406,63 @@
   margin-top: 1rem;
 }
 
-.tagBlue {
-  background: rgba(0, 29, 255, 0.15);
-  border-color: rgba(0, 29, 255, 0.4);
-  color: #3b82f6;
+.tagGreen {
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
   padding: 5px 14px;
-  border-radius: 30px;
-  font-size: 0.75rem;
+  border-radius: 20px;
+  background: rgba(0, 255, 129, 0.1);
+  border: 1px solid rgba(0, 255, 129, 0.2);
+  color: var(--secondary, #00FF81);
+  transition: all 0.2s ease;
+}
+
+.tagGreen:hover {
+  background: rgba(0, 255, 129, 0.2);
+  border-color: var(--secondary, #00FF81);
+  transform: translateY(-1px);
 }
 
 /* Bloque Impacto */
 .impactBox {
-  background: rgba(10, 20, 30, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 255, 129, 0.2);
-  border-radius: 28px;
+  position: relative;
+  border-radius: var(--radius-lg, 24px);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.04) 100%);
+  transition: background 0.4s ease, transform 0.35s ease;
+}
+
+.impactBox:hover {
+  background: linear-gradient(135deg, rgba(0, 29, 255, 0.25) 0%, rgba(255, 255, 255, 0) 40%, rgba(0, 255, 129, 0.15) 100%);
+  transform: translateY(-3px);
+}
+
+.impactInner {
+  position: relative;
+  background: rgba(10, 10, 13, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: calc(var(--radius-lg, 24px) - 1px);
   padding: 1.8rem;
-  transition: all 0.3s;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.impactInner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  transition: background 0.3s ease;
+}
+
+.impactBox:hover .impactInner::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 29, 255, 0.4) 40%, rgba(0, 255, 129, 0.3) 60%, transparent 100%);
 }
 
 .impactHeader {
@@ -463,7 +471,7 @@
   gap: 12px;
   font-family: monospace;
   font-size: 0.9rem;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(0, 255, 129, 0.2);
   margin-bottom: 1.2rem;
@@ -477,21 +485,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 255, 129, 0.1);
+  border: 1px solid rgba(0, 255, 129, 0.2);
   transition: all 0.3s ease;
 }
 
 .impactIconWrapper svg {
   width: 22px;
   height: 22px;
-  color: rgba(255, 255, 255, 0.6);
-  stroke: currentColor;
+  color: var(--secondary, #00FF81);
 }
 
 .impactBadge {
   font-size: 0.7rem;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   background: rgba(0, 255, 129, 0.1);
   padding: 2px 8px;
   border-radius: 40px;
@@ -514,7 +521,7 @@
 .impactNumber {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   line-height: 1;
   font-family: var(--font-geist), sans-serif;
 }
@@ -522,7 +529,7 @@
 .impactSymbol {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #00FF81;
+  color: var(--secondary, #00FF81);
   margin-left: 2px;
 }
 
@@ -538,26 +545,32 @@
 .impactText {
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #ccc;
-  margin: 1rem 0;
+  color: var(--text-muted, #cccccc);
+  margin: 0.5rem 0;
 }
 
 .impactButton {
-  background: transparent;
-  border: 1px solid rgba(0, 255, 129, 0.4);
-  border-radius: 40px;
-  padding: 8px 18px;
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary, #001DFF);
+  border: 1px solid rgba(0, 29, 255, 0.4);
+  border-radius: 12px;
+  padding: 12px 20px;
+  font-family: var(--font-geist), sans-serif;
+  font-size: 0.85rem;
   font-weight: 500;
-  color: #00FF81;
+  color: #ffffff;
+  text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-  width: 100%;
+  transition: all 0.25s ease;
+  margin-top: 0.5rem;
 }
 
 .impactButton:hover {
-  background: rgba(0, 255, 129, 0.1);
-  border-color: #00FF81;
+  background: #1a36ff;
+  box-shadow: 0 0 20px rgba(0, 29, 255, 0.4);
   transform: translateY(-2px);
 }
 
@@ -603,11 +616,8 @@
     gap: 0.8rem;
   }
   .tagItem {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     padding: 4px 10px;
-  }
-  .impactBox {
-    padding: 1.2rem;
   }
   .sectionTitle {
     font-size: 2rem;
@@ -619,17 +629,13 @@
     font-size: 1.8rem;
   }
   .subText {
-    font-size: 1rem;
+    font-size: var(--font-body, 0.95rem);
   }
   .cardTitle {
     font-size: 1.1rem;
   }
   .cardDescription {
-    font-size: 0.85rem;
-  }
-  .impactMetrics {
-    flex-direction: column;
-    gap: 1rem;
+    font-size: 0.8rem;
   }
   .impactNumber {
     font-size: 1.8rem;

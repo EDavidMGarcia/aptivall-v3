@@ -246,11 +246,14 @@
       "titleHighlight": "Escalar",
       "titleEnd": "su Negocio",
       "subtitle": "Integramos tecnología, talento y estrategia para transformar organizaciones en líderes de su industria.",
-      "stats": {
-        "projects": "proyectos",
-        "pillars": "pilares de servicio",
-        "results": "resultados medibles"
-      }
+        "stats": {
+          "projects": "proyectos",
+          "pillars": "pilares de servicio",
+          "results": "resultados medibles",
+          "projectsValue": "50",
+          "pillarsValue": "4",
+          "resultsValue": "100"
+        }
     },
     "services": {
       "s1": {

@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -43,39 +44,48 @@ const renderAccentText = (text: string) => {
   });
 };
 
-// Iconos SVG para las features (mismos que en la página principal)
+// Iconos SVG para las features
 const FEATURE_ICONS = [
-  <svg key="01" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="01" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <polyline points="16 18 22 12 16 6" /><polyline points="8 6 2 12 8 18" /><line x1="14" y1="4" x2="10" y2="20" />
   </svg>,
-  <svg key="02" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="02" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" /><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
   </svg>,
-  <svg key="03" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg key="03" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <circle cx="12" cy="8" r="4" /><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /><path d="M21 20c0-3-1.8-5.5-4.5-6.5" />
   </svg>,
 ];
 
-// Icono para impacto (gráfico ascendente) - reemplaza al emoji
+// Icono para impacto (gráfico ascendente)
 const IMPACT_ICON = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M18 20V10M12 20V4M6 20v-6" />
     <rect x="2" y="2" width="20" height="20" rx="2" />
+  </svg>
+);
+
+// Bullet SVG para listas
+const BULLET_ICON = (
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="9 18 15 12 9 6" />
   </svg>
 );
 
 export default function InnovationLab() {
   const t = useTranslations("ServicesPage");
   const sectionRef = useRef<HTMLElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const tagsContainerRef = useRef<HTMLDivElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
+  const impactNumbersRef = useRef<HTMLSpanElement[]>([]);
 
   const s1 = t.raw("services.s1");
   const features: Feature[] = s1?.subA?.features || [];
   const keywords: string[] = s1?.subA?.keywords || [];
   const itemsB: string[] = s1?.subB?.items || [];
   const tagsB: string[] = s1?.subB?.tags || [];
-  const impact: ImpactData = s1?.impact; // Sin fallback, solo del JSON
+  const impact: ImpactData = s1?.impact;
 
   const cleanBadge = s1?.badge || s1?.eyebrow?.replace(/^[0-9]+ ·\s*/, "");
 
@@ -194,35 +204,16 @@ export default function InnovationLab() {
         delay: Math.random() * 2,
       });
     });
-  }, [keywords]);
+  }, [keywords]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // --- Animación de contadores para el bloque "Impacto en cifras" ---
-  useEffect(() => {
-    const impactNumbers = document.querySelectorAll(`.${styles.impactNumber}`);
-    impactNumbers.forEach((el) => {
-      const target = parseInt(el.getAttribute("data-target") || "0", 10);
-      ScrollTrigger.create({
-        trigger: el,
-        start: "top 85%",
-        once: true,
-        onEnter: () => {
-          const data = { val: 0 };
-          gsap.to(data, {
-            val: target,
-            duration: 1.5,
-            ease: "power2.out",
-            onUpdate: () => {
-              el.textContent = Math.round(data.val).toString();
-            },
-          });
-        },
-      });
-    });
-  }, [impact]); // Dependencia en impact, se ejecuta cuando ya está cargado
-
-  // --- Animaciones GSAP de entrada (generales) ---
+  // --- Animaciones GSAP de entrada + contadores ---
   useEffect(() => {
     const ctx = gsap.context(() => {
+      gsap.fromTo(
+        containerRef.current,
+        { autoAlpha: 0, y: 30 },
+        { autoAlpha: 1, y: 0, duration: 0.8, ease: "power2.out", scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } }
+      );
       gsap.fromTo(`.${styles.sectionEyebrow}`, { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.6, scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } });
       gsap.fromTo(`.${styles.sectionTitle}`, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } });
       gsap.fromTo(`.${styles.sectionDesc}`, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, scrollTrigger: { trigger: sectionRef.current, start: "top 85%" } });
@@ -231,20 +222,35 @@ export default function InnovationLab() {
       gsap.fromTo(`.${styles.featureGrid}`, { opacity: 0 }, { opacity: 1, duration: 0.8, scrollTrigger: { trigger: `.${styles.featureGrid}`, start: "top 85%" } });
       gsap.fromTo(`.${styles.subBLeft}`, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.8, scrollTrigger: { trigger: `.${styles.subBContainer}`, start: "top 85%" } });
       gsap.fromTo(`.${styles.impactBox}`, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.9, scrollTrigger: { trigger: `.${styles.subBContainer}`, start: "top 85%" } });
+
+      impactNumbersRef.current.forEach((el) => {
+        if (!el) return;
+        const target = parseInt(el.getAttribute("data-target") || "0", 10);
+        const data = { val: 0 };
+        gsap.to(data, {
+          val: target,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          onUpdate: () => {
+            el.textContent = Math.round(data.val).toString();
+          },
+        });
+      });
     }, sectionRef);
     return () => ctx.revert();
-  }, []);
+  }, [impact]);
 
   const formatNumber = (num: number) => (num + 1).toString().padStart(2, "0");
 
+  const setImpactRef = (el: HTMLSpanElement | null, idx: number) => {
+    if (el) impactNumbersRef.current[idx] = el;
+  };
+
   return (
     <section id="service-1" data-service-section="0" ref={sectionRef} className={styles.innovationLab}>
-      <div className={styles.bgNoise} />
-      <div className={styles.bgGrid} />
-      <div className={styles.bgGlow1} />
-      <div className={styles.bgGlow2} />
-
-      <div className={styles.container}>
+      <div className={styles.container} ref={containerRef}>
+        {/* Header */}
         <div className={styles.sectionHeader}>
           <div className={styles.sectionEyebrow}>
             <span className={styles.eyebrowDot} />
@@ -268,7 +274,7 @@ export default function InnovationLab() {
             </div>
           </div>
 
-          {/* Grid estático de feature cards */}
+          {/* Grid de feature cards */}
           <div className={styles.featureGrid}>
             {features.map((feature, idx) => (
               <div key={idx} className={styles.featureCard}>
@@ -306,42 +312,50 @@ export default function InnovationLab() {
           <div className={styles.subBContainer}>
             <div className={styles.subBLeft}>
               <h3 className={styles.subTitle}>{renderAccentText(s1?.subB?.title)}</h3>
-              <p className={styles.subText}>{s1?.subB?.text}</p>
+              <p className={styles.subText}>{renderAccentText(s1?.subB?.text)}</p>
               <ul className={styles.itemsList}>
                 {itemsB.map((item, idx) => (
                   <li key={idx}>
-                    <span className={styles.itemCheck}>✦</span> {item}
+                    <span className={styles.itemCheck}>{BULLET_ICON}</span> {item}
                   </li>
                 ))}
               </ul>
               <div className={styles.tagRow}>
                 {tagsB.map((tag, idx) => (
-                  <span key={idx} className={styles.tagBlue}>{tag}</span>
+                  <span key={idx} className={styles.tagGreen}>{tag}</span>
                 ))}
               </div>
             </div>
 
-            {/* Bloque de impacto - solo si existe en el JSON */}
+            {/* Bloque de impacto */}
             {impact && (
               <div className={styles.impactBox}>
-                <div className={styles.impactHeader}>
-                  <div className={styles.impactIconWrapper}>{IMPACT_ICON}</div>
-                  <span>{impact.header}</span>
-                  <span className={styles.impactBadge}>{impact.badge}</span>
+                <div className={styles.impactInner}>
+                  <div className={styles.impactHeader}>
+                    <div className={styles.impactIconWrapper}>{IMPACT_ICON}</div>
+                    <span>{impact.header}</span>
+                    <span className={styles.impactBadge}>{impact.badge}</span>
+                  </div>
+                  <div className={styles.impactMetrics}>
+                    {impact.metrics.map((metric, idx) => (
+                      <div key={idx} className={styles.impactMetric}>
+                        <span
+                          ref={(el) => setImpactRef(el, idx)}
+                          className={styles.impactNumber}
+                          data-target={metric.value}
+                        >
+                          0
+                        </span>
+                        <span className={styles.impactSymbol}>{metric.symbol}</span>
+                        <span className={styles.impactLabel}>{metric.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className={styles.impactText}>{impact.description}</p>
+                  <Link href={`/es#clientes`} className={styles.impactButton}>
+                    {impact.button}
+                  </Link>
                 </div>
-                <div className={styles.impactMetrics}>
-                  {impact.metrics.map((metric, idx) => (
-                    <div key={idx} className={styles.impactMetric}>
-                      <span className={styles.impactNumber} data-target={metric.value}>0</span>
-                      <span className={styles.impactSymbol}>{metric.symbol}</span>
-                      <span className={styles.impactLabel}>{metric.label}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className={styles.impactText}>{impact.description}</p>
-                <button className={styles.impactButton} onClick={() => window.location.href = "/contacto"}>
-                  {impact.button}
-                </button>
               </div>
             )}
           </div>

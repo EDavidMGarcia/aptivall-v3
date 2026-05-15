@@ -247,10 +247,13 @@
       "titleEnd": "Your Business",
       "subtitle": "We integrate technology, talent and strategy to transform organizations into industry leaders.",
       "stats": {
-        "projects": "projects",
-        "pillars": "service pillars",
-        "results": "measurable results"
-      }
+          "projects": "projects",
+          "pillars": "service pillars",
+          "results": "measurable results",
+          "projectsValue": "50",
+          "pillarsValue": "4",
+          "resultsValue": "100"
+        }
     },
     "services": {
       "s1": {

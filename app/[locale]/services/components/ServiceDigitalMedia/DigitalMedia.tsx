@@ -160,7 +160,7 @@ export default function DigitalMedia() {
               </ul>
               <div className={styles.tagRow}>
                 {(subB?.tags || []).map((tag: string, idx: number) => (
-                  <span key={idx} className={styles.tagBlue}>{tag}</span>
+                  <span key={idx} className={styles.tagGreen}>{tag}</span>
                 ))}
               </div>
             </div>
